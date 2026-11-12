@@ -51,6 +51,10 @@ def vcard(config: dict) -> str:
         lines.append(f"TEL;TYPE=CELL,TEXT:{sms}")
     if str(config.get("email") or "").strip():
         lines.append(f"EMAIL;TYPE=INTERNET:{esc(config['email'].strip())}")
+    adr = store.get("adr") or {}
+    if adr.get("street"):
+        lines.append("ADR;TYPE=WORK:;;" + ";".join(esc(adr.get(k, "")) for k in
+                                                   ("street", "city", "region", "zip", "country")))
     if domain_set(config):
         lines.append(f"URL:https://{config['domain'].strip()}/")
     lines.append("END:VCARD")

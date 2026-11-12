@@ -47,6 +47,21 @@ export function wireSheets() {
   });
 }
 
+// "Copy number" buttons: copies to the visitor's own clipboard, nothing is sent.
+export function wireCopy() {
+  if (!navigator.clipboard) return;
+  for (const button of document.querySelectorAll('[data-copy]')) {
+    const label = button.textContent;
+    button.hidden = false;
+    button.addEventListener('click', () => {
+      navigator.clipboard.writeText(button.dataset.copy).then(() => {
+        button.textContent = 'Number copied';
+        setTimeout(() => { button.textContent = label; }, 1800);
+      }).catch(() => {});
+    });
+  }
+}
+
 function silhouette() {
   return h('div', { class: 'no-photo' },
     h('img', { src: 'assets/img/car-silhouette.svg', alt: '', width: '160', height: '70' }),

@@ -154,6 +154,29 @@ export function bookingBody(messages, pick) {
   return fill(messages.book_slot, values);
 }
 
+// Live test-drive status line (from the Muse page), in the store's time zone.
+export function testDriveStatus(nowMs, booking, messages) {
+  const days = bookingDays(nowMs, { ...booking, days_ahead: 8 });
+  const minutes = zonedParts(nowMs, booking.tz).minutes;
+  const start = toMinutes(booking.start);
+  const end = toMinutes(booking.end);
+  const values = { start: formatTime(start), end: formatTime(end) };
+  if (days[0].open && minutes >= start && minutes < end) {
+    return { open: true, text: fill(messages.status_open, values) };
+  }
+  if (days[0].open && minutes < start) {
+    return { open: false, text: fill(messages.status_before, values) };
+  }
+  const next = days.slice(1).find((d) => d.open);
+  if (!next) return null;
+  const name = new Date(next.iso + 'T12:00:00Z').toLocaleDateString('en-US', { weekday: 'long', timeZone: 'UTC' });
+  return { open: false, text: fill(messages.status_closed, { ...values, day: name }) };
+}
+
+export function todayName(nowMs, tz) {
+  return new Intl.DateTimeFormat('en-US', { timeZone: tz, weekday: 'long' }).format(new Date(nowMs));
+}
+
 // ---- Guess today's car ----
 
 export const MAX_GUESSES = 6;

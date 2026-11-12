@@ -2,10 +2,10 @@
 import {
   smsHref, fill, carTitle, filterCars, distinct, newArrivals, staleDays, STALE_DAYS,
   bookingDays, slotsFor, bookingBody, guessPool, dailyAnswer, judgeGuess, hintsAfter,
-  MAX_GUESSES, MIN_GUESS_NAMES,
+  MAX_GUESSES, MIN_GUESS_NAMES, testDriveStatus, todayName,
 } from './lib.js';
 import {
-  h, readConfig, loadInventory, wireSheets, carousel, badge, priceBlock, carFacts, carButtons,
+  h, readConfig, loadInventory, wireSheets, wireCopy, carousel, badge, priceBlock, carFacts, carButtons,
 } from './ui.js';
 
 const config = readConfig();
@@ -240,7 +240,22 @@ function setupGuess(inventory) {
 
 // ---- Start ----
 
+function setupStatus() {
+  const status = testDriveStatus(Date.now(), config.booking, config.messages);
+  if (status) {
+    $('status-text').textContent = status.text;
+    $('status').classList.toggle('closed', !status.open);
+    $('status').hidden = false;
+  }
+  const today = todayName(Date.now(), config.booking.tz);
+  for (const row of document.querySelectorAll('.hours tr[data-day]')) {
+    if (row.dataset.day === today) row.classList.add('today');
+  }
+}
+
 wireSheets();
+wireCopy();
+setupStatus();
 setupDots($('tools-track'), $('tools-dots'));
 
 loadInventory()

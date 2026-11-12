@@ -1,32 +1,55 @@
 # Muse page inventory (spec section 0)
 
-Status on 2026-11-12: **no Muse export received.**
+Source: `Contact_page_export.html`, the single-file export of Muse's muse.ai contact
+page, sent by Brenen in chat on 2026-11-12. One HTML file with inline CSS and one
+inline script. No images, no data files.
 
-Where it was looked for:
-- `import/muse/` in this repo: did not exist (the repo held only `SPEC.md`).
-- Google Drive: no folder or file named "Contact Site - Muse export", and nothing
-  matching "muse export" or a recent HTML export.
+The export itself is **not committed**. This repo is public and the file carries a
+second phone number and a work email that are not approved for the site yet (see
+"Open questions"). Say the word and it goes into `import/muse/`.
 
-Because there was no page to inventory, nothing from muse.ai is in this build:
+## Kept
 
-| What the Muse page has | Carried over | Notes |
+| On the Muse page | Where it is now |
+|---|---|
+| Name, "Sales Consultant", "Cable Dahmer Cadillac" | Hero, contact card, footer |
+| Eyebrow "Cable Dahmer Cadillac · Kansas City" | Top of the hero (`eyebrow`) |
+| Tagline "I'm passionate about helping people find their perfect vehicle. Reach me directly below — you'll talk to me, not the main store line." | Hero (`tagline`), word for word |
+| Address 1151 W 104th St, Kansas City, MO 64114 | Map card and vCard (`store.address`, `store.adr`) |
+| "BP" monogram avatar | Headshot placeholder until a real photo arrives |
+| Live status pill ("Test drives available today until 6:00 PM — text me to book yours", and the before-open and next-day versions) | Hero, same wording, same Central-time logic |
+| Text button with prefilled "Hi Brenen, I'm interested in a vehicle you have listed. Can we set up a test drive?" | "Message Brenen" and "Text Brenen about a car" |
+| Call button | "Call" in the contact card |
+| Get Directions link (Google Maps search, same query) | "Open in Maps" and "Get directions" |
+| Facebook Page link | Follow sheet and social rows (`socials`) |
+| Instagram link (@brenen.cadillackc) | Follow sheet and social rows (`socials`) |
+| Test drive hours: Mon, Tue, Thu, Fri, Sat 9:00 AM to 6:00 PM; Wed and Sun "No test drives"; today highlighted | Hours table, same label and wording, today highlighted |
+| Note "Text or call ahead and I'll have the vehicle pulled up and ready when you arrive. Ask for Brenen Prinzing, Sales Consultant, so you're connected directly to me." | Under the hours table (`hours_note`) |
+| Copy phone button | "Copy number" in the contact card |
+| Save contact (vCard built in the browser) | "Save to contacts", a real `brenen.vcf` file built from the config, with the address |
+| Fonts: Marcellus (headings) and Jost (text) | Same two fonts, now self-hosted in `assets/fonts/` (both SIL Open Font License) |
+| Gold accent, gold divider, rounded cards, pill buttons | Same look on the spec's black-gold tokens |
+
+## Removed or changed (R1 to R7)
+
+| Item on the Muse page | Why | What replaced it |
 |---|---|---|
-| Text (name, title, tagline, bio) | Not available | Name, title and store come from SPEC.md. Tagline and bio are empty. |
-| Links (label + destination) | Not available | Socials are empty, so the Follow button and social rows are hidden. |
-| Images (headshot, banner) | Not available | Placeholder silhouette. No banner. |
-| Colors and look | Not available | Black-gold tokens from SPEC.md section 5. |
-| Forms, trackers, analytics, cookies, embeds, external scripts or fonts | Nothing to strip | Removal list is empty. R1 is enforced by tests either way. |
-| Dealer-site inventory link | Not carried | The site's own Inventory section takes its place. |
+| Google Fonts: two `preconnect` links and the stylesheet from `fonts.googleapis.com` / `fonts.gstatic.com` | External font and third-party request (R1) | The same fonts served from this site |
+| "Message on Messenger" button (`m.me` link) | R1: every contact action must be `sms:`, `tel:` or `mailto:`. Messenger sends the shopper to a third party | Removed. The Facebook Page link stays as a social link |
+| Phone number ending 1688, in the text button, call button, copy button, footer and vCard | Brenen's instruction: phone and text are 816-762-5779 | 816-762-5779 everywhere, from `site.config.json` |
+| Email address: "Prefer email?" link, Copy email button, footer, vCard | Spec default is no email (open question 2) | Left out. One line in `site.config.json` turns it back on |
+| Inline `<script>` and inline `style` attribute | The site's Content-Security-Policy allows only its own files | Logic moved to `assets/js/`, styles to `assets/css/site.css` |
+| Contact details typed into the HTML | R7 | All in `site.config.json` |
+| Light theme (`prefers-color-scheme` switch) | Spec section 3: black-gold theme | Dark only |
+| Dealer-site inventory link | The export has none | The site's own Inventory section |
 
-## When the export arrives
+Not found on the Muse page, so nothing to strip: forms, trackers, analytics, cookies,
+pixels, embeds or iframes.
 
-1. Muse puts the page source in `import/muse/` (or sends the list of text, links,
-   images and colors).
-2. Fill this table in for real: every text block, link, image and color, and every
-   form, tracker, cookie, embed and external script or font that gets stripped.
-3. Content goes into `site.config.json` (tagline, bio, socials, extra_links,
-   headshot, banner). Colors go into the tokens at the top of `assets/css/site.css`.
-4. Run `python tools/build_site.py` and `python -m pytest`.
+## Open questions for Brenen
 
-Nothing in the page structure needs to change for this: sections 3.1 to 3.8 are
-already built to the spec.
+1. **Phone number.** Muse's page uses a number ending 1688. The site uses
+   816-762-5779 as instructed. Confirm that is right for both calls and texts.
+2. **Email.** Muse's page shows a cabledahmer.com address. Show it on the site, or
+   keep text and call only?
+3. **Messenger.** Removed under R1. Keep it removed?

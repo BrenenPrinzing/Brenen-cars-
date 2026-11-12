@@ -118,6 +118,17 @@ test('guess game: same car all day, new one from the date, six guesses', () => {
   assert.equal(lib.dailyAnswer([], at(8), 'America/Chicago'), null);
 });
 
+test('test-drive status line follows the clock in Central time', () => {
+  const m = { status_open: 'open until {end}', status_before: 'from {start}', status_closed: 'next {day} {start} to {end}' };
+  assert.deepEqual(lib.testDriveStatus(at(10), booking, m), { open: true, text: 'open until 6:00 PM' });
+  assert.deepEqual(lib.testDriveStatus(at(8), booking, m), { open: false, text: 'from 9:00 AM' });
+  assert.equal(lib.testDriveStatus(at(18), booking, m).text, 'next Friday 9:00 AM to 6:00 PM');
+  assert.equal(lib.testDriveStatus(at(10, 0, 14), booking, m).open, true);                     // Saturday
+  assert.equal(lib.testDriveStatus(at(19, 0, 14), booking, m).text, 'next Monday 9:00 AM to 6:00 PM'); // skips Sunday
+  assert.equal(lib.testDriveStatus(at(10, 0, 18), booking, m).text, 'next Thursday 9:00 AM to 6:00 PM'); // Wednesday
+  assert.equal(lib.todayName(at(23, 30), 'America/Chicago'), 'Thursday');
+});
+
 test('carfax links must be on the carfax host', () => {
   assert.ok(lib.isCarfaxUrl('https://www.carfax.com/VehicleHistory/p/Report.cfx?vin=X'));
   assert.ok(!lib.isCarfaxUrl('https://carfax.com.evil.example/x'));

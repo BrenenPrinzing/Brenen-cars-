@@ -53,19 +53,19 @@ report link when the listing shows one; the site only links out to it.
 
 ## What Brenen still needs to send
 
-All of these are placeholders in `site.config.json`. Nothing was invented.
+These are still empty in `site.config.json`. Nothing was invented.
 
 | Setting | Now | What it does when filled |
 |---|---|---|
-| `headshot` | empty | Replaces the grey "Photo coming soon" silhouette. Put the file in `assets/img/`. |
+| `headshot` | empty | Replaces the "BP" monogram (carried over from Muse's page). Put the file in `assets/img/`. |
 | `banner` | empty | Adds a banner image above the headshot. |
-| `socials` | empty | Turns on the Follow button and social rows. Example: `{"Instagram": "https://www.instagram.com/..."}` |
 | `price_disclaimer` | empty | Required before any price can show. |
-| `tagline`, `bio` | empty | Lines under the name. |
-| `email` | empty | Adds an Email button and puts it in the contact card. |
-| `store.address` | empty | Street address in the map card. Map links work without it. |
-| `hours` | his selling days, 9 to 6 | Swap for showroom hours if he prefers. |
+| `bio` | empty | A second line under the tagline. |
+| `email` | empty | Adds an Email button. Muse's page showed one; it is off until Brenen says yes. |
 | `domain` and `CNAME` | `DOMAIN_TBD` | See "Domain and DNS" below. |
+
+Already filled from Muse's page: tagline, store address, Facebook and Instagram
+links, test drive hours and the hours note. Details in [MUSE_INVENTORY.md](MUSE_INVENTORY.md).
 
 The phone and text number is 816-762-5779 for both `phone` and `sms_phone`.
 
@@ -153,6 +153,6 @@ photos/<STOCK>/         Brenen's own car photos
 tools/                  build_inventory.py, check_dealer_prices.py, build_site.py, build_vcard.py
 data/exclude.txt        manual hold list
 data/raw/               exports and price checks (gitignored)
-import/muse/            where Muse's page export goes
+import/muse/            where Muse's page export would go
 tests/                  pytest, plus Node tests for the page logic
 ```

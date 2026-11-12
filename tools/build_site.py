@@ -28,6 +28,7 @@ SECTIONS = [("#inventory", "Inventory"), ("#tools", "Tools"), ("#hunting", "Not 
             ("#book", "Book a test drive"), ("#contact", "Talk to Brenen")]
 # Keys the pages' JavaScript needs. Nothing else from the config is shipped.
 PUBLIC_KEYS = ("name", "first_name", "sms_phone", "booking", "price_disclaimer", "messages")
+OFF_WORDS = ("off", "closed", "no test drives")
 TRACKING_PARAM = re.compile(r"^(utm_|fbclid|gclid|msclkid|mc_|ref$|ref_|aff|affiliate|partner|cid$)", re.I)
 
 
@@ -118,11 +119,11 @@ def context(config: dict) -> dict:
                     for l in config.get("extra_links", []))
 
     hours = "".join(
-        f'<tr{OFF if h["hours"].strip().lower() in ("off", "closed") else ""}>'
+        f'<tr data-day="{escape(h["day"])}"{OFF if h["hours"].strip().lower() in OFF_WORDS else ""}>'
         f'<th scope="row">{escape(h["day"])}</th><td>{escape(h["hours"])}</td></tr>'
         for h in config.get("hours", []))
 
-    query = urllib.parse.quote_plus(store.get("address") or store.get("maps_query") or store["name"])
+    query = urllib.parse.quote_plus(store.get("maps_query") or store.get("address") or store["name"])
     maps_open = check_link(f"https://www.google.com/maps/search/?api=1&query={query}", config, "maps")
     maps_dir = check_link(f"https://www.google.com/maps/dir/?api=1&destination={query}", config, "maps")
 
@@ -141,9 +142,12 @@ def context(config: dict) -> dict:
         "place": escape(place),
         "store_name": escape(store["name"]),
         "headshot": escape(headshot or PLACEHOLDER_HEADSHOT),
-        "headshot_alt": escape(config["name"] if headshot else "Photo coming soon"),
+        "headshot_alt": escape(config["name"] if headshot else "Brenen Prinzing monogram"),
         "banner": (f'<img class="banner-img" src="{escape(config["banner"])}" alt="">'
                    if str(config.get("banner") or "").strip() else ""),
+        "eyebrow": f'<p class="eyebrow">{escape(config["eyebrow"])}</p>' if config.get("eyebrow") else "",
+        "hours_note": (f'<p class="hours-note">{escape(config["hours_note"])}</p>'
+                       if config.get("hours_note") else ""),
         "tagline": f'<p class="tagline">{escape(config["tagline"])}</p>' if config.get("tagline") else "",
         "bio": f'<p class="bio">{escape(config["bio"])}</p>' if config.get("bio") else "",
         "phone_display": escape(config["phone"]),

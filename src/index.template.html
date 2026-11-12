@@ -8,7 +8,7 @@
 <meta name="robots" content="noindex">
 <meta name="description" content="{{name}}, {{role}}. Browse inventory and text or call {{first_name}} directly.">
 <title>{{name}} | {{store_name}}</title>
-<link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/jost-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/css/site.css">
 <script type="module" src="assets/js/app.js"></script>
@@ -18,6 +18,7 @@
 <main>
 
 <section class="hero wrap" id="top">
+  {{eyebrow}}
   {{banner}}
   <div class="frame">
     <img src="{{headshot}}" alt="{{headshot_alt}}" width="320" height="400">
@@ -26,6 +27,7 @@
   <p class="role">{{role}}</p>
   {{tagline}}
   {{bio}}
+  <p class="status" id="status" hidden><span class="status-dot"></span><span id="status-text"></span></p>
   <div class="actions">
     <a class="btn btn-gold" href="{{sms_trade}}">Value my car</a>
     <a class="btn btn-line" href="brenen.vcf" download>Save to contacts</a>
@@ -113,6 +115,7 @@
       <a class="btn btn-gold" href="{{sms_general}}">Message {{first_name}}</a>
       <a class="btn btn-line" href="{{tel}}">Call {{phone_display}}</a>
       {{email_btn}}
+      <button class="btn btn-ghost" type="button" data-copy="{{phone_display}}" hidden>Copy number</button>
     </div>
     {{social_row}}
     <div class="map">
@@ -128,6 +131,7 @@
       <caption>{{hours_label}}</caption>
       <tbody>{{hours}}</tbody>
     </table>
+    {{hours_note}}
   </div>
 </section>
 

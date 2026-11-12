@@ -151,8 +151,8 @@ def test_css_loads_only_local_files():
 def test_fonts_are_self_hosted_open_license():
     fonts = ROOT / "assets" / "fonts"
     assert {p.name for p in fonts.glob("*.woff2")} == {
-        "inter-latin-wght-normal.woff2", "cormorant-garamond-latin-wght-normal.woff2"}
-    for name in ("LICENSE-Inter.txt", "LICENSE-CormorantGaramond.txt"):
+        "jost-latin-wght-normal.woff2", "marcellus-latin-400-normal.woff2"}
+    for name in ("LICENSE-Jost.txt", "LICENSE-Marcellus.txt"):
         assert "SIL Open Font License" in (fonts / name).read_text()
 
 
@@ -225,16 +225,34 @@ def test_placeholders_until_brenen_sends_them():
     index = (ROOT / "index.html").read_text()
     assert CONFIG["headshot"] == "" and "assets/img/headshot-placeholder.svg" in index
     assert CONFIG["banner"] == "" and "banner-img" not in index
-    assert CONFIG["socials"] == {} and "social-row" not in index and ">Follow<" not in index
     assert CONFIG["price_disclaimer"] == ""
-    assert CONFIG["store"]["address"] == ""
+    assert CONFIG["email"] == "" and CONFIG["bio"] == ""
+    bare = built(dict(CONFIG, socials={}))["index.html"]
+    assert "social-row" not in bare and ">Follow<" not in bare
     assert (ROOT / "CNAME").read_text() == "DOMAIN_TBD\n"
 
 
-def test_socials_appear_once_set():
-    pages = built(dict(CONFIG, socials={"Instagram": "https://www.instagram.com/example"}))
-    assert ">Follow</summary>" in pages["index.html"]
-    assert pages["index.html"].count('href="https://www.instagram.com/example"') == 3
+def test_muse_page_content_is_carried_over():
+    index = (ROOT / "index.html").read_text()
+    for text in ("Cable Dahmer Cadillac · Kansas City", "1151 W 104th St, Kansas City, MO 64114",
+                 "passionate about helping people find their perfect vehicle",
+                 "not the main store line", "Test drive hours", "No test drives",
+                 "have the vehicle pulled up and ready when you arrive"):
+        assert text in index, text
+    assert "query=Cable+Dahmer+Cadillac+1151+W+104th+St+Kansas+City+MO+64114" in index
+    assert ">Follow</summary>" in index
+    for url in ("https://www.facebook.com/61595422784900", "https://www.instagram.com/brenen.cadillackc"):
+        assert index.count(f'href="{url}"') == 3          # follow sheet, hero row, contact card
+
+
+def test_muse_page_removals_stay_removed():
+    text = "".join(p.read_text() for p in PAGES + SCRIPTS + [ROOT / "assets/css/site.css"])
+    for gone in ("fonts.googleapis.com", "fonts.gstatic.com", "m.me/", "Messenger", "preconnect",
+                 "createObjectURL", "execCommand"):
+        assert gone not in text, gone
+
+
+def test_socials_must_be_https():
     with pytest.raises(build_site.ConfigError):
         build_site.build(dict(CONFIG, socials={"X": "javascript:alert(1)"}), ROOT / "src")
 
@@ -274,7 +292,8 @@ def test_vcard_is_valid_3_0_and_matches_config():
     assert fields["N"] == "Prinzing;Brenen;;;"
     assert fields["ORG"] == CONFIG["store"]["name"] and fields["TITLE"] == CONFIG["title"]
     assert fields["TEL;TYPE=CELL,VOICE"] == PHONE == "+18167625779"
-    assert not any(k.startswith(("EMAIL", "URL", "ADR", "PHOTO")) for k in fields)
+    assert fields["ADR;TYPE=WORK"] == ";;1151 W 104th St;Kansas City;MO;64114;USA"
+    assert not any(k.startswith(("EMAIL", "URL", "PHOTO")) for k in fields)
     assert all(len(line.encode()) <= 75 for line in lines)
 
 
