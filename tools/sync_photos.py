@@ -16,7 +16,8 @@ is done once. Folders for cars no longer listed are removed.
 Files without the `site-` prefix are Brenen's own shots: they are never touched while
 the car is listed, and they sort first in the carousel.
 
-Brenen decided on Nov 12, 2026 to use the store's listing photos (see README).
+Brenen's Nov 12, 2026 exception to R5 covers only this: the store's public listing
+photos of cars in the inventory. R5 still applies to every other image (see README).
 Needs Pillow.
 """
 from __future__ import annotations

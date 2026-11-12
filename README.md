@@ -137,8 +137,11 @@ hand; edit `site.config.json` or the templates in `src/`.
 
 ## Car photos
 
-Decision (Brenen, Nov 12, 2026): the site uses the store's listing photos. This
-replaces rule R5 in SPEC.md.
+Decision (Brenen, Nov 12, 2026): rule R5 has one exception. The public-facing
+inventory may use the store's own public listing photos of each car, the same ones
+used in Brenen's Marketplace listings. **R5 still applies to everything else:** any
+other image on the site (headshot, banner, anything not a listing photo of a car in
+the inventory) must be Brenen's own or one he has the right to use.
 
 How they get here:
 
