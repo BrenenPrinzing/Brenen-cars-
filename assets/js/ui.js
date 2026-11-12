@@ -70,18 +70,21 @@ function silhouette() {
 
 // Photo carousel: 0 photos shows the silhouette, 1 shows a plain photo, 2+ adds arrows,
 // dots and a count.
-export function carousel(photos, alt, { eager = false } = {}) {
+export function carousel(photos, alt, { eager = false, href = null } = {}) {
+  // With href, each photo (or the placeholder) is its own link to the car page, so the
+  // arrow buttons never sit inside a link. The card title is the link for keyboards.
+  const link = (child) => (href ? h('a', { href, tabindex: '-1', 'aria-hidden': 'true' }, child) : child);
   const list = Array.isArray(photos) ? photos : [];
   const root = h('div', { class: 'carousel', 'data-count': String(list.length) });
   if (!list.length) {
-    root.append(silhouette());
+    root.append(link(silhouette()));
     return root;
   }
   const track = h('div', { class: 'track', tabindex: list.length > 1 ? '0' : null,
     role: list.length > 1 ? 'group' : null, 'aria-label': list.length > 1 ? alt + ' photos' : null });
   list.forEach((src, i) => {
-    track.append(h('img', { src, alt: `${alt}, photo ${i + 1} of ${list.length}`,
-      loading: eager && i === 0 ? 'eager' : 'lazy', decoding: 'async' }));
+    track.append(link(h('img', { src, alt: `${alt}, photo ${i + 1} of ${list.length}`,
+      loading: eager && i === 0 ? 'eager' : 'lazy', decoding: 'async' })));
   });
   root.append(track);
   if (list.length === 1) return root;

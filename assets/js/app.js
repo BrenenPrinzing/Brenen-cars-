@@ -18,8 +18,7 @@ function card(car, inventory) {
   const title = carTitle(car);
   const href = 'car.html?stock=' + encodeURIComponent(car.stock);
   return h('article', { class: 'card' },
-    h('a', { class: 'card-media', href, 'aria-label': title + ', details' },
-      carousel(car.photos, title)),
+    h('div', { class: 'card-media' }, carousel(car.photos, title, { href })),
     h('div', { class: 'card-body' },
       badge(car),
       h('h3', {}, h('a', { href, text: title })),

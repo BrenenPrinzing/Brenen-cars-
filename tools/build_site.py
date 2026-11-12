@@ -130,6 +130,23 @@ def context(config: dict) -> dict:
     disclaimer = str(config.get("price_disclaimer") or "").strip()
     place = " · ".join(x for x in (config["title"], store["name"], store.get("city")) if x)
 
+    email_ok = not email or re.fullmatch(r"[\w.+-]+@[\w-]+(\.[\w-]+)+", email)
+    if not email_ok:
+        raise ConfigError(f"email '{email}' does not look like an email address")
+    domain = str(config.get("domain") or "").strip()
+    social_meta = ""
+    if build_vcard.domain_set(config):
+        if not re.fullmatch(r"[a-z0-9-]+(\.[a-z0-9-]+)+", domain):
+            raise ConfigError(f"domain '{domain}' must be a bare domain like example.com")
+        title = f'{config["name"]} | {store["name"]}'
+        desc = f'{config["title"]} at {store["name"]}. Browse inventory and text or call {first} directly.'
+        image = str(config.get("banner") or "").strip() or headshot
+        tags = [("og:type", "website"), ("og:url", f"https://{domain}/"), ("og:title", title),
+                ("og:description", desc)]
+        if image:
+            tags.append(("og:image", f"https://{domain}/{image}"))
+        social_meta = "\n".join(f'<meta property="{k}" content="{escape(v)}">' for k, v in tags)
+        social_meta += '\n<meta name="twitter:card" content="summary_large_image">' if image else ""
     public = {k: config[k] for k in PUBLIC_KEYS if k in config}
     config_json = json.dumps(public, ensure_ascii=False, sort_keys=True).replace("<", "\\u003c")
 
@@ -169,6 +186,7 @@ def context(config: dict) -> dict:
         "price_disclaimer": (f'<p class="fine" id="price-disclaimer">{escape(disclaimer)}</p>'
                              if disclaimer else ""),
         "config_json": config_json,
+        "social_meta": social_meta,
     }
 
 

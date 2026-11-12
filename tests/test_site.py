@@ -253,6 +253,23 @@ def test_muse_page_removals_stay_removed():
         assert gone not in text, gone
 
 
+def test_link_preview_tags_point_at_own_domain_only():
+    index = (ROOT / "index.html").read_text()
+    assert '<meta property="og:url" content="https://brenenprinzing.com/">' in index
+    assert '<meta property="og:image" content="https://brenenprinzing.com/assets/img/banner.jpg">' in index
+    assert "og:" not in built(dict(CONFIG, domain="DOMAIN_TBD"))["index.html"]
+    for bad in ("https://x.com", "Brenen Prinzing.com", "a/b.com"):
+        with pytest.raises(build_site.ConfigError):
+            build_site.build(dict(CONFIG, domain=bad), ROOT / "src")
+    with pytest.raises(build_site.ConfigError):
+        build_site.build(dict(CONFIG, email="not-an-email"), ROOT / "src")
+
+
+def test_no_button_inside_a_link():
+    ui = (ROOT / "assets/js/ui.js").read_text() + (ROOT / "assets/js/app.js").read_text()
+    assert "h('a', { class: 'card-media'" not in ui
+
+
 def test_socials_must_be_https():
     with pytest.raises(build_site.ConfigError):
         build_site.build(dict(CONFIG, socials={"X": "javascript:alert(1)"}), ROOT / "src")

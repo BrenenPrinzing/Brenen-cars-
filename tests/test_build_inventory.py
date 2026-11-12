@@ -70,6 +70,14 @@ def test_stock_pattern_drops_order_codes(stock):
     assert not bi.STOCK_OK.match(stock)
 
 
+@pytest.mark.parametrize("sold,kept", [("Yes", 0), ("YES", 0), (" yes ", 0), ("Y", 0), ("TRUE", 0),
+                                       ("1", 0), ("Sold", 0), ("No", 1), ("", 1), ("0", 1), ("FALSE", 1)])
+def test_sold_spellings(tmp_path, sold, kept):
+    rows = bi.read_export(sx.write_csv(tmp_path / "e.csv", ["Vehicle", "Sold", "Stock Number"],
+                                       [["2023 Cadillac XT5", sold, "CP60123"]]))
+    assert build(rows)[0]["kept"] == kept
+
+
 def test_exclude_list_holds_cars(rows, tmp_path):
     hold = tmp_path / "exclude.txt"
     hold.write_text("# another rep's deal\ncp60123\n\nC51199A  # proposal\n")

@@ -49,6 +49,7 @@ SEDANS = {"ct4", "ct5", "ct6", "cts", "ats", "camry", "accord", "civic", "coroll
 EV_MODELS = ("lyriq", "optiq", "vistiq", "escalade iq", "escalade iql",
              "f-150 lightning", "ix")
 
+SOLD_YES = {"yes", "y", "true", "1", "sold"}
 STOCK_OK = re.compile(r"^[A-Z]{1,3}\d{4,6}[A-Z]?$")
 
 CONDITION_ORDER = {"New": 0, "Demo": 1, "Pre-owned": 2}
@@ -213,7 +214,7 @@ def filter_rows(rows: list[dict], exclude: set[str]) -> tuple[list[dict], dict]:
     kept, seen = [], set()
     for row in rows:
         stock = row.get("stocknumber", "").strip().upper()
-        if row.get("sold", "").strip().lower() == "yes":
+        if row.get("sold", "").strip().lower() in SOLD_YES:
             dropped["sold"] += 1
         elif not STOCK_OK.match(stock):
             dropped["bad_stock"] += 1

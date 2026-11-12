@@ -142,7 +142,7 @@ main > section { padding-block: 34px; }
 @media (min-width: 760px) { .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; } }
 @media (min-width: 1040px) { .grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 .card { display: flex; flex-direction: column; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; min-width: 0; }
-.card-media { display: block; text-decoration: none; }
+.card-media { display: block; }
 .card-body { display: flex; flex-direction: column; gap: 6px; padding: 12px; flex: 1; }
 .card-body h3 { font-size: 1.02rem; overflow-wrap: anywhere; }
 .card-body h3 a { color: var(--text); text-decoration: none; }
@@ -163,7 +163,9 @@ main > section { padding-block: 34px; }
 .carousel { position: relative; aspect-ratio: 4 / 3; background: var(--panel-2); overflow: hidden; }
 .track { display: flex; height: 100%; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
 .track::-webkit-scrollbar { display: none; }
-.track img { flex: 0 0 100%; width: 100%; height: 100%; object-fit: cover; scroll-snap-align: start; }
+.track > img, .track > a { flex: 0 0 100%; width: 100%; height: 100%; scroll-snap-align: start; }
+.track img { width: 100%; height: 100%; object-fit: cover; }
+.carousel > a { display: block; height: 100%; text-decoration: none; }
 .no-photo { height: 100%; display: grid; place-content: center; justify-items: center; gap: 8px; color: var(--muted); font-size: 0.8rem; padding: 10px; text-align: center; }
 .no-photo img { width: min(60%, 160px); }
 .arrow {
