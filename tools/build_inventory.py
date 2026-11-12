@@ -365,9 +365,9 @@ def admin_fee(config: dict | None) -> int:
 def verified_price(export_price: int, check: dict | None, now: dt.datetime, fee: int = 0):
     """Return (price or None, reason). Publish only on an exact, fresh match.
 
-    The dealer site lists the price with the admin fee; DriveCentric holds it without.
-    A match is: DriveCentric price + fee == site price, to the dollar. The site price
-    (fee included) is what gets published.
+    Pre-owned: the dealer site lists the price with the admin fee, DriveCentric without,
+    so a match is DriveCentric + fee == site price. New and demo: the caller passes fee 0
+    and the two must be equal. Always to the dollar; the site price is what gets published.
     """
     if not check:
         return None, "no dealer-site check"
@@ -487,7 +487,8 @@ def build(rows: list[dict], *, exclude: set[str] = frozenset(), photos_dir: Path
 
         check = price_checks.get(stock) or site_check(row, site_checked_at)
         dc_price = to_int(row.get("pricing") or row.get("dcprice"))
-        price, reason = verified_price(dc_price, check, now, fee)
+        # The site adds the admin fee to pre-owned prices only; new and demo list MSRP as is.
+        price, reason = verified_price(dc_price, check, now, fee if condition == "Pre-owned" else 0)
         told = file_condition(row)
         if told and told != ("Pre-owned" if condition == "Pre-owned" else "New"):
             warnings.append(f"{stock}: stock number says {condition} but the file says "

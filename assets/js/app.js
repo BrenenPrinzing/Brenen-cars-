@@ -24,7 +24,7 @@ function card(car, inventory) {
       h('h3', {}, h('a', { href, text: title })),
       car.trim ? h('p', { class: 'trim', text: car.trim }) : null,
       h('p', { class: 'facts', text: carFacts(car).join(' · ') }),
-      priceBlock(car, inventory, config, Date.now()),
+      priceBlock(car, inventory, config, Date.now(), { compact: true }),
       carButtons(config, car)));
 }
 

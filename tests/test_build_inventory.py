@@ -328,36 +328,42 @@ def test_site_list_builds_cars_without_prices_or_dealer_urls(tmp_path):
 
 
 def test_site_price_shows_only_when_drivecentric_is_exactly_the_fee_less(tmp_path):
-    rows = site_rows(tmp_path, ["dc_price"], [["130565"], ["38990"], ["21000"], ["38380"]])
+    rows = site_rows(tmp_path, ["dc_price"], [["131185"], ["38990"], ["21000"], ["38380"]])
     inv, report = build(rows, config=FEE_CONFIG, site_checked_at=FRESH)
     cars = by_stock(inv)
-    assert cars["C51234"]["price"] == 131185                          # 130,565 + 620, site price shown
+    assert cars["C51234"]["price"] == 131185                          # new: equal to the dollar
     assert "price" not in cars["CP60123"]                             # 38,990 + 620 != 39,615
     assert "38,990 + $620 fee vs site $39,615" in dict(report["hidden_prices"])["CP60123"]
-    assert "130565" not in bi.dumps(inv)                              # DriveCentric price never published
+    assert "38990" not in bi.dumps(inv)                               # DriveCentric price never published
     assert inv["prices_checked_at"] == FRESH
 
 
 def test_site_price_needs_a_pull_time_under_24_hours(tmp_path):
-    rows = site_rows(tmp_path, ["dc_price"], [["130565"], ["38995"], [""], [""]])
+    rows = site_rows(tmp_path, ["dc_price"], [["131185"], ["38995"], [""], [""]])
     assert not any("price" in c for c in build(rows, config=FEE_CONFIG)[0]["cars"])
     assert not any("price" in c for c in build(rows, config=FEE_CONFIG, site_checked_at=STALE)[0]["cars"])
-    timed = site_rows(tmp_path, ["dc_price", "pulled_at"], [["130565", FRESH], ["38995", STALE], ["", FRESH], ["", FRESH]])
+    timed = site_rows(tmp_path, ["dc_price", "pulled_at"], [["131185", FRESH], ["38995", STALE], ["", FRESH], ["", FRESH]])
     cars = by_stock(build(timed, config=FEE_CONFIG)[0])
     assert cars["C51234"]["price"] == 131185 and "price" not in cars["CP60123"]
 
 
-def test_fee_rule_applies_to_drivecentric_exports_too(rows):
-    c = checks(C51234={"status": "ok", "price": 119610, "checked_at": FRESH},      # 118,990 + 620
-               C51240={"status": "ok", "price": 63990, "checked_at": FRESH})       # equal, so no match
+def test_fee_applies_to_pre_owned_only(rows):
+    ok = lambda price: {"status": "ok", "price": price, "checked_at": FRESH}  # noqa: E731
+    c = {"C51234": ok(118990),      # new, equal: match
+         "C51240": ok(64610),       # new, site is $620 higher: no match
+         "DC50111": ok(48500),      # demo, equal: match
+         "CP60123": ok(39615),      # pre-owned, 38,995 + 620: match
+         "CP60200": ok(29900),      # pre-owned, equal (no fee added): no match
+         "T4321": ok(34521)}        # pre-owned, off by $621: no match
     cars = by_stock(build(rows, price_checks=c, config=FEE_CONFIG)[0])
-    assert cars["C51234"]["price"] == 119610 and "price" not in cars["C51240"]
+    assert {s: cars[s]["price"] for s in cars if "price" in cars[s]} == {
+        "C51234": 118990, "DC50111": 48500, "CP60123": 39615}
 
 
 def test_site_list_paired_with_drivecentric_file(tmp_path, capsys):
     sx.write_csv(tmp_path / "store.csv", SITE_HEADERS, SITE_ROWS)
     sx.write_csv(tmp_path / "dc.csv", sx.HEADERS, [
-        ["2027 Cadillac Escalade", "No", "No", "Platinum Sport", "C51234", "130565.0", "0.0", "279", "2", "", "1", "3"],
+        ["2027 Cadillac Escalade", "No", "No", "Platinum Sport", "C51234", "131185.0", "0.0", "279", "2", "", "1", "3"],
         ["2023 Cadillac XT5", "No", "Yes", "Premium Luxury", "CP60123", "38995.0", "0.0", "52849", "0", "", "0", "40"],
     ])
     (tmp_path / "cfg.json").write_text(json.dumps(FEE_CONFIG))

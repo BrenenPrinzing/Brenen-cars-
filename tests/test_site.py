@@ -173,7 +173,8 @@ def test_price_never_shows_without_its_disclaimer():
     ui = (ROOT / "assets/js/ui.js").read_text()
     block = ui[ui.index("export function priceBlock"):ui.index("export function carFacts")]
     assert "shownPrice(car, inventory, nowMs, config.price_disclaimer)" in block
-    assert "config.price_disclaimer })" in block          # fine print under every price
+    assert "text: config.price_disclaimer })" in block    # fine print under every price
+    assert block.count("fine") >= 3 and "compact ? h('details'" in block   # toggle on cards, full on car page
     assert ui.count("formatPrice(") == 1                  # the only place a price is drawn
     assert 'id="price-disclaimer">All vehicles purchase prices do not include tax, title' in (ROOT / "index.html").read_text()
     assert "website form" not in CONFIG["price_disclaimer"] and "SMS" not in CONFIG["price_disclaimer"]

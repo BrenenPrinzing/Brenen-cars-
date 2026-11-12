@@ -95,10 +95,14 @@ That file is already the dealer site's own list, so sold cars are gone from it. 
 converter still applies every rule: KC stock only, hold list, whitelisted fields. It
 never publishes the file's `vdp_url`, `photo_url` (store photos, R5) or `engine`.
 
-**Price rule (Brenen, Nov 12).** The site price includes the $620 Administrative Fee
-(`dealer_site.admin_fee`); DriveCentric's price does not. A price shows only when
-DriveCentric's price is exactly $620 less than the site price, and the pull is under
-24 hours old. The site price is the one shown.
+**Price rule (Brenen, Nov 12).** A price shows only when the pull is under 24 hours
+old and:
+- **Pre-owned:** DriveCentric's price is exactly $620 (`dealer_site.admin_fee`, the
+  Administrative Fee) less than the site price.
+- **New and demo:** DriveCentric's price equals the site price to the dollar. The site
+  adds no fee to these.
+
+The site price is the one shown. Anything else says "Text me for price".
 
 Commit `inventory/inventory.json` only. Never commit anything from `data/raw/`.
 

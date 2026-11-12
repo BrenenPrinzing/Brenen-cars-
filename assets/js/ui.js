@@ -116,15 +116,18 @@ export function badge(car) {
 }
 
 // Price with its fine print, or a "Text me for price" link.
-export function priceBlock(car, inventory, config, nowMs) {
+// On inventory cards (compact) the fine print sits under the price behind a "Price details"
+// toggle, so a long disclaimer doesn't bury the card. The car page shows it in full.
+export function priceBlock(car, inventory, config, nowMs, { compact = false } = {}) {
   const price = shownPrice(car, inventory, nowMs, config.price_disclaimer);
   if (price == null) {
     return h('a', { class: 'ask-price', href: carSms(config, config.messages.price, car),
       text: 'Text me for price' });
   }
+  const fine = h('small', { class: 'fine', text: config.price_disclaimer });
   return h('div', { class: 'price-block' },
     h('span', { class: 'price', text: formatPrice(price) }),
-    h('small', { class: 'fine', text: config.price_disclaimer }));
+    compact ? h('details', { class: 'fine-more' }, h('summary', { text: 'Price details' }), fine) : fine);
 }
 
 export function carFacts(car) {
