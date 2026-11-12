@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex">
+<meta name="description" content="{{name}}, {{role}}. Browse inventory and text or call {{first_name}} directly.">
+<title>{{name}} | {{store_name}}</title>
+<link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/site.css">
+<script type="module" src="assets/js/app.js"></script>
+</head>
+<body>
+{{header}}
+<main>
+
+<section class="hero wrap" id="top">
+  {{banner}}
+  <div class="frame">
+    <img src="{{headshot}}" alt="{{headshot_alt}}" width="320" height="400">
+  </div>
+  <h1>{{name}}</h1>
+  <p class="role">{{role}}</p>
+  {{tagline}}
+  {{bio}}
+  <div class="actions">
+    <a class="btn btn-gold" href="{{sms_trade}}">Value my car</a>
+    <a class="btn btn-line" href="brenen.vcf" download>Save to contacts</a>
+  </div>
+  {{social_row}}
+</section>
+
+<section class="wrap" id="inventory" aria-labelledby="inv-h">
+  <div class="sec-head">
+    <h2 id="inv-h">Inventory</h2>
+    <p class="count"><span id="inv-count" aria-live="polite">Text {{first_name}} for what&rsquo;s on the lot today.</span> <span class="muted" id="inv-updated"></span></p>
+  </div>
+  <p class="notice" id="inv-stale" hidden>This list is a few days old. Text to confirm a car is still here.</p>
+  <div class="filters" id="inv-filters" hidden>
+    <label class="search"><span class="sr">Search inventory</span>
+      <input type="search" id="inv-search" placeholder="Search year, make, model" autocomplete="off" enterkeyhint="search">
+    </label>
+    <div class="chips" role="group" aria-label="Filter inventory">
+      <button class="chip" type="button" data-cond="" aria-pressed="true">All</button>
+      <button class="chip" type="button" data-cond="New" aria-pressed="false">New</button>
+      <button class="chip" type="button" data-cond="Pre-owned" aria-pressed="false">Pre-owned</button>
+      <button class="chip" type="button" data-cond="Demo" aria-pressed="false">Demo</button>
+      <label class="chip chip-select"><span class="sr">Make</span>
+        <select id="inv-make"><option value="">Make</option></select></label>
+      <label class="chip chip-select"><span class="sr">Body</span>
+        <select id="inv-body"><option value="">Body</option></select></label>
+    </div>
+  </div>
+  <div class="grid" id="inv-grid"></div>
+  <p class="muted" id="inv-empty" hidden>Nothing matches that. Clear the search, or text {{first_name}} what you&rsquo;re after.</p>
+  <noscript><p class="muted">The inventory list needs JavaScript. Every contact link on this page works without it.</p></noscript>
+  <p class="actions"><a class="btn btn-line" href="{{sms_general}}">Text {{first_name}} about a car</a></p>
+</section>
+
+<section class="wrap" id="tools" aria-labelledby="tools-h">
+  <div class="sec-head"><h2 id="tools-h">Tools before money moves</h2></div>
+  <div class="tool-track" id="tools-track" tabindex="0" role="group" aria-label="Tools">{{tools}}</div>
+  <div class="dots" id="tools-dots"></div>
+  <div class="panel guess" id="guess" hidden>
+    <h3>Guess today&rsquo;s car</h3>
+    <p class="muted">One car on the lot. Six guesses. A new hint after each miss.</p>
+    <ul class="hints" id="guess-hints"></ul>
+    <div class="guess-row">
+      <label><span class="sr">Your guess</span>
+        <select id="guess-pick"><option value="">Pick a car</option></select></label>
+      <button class="btn btn-gold" type="button" id="guess-go">Guess</button>
+    </div>
+    <ol class="guess-log" id="guess-log"></ol>
+    <p id="guess-status" aria-live="polite">6 guesses left.</p>
+  </div>
+</section>
+
+<section class="wrap" id="hunting" aria-labelledby="hunt-h">
+  <div class="panel">
+    <h2 id="hunt-h">Not seeing it?</h2>
+    <p>The lot turns over fast. Text {{first_name}} what you&rsquo;re hunting and he&rsquo;ll reach out when a match lands.</p>
+    <p class="actions"><a class="btn btn-gold" href="{{sms_hunting}}">Text {{first_name}} what you&rsquo;re hunting</a></p>
+    <div id="landed" hidden>
+      <h3>Landed this week</h3>
+      <ul class="landed" id="landed-list"></ul>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" id="book" aria-labelledby="book-h">
+  <div class="sec-head"><h2 id="book-h">Book a test drive</h2></div>
+  <div id="book-app" hidden>
+    <p class="car-chip" id="book-car" hidden></p>
+    <div class="days" id="book-days" role="group" aria-label="Pick a day"></div>
+    <div class="slots" id="book-slots" role="group" aria-label="Pick a time"></div>
+    <p class="muted" id="book-summary" aria-live="polite">Pick a day, then a time.</p>
+  </div>
+  <noscript><p class="muted">Tell {{first_name}} the day and time that work for you.</p></noscript>
+  <p class="actions"><a class="btn btn-gold" id="book-cta" href="{{sms_book}}">Text {{first_name}} to book</a></p>
+  <p class="fine">Nothing is booked until {{first_name}} texts you back. Times are Central.</p>
+</section>
+
+<section class="wrap" id="contact" aria-labelledby="talk-h">
+  <div class="talk">
+    <img class="talk-photo" src="{{headshot}}" alt="" width="88" height="88" loading="lazy">
+    <h2 id="talk-h">Talk to {{first_name}}</h2>
+    <p class="talk-name">{{name}}</p>
+    <p class="muted">{{place}}</p>
+    <div class="actions">
+      <a class="btn btn-gold" href="{{sms_general}}">Message {{first_name}}</a>
+      <a class="btn btn-line" href="{{tel}}">Call {{phone_display}}</a>
+      {{email_btn}}
+    </div>
+    {{social_row}}
+    <div class="map">
+      <svg class="pin" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+      <p class="map-name">{{store_name}}</p>
+      {{address}}
+      <p class="map-links">
+        <a href="{{maps_open}}" target="_blank" rel="noopener noreferrer">Open in Maps</a>
+        <a href="{{maps_dir}}" target="_blank" rel="noopener noreferrer">Get directions</a>
+      </p>
+    </div>
+    <table class="hours">
+      <caption>{{hours_label}}</caption>
+      <tbody>{{hours}}</tbody>
+    </table>
+  </div>
+</section>
+
+</main>
+{{footer}}
+</body>
+</html>
