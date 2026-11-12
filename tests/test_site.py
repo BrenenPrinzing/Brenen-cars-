@@ -175,7 +175,7 @@ def test_price_never_shows_without_its_disclaimer():
     assert "shownPrice(car, inventory, nowMs, config.price_disclaimer)" in block
     assert "config.price_disclaimer })" in block          # fine print under every price
     assert ui.count("formatPrice(") == 1                  # the only place a price is drawn
-    assert "price-disclaimer" not in (ROOT / "index.html").read_text()   # empty until Brenen pastes it
+    assert 'id="price-disclaimer">All vehicles purchase prices do not include tax, title' in (ROOT / "index.html").read_text()
     pages = built(dict(CONFIG, price_disclaimer="Fee <b> & tax."))
     assert 'id="price-disclaimer">Fee &lt;b&gt; &amp; tax.</p>' in pages["index.html"]
 
@@ -226,7 +226,7 @@ def test_placeholders_until_brenen_sends_them():
     index = (ROOT / "index.html").read_text()
     assert "assets/img/headshot-placeholder.svg" in built(dict(CONFIG, headshot="", headshot_small=""))["index.html"]
     assert "banner-img" not in built(dict(CONFIG, banner=""))["index.html"]
-    assert CONFIG["price_disclaimer"] == ""
+    assert "price-disclaimer" not in built(dict(CONFIG, price_disclaimer=""))["index.html"]
     assert CONFIG["bio"] == ""
     bare = built(dict(CONFIG, socials={}))["index.html"]
     assert "social-row" not in bare and ">Follow<" not in bare

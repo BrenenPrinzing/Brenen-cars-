@@ -75,17 +75,36 @@ python tools/refresh.py data/raw/<export file> --dealer-check   # plus the deale
 Between refreshes the page looks after itself: it shows the "Updated" date, warns
 when the list is 3 or more days old, and hides every price after 24 hours.
 
+### Dealer-site access: Muse's lane
+
+Muse handles reading the dealer site (Brenen, Nov 12). This build environment cannot
+reach it. What Muse runs, from a copy of this repo, with the day's export:
+
+```
+python tools/refresh.py data/raw/<export file> --dealer-check
+python -m pytest
+```
+
+Then commit `inventory/inventory.json` only. Never commit anything from `data/raw/`.
+
+**First run, before trusting it:** the page reader has only been tested on made-up
+pages. On the first real run, pick five cars and compare by hand:
+
+1. Does the price in the report equal the "Cable Dahmer Price" on the car's page (the
+   one that includes the Administrative Fee, not the "Retail Price")? The reader looks
+   for the label set in `dealer_site.price_label`.
+2. Does the export's Pricing column hold that same fee-inclusive number? If the export
+   holds the Retail Price instead, no price will ever match and every car will say
+   "Text me for price". Tell Brenen and Claude; the fix is a decision, not a guess.
+3. Are the search addresses right (`dealer_site.used_path`, `new_path`)? If most cars
+   come back "not found", they are wrong, and nothing gets dropped.
+4. Does robots.txt allow those pages? If not, the report says "robots blocked".
+
 ### Daily automatic refresh (not set up yet)
 
-The plan: a scheduled job runs `tools/refresh.py ... --dealer-check` each morning,
-runs the tests, and commits `inventory/inventory.json`. Three things have to be in
-place first:
-
-1. **The GSM's OK** to read the dealer site.
-2. **A private place for the daily export.** Muse pulls it from DriveCentric and
-   uploads it there (spec section 8). It cannot be this repo, which is public.
-3. **Network access** from wherever the job runs to the dealer site and to that
-   private place.
+The plan: each morning Muse pulls the DriveCentric export into a private place, runs
+the two commands above, and pushes `inventory/inventory.json` if the tests pass and
+the report has no cars to review. The export never goes in this repo, which is public.
 
 ## What Brenen still needs to send
 
@@ -93,10 +112,10 @@ These are still empty in `site.config.json`. Nothing was invented.
 
 | Setting | Now | What it does when filled |
 |---|---|---|
-| `price_disclaimer` | empty | Required before any price can show. |
 | `bio` | empty | A second line under the tagline. |
 
-Already filled: headshot and banner (Brenen's images), domain, phone, email, and from Muse's page the
+Already filled: headshot and banner (Brenen's images), domain, price fine print
+(typed from Brenen's photo of the dealer site; he should proofread it), phone, email, and from Muse's page the
 tagline, store address, Facebook and Instagram links, test drive hours and the hours note. Details in [MUSE_INVENTORY.md](MUSE_INVENTORY.md).
 
 The phone and text number is 816-601-1688 (Brenen's agent line) for both `phone` and `sms_phone`.

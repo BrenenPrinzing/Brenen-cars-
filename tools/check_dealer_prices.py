@@ -94,6 +94,7 @@ class _PageParser(HTMLParser):
         self._buf: list[str] = []
         self.listings: list[Listing] = []
         self.loose_carfax: list[str] = []
+        self.text: list[str] = []
         self._stack: list[tuple[str, Listing | None]] = []  # (tag, listing opened here)
 
     VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta",
@@ -152,6 +153,8 @@ class _PageParser(HTMLParser):
     def handle_data(self, data):
         if self._in_jsonld:
             self._buf.append(data)
+        elif not any(tag in ("script", "style", "noscript") for tag, _ in self._stack):
+            self.text.append(data)
 
 
 def _walk_jsonld(node, out: list[Listing]) -> None:
@@ -183,7 +186,29 @@ def _walk_jsonld(node, out: list[Listing]) -> None:
             _walk_jsonld(value, out)
 
 
-def parse_listing(html: str, stock: str, vin: str = "") -> dict:
+def labeled_price(text: str, label: str, stock: str, vin: str = ""):
+    """Price printed right after the dealer's own price label, e.g. "Cable Dahmer Price $35,625".
+
+    That is the number shoppers see, admin fee included. Returns an int, "ambiguous" when
+    the page shows two different labeled prices, or None when the label or the car's
+    stock # / VIN is not on the page.
+    """
+    if not label:
+        return None
+    text = " ".join(text.split())
+    upper = text.upper()
+    on_page = re.search(rf"(?<![A-Z0-9]){re.escape(stock)}(?![A-Z0-9])", upper) or (vin and vin in upper)
+    if not on_page:
+        return None
+    found = {_money(m) for m in re.findall(rf"{re.escape(label)}\s*:?\s*\$\s*([\d,]+(?:\.\d+)?)", text, re.I)}
+    found.discard(None)
+    found.discard(0)
+    if not found:
+        return None
+    return found.pop() if len(found) == 1 else "ambiguous"
+
+
+def parse_listing(html: str, stock: str, vin: str = "", price_label: str = "") -> dict:
     """Find the selling price and Carfax link for one stock # in a dealer page.
 
     Returns {"status": "ok", "price": int, "carfax_url": str|None} or
@@ -203,20 +228,25 @@ def parse_listing(html: str, stock: str, vin: str = "") -> dict:
         except ValueError:
             continue
     mine = [l for l in found if l.stock == stock or (vin and l.vin == vin)]
-    if not mine:
+    labeled = labeled_price(" ".join(parser.text), price_label, stock, vin)
+    if labeled == "ambiguous":
+        return {"status": "ambiguous"}
+    if not mine and labeled is None:
         return {"status": "not_found"}
-    prices = set().union(*(l.prices for l in mine))
-    prices.discard(0)
+    if labeled is not None:
+        prices = {labeled}          # the dealer's displayed, fee-inclusive price wins
+    else:
+        prices = set().union(*(l.prices for l in mine))
+        prices.discard(0)
     if not prices:
         return {"status": "no_price"}
     if len(prices) > 1:
         return {"status": "ambiguous"}
-    links = set().union(*(l.carfax for l in mine))
+    links = set().union(*(l.carfax for l in mine)) if mine else set()
     carfax = None
     if len(links) == 1:
         carfax = links.pop()
-    elif not links and len(found) and all(l.stock == stock or (vin and l.vin == vin)
-                                          for l in found):
+    elif not links and all(l.stock == stock or (vin and l.vin == vin) for l in found):
         loose = set(parser.loose_carfax)  # page shows only this car
         carfax = loose.pop() if len(loose) == 1 else None
     return {"status": "ok", "price": prices.pop(), "carfax_url": carfax}
@@ -280,7 +310,7 @@ def check_all(cars: list[dict], *, base: str, templates: dict, fetcher=fetch,
             checks[stock] = {"status": "fetch_failed", "checked_at": stamp(),
                              "detail": type(e).__name__}
             continue
-        result = parse_listing(html, stock, car.get("vin", ""))
+        result = parse_listing(html, stock, car.get("vin", ""), templates.get("price_label", ""))
         entry = {"status": result["status"], "checked_at": stamp(), "url": url}
         if result["status"] == "ok":
             entry["price"] = result["price"]
@@ -343,7 +373,8 @@ def main(argv=None) -> int:
     cars = [{"stock": r["stock"], "condition": bi.condition_for(r["stock"]),
              "vin": r.get("vin", "")} for r in kept]
     templates = {"used": dealer.get("used_path", "/searchused.aspx?q={stock}"),
-                 "new": dealer.get("new_path", "/searchnew.aspx?q={stock}")}
+                 "new": dealer.get("new_path", "/searchnew.aspx?q={stock}"),
+                 "price_label": dealer.get("price_label", "")}
     doc = check_all(cars, base=base, templates=templates, delay=a.delay)
     a.out.parent.mkdir(parents=True, exist_ok=True)
     a.out.write_text(json.dumps(doc, indent=1, sort_keys=True) + "\n", encoding="utf-8")

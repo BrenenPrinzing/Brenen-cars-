@@ -76,11 +76,12 @@
     "Instagram": "https://www.instagram.com/brenen.cadillackc"
   },
   "extra_links": [],
-  "price_disclaimer": "",
+  "price_disclaimer": "All vehicles purchase prices do not include tax, title, and registration fees. Prices include the listed rebates and incentives (All factory rebates assigned to dealer, including all applicable manufacturer rebates). Incentivized rates may affect incentives and/or pricing. Check with your dealer and or sales consultant to see available rebates you may qualify for. Offers may expire at end of month or the manufacturer date. We are not responsible for typographical, technical or misprint errors. When submitting a website form by providing your phone number, you consent to receive occasional SMS or voice calls from us regarding our products, services, and promotional offers. Standard messaging rates may apply. EPA Estimates. Mileage May Vary. The Manufacturer's Suggested Retail Price excludes tax, title, registration, and optional equipment. Dealer sets final price.",
   "dealer_site": {
     "base_url": "https://www.cabledahmercadillac.com",
     "used_path": "/searchused.aspx?q={stock}",
-    "new_path": "/searchnew.aspx?q={stock}"
+    "new_path": "/searchnew.aspx?q={stock}",
+    "price_label": "Cable Dahmer Price"
   },
   "tools": [
     {

@@ -37,7 +37,7 @@ def test_keeps_only_kc_unsold_real_stock(rows):
     assert not stocks & sx.FAR_STOCKS
     assert not stocks & sx.SOLD_STOCKS
     assert not stocks & sx.TRANSIT_STOCKS
-    assert report["dropped"] == {"sold": 2, "bad_stock": 4, "far_store": 13,
+    assert report["dropped"] == {"sold": 2, "delivered": 0, "bad_stock": 4, "far_store": 13,
                                  "excluded": 0, "duplicate": 0, "not_on_dealer_site": 0}
     assert inv["source_rows"] == len(sx.ROWS) and inv["kept"] == len(sx.KEPT_STOCKS)
 
@@ -76,6 +76,14 @@ def test_sold_spellings(tmp_path, sold, kept):
     rows = bi.read_export(sx.write_csv(tmp_path / "e.csv", ["Vehicle", "Sold", "Stock Number"],
                                        [["2023 Cadillac XT5", sold, "CP60123"]]))
     assert build(rows)[0]["kept"] == kept
+
+
+@pytest.mark.parametrize("delivered,kept", [("Yes", 0), ("yes", 0), ("Y", 0), ("No", 1), ("", 1)])
+def test_delivered_cars_are_dropped(tmp_path, delivered, kept):
+    rows = bi.read_export(sx.write_csv(tmp_path / "e.csv", ["Vehicle", "Sold", "Delivered", "Stock Number"],
+                                       [["2023 Cadillac XT5", "No", delivered, "CP60123"]]))
+    inv, report = build(rows)
+    assert inv["kept"] == kept and report["dropped"]["delivered"] == 1 - kept
 
 
 def test_exclude_list_holds_cars(rows, tmp_path):

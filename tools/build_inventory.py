@@ -49,7 +49,7 @@ SEDANS = {"ct4", "ct5", "ct6", "cts", "ats", "camry", "accord", "civic", "coroll
 EV_MODELS = ("lyriq", "optiq", "vistiq", "escalade iq", "escalade iql",
              "f-150 lightning", "ix")
 
-SOLD_YES = {"yes", "y", "true", "1", "sold"}
+SOLD_YES = {"yes", "y", "true", "1", "sold", "delivered"}
 STOCK_OK = re.compile(r"^[A-Z]{1,3}\d{4,6}[A-Z]?$")
 
 CONDITION_ORDER = {"New": 0, "Demo": 1, "Pre-owned": 2}
@@ -210,12 +210,14 @@ def load_exclude(path: Path | None) -> set[str]:
 
 def filter_rows(rows: list[dict], exclude: set[str]) -> tuple[list[dict], dict]:
     """Apply the keep rules. Returns (kept rows with 'stock' set, drop counts)."""
-    dropped = {"sold": 0, "bad_stock": 0, "far_store": 0, "excluded": 0, "duplicate": 0}
+    dropped = {"sold": 0, "delivered": 0, "bad_stock": 0, "far_store": 0, "excluded": 0, "duplicate": 0}
     kept, seen = [], set()
     for row in rows:
         stock = row.get("stocknumber", "").strip().upper()
         if row.get("sold", "").strip().lower() in SOLD_YES:
             dropped["sold"] += 1
+        elif row.get("delivered", "").strip().lower() in SOLD_YES:
+            dropped["delivered"] += 1
         elif not STOCK_OK.match(stock):
             dropped["bad_stock"] += 1
         elif FAR_STORE.match(stock):
@@ -486,7 +488,7 @@ def print_report(inventory: dict, report: dict, out=None) -> None:
     out = out or sys.stdout
     d = report["dropped"]
     print(f"Read {inventory['source_rows']} rows, kept {inventory['kept']}.", file=out)
-    print(f"Dropped: {d['sold']} sold, {d['far_store']} Lawrence/Topeka/Independence, "
+    print(f"Dropped: {d['sold']} sold, {d['delivered']} delivered, {d['far_store']} Lawrence/Topeka/Independence, "
           f"{d['bad_stock']} in-transit or odd stock codes, {d['excluded']} on the hold "
           f"list, {d['duplicate']} duplicates, {d.get('not_on_dealer_site', 0)} no longer on the "
           f"dealer site.", file=out)

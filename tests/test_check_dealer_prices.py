@@ -72,6 +72,36 @@ def test_jsonld_skips_msrp_and_payment_offers():
     assert cdp.parse_listing(page, "C51234")["price"] == 118990
 
 
+# Shape of the store's detail page as Brenen photographed it: a retail price, the admin
+# fee, then the fee-inclusive "Cable Dahmer Price". Invented markup, real wording.
+LABEL = "Cable Dahmer Price"
+FEE_PAGE = """<html><body><h1>2021 Cadillac CT5-V V-Series</h1><p>Stock: CP60123</p>
+<div class="price" data-stocknum="CP60123" data-price="35005"><b>$35,625</b>
+<span>CABLE DAHMER PRICE:</span> <a>Less</a>
+<table><tr><td>Retail Price</td><td>$35,005</td></tr>
+<tr><td>Administrative Fee</td><td>+$620</td></tr>
+<tr><td>Cable Dahmer Price</td><td>$35,625</td></tr></table></div>
+<a href="%s">CARFAX</a><script>var x = "Cable Dahmer Price $1";</script></body></html>""" % CARFAX
+
+
+def test_fee_inclusive_label_price_wins_over_retail():
+    r = cdp.parse_listing(FEE_PAGE, "CP60123", price_label=LABEL)
+    assert r == {"status": "ok", "price": 35625, "carfax_url": CARFAX}
+    assert cdp.parse_listing(FEE_PAGE, "CP60123")["price"] == 35005        # no label configured
+
+
+def test_label_price_needs_the_cars_own_stock_or_vin_on_the_page():
+    assert cdp.parse_listing(FEE_PAGE, "C99999", price_label=LABEL) == {"status": "not_found"}
+    assert cdp.parse_listing(FEE_PAGE, "CP6012", price_label=LABEL) == {"status": "not_found"}
+    no_attrs = FEE_PAGE.replace(' data-stocknum="CP60123" data-price="35005"', "")
+    assert cdp.parse_listing(no_attrs, "CP60123", price_label=LABEL)["price"] == 35625
+
+
+def test_two_different_label_prices_hide_the_price():
+    page = FEE_PAGE + "<div>Similar: Stock CP60200 Cable Dahmer Price: $29,900</div>"
+    assert cdp.parse_listing(page, "CP60123", price_label=LABEL) == {"status": "ambiguous"}
+
+
 def test_carfax_link_must_be_on_carfax_host():
     page = CARD_PAGE.replace("http://www.carfax.com/", "https://carfax.com.evil.example/")
     assert cdp.parse_listing(page, "CP60123")["carfax_url"] is None
