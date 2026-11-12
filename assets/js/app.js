@@ -1,8 +1,7 @@
-// index.html: inventory, tools carousel, "landed this week", booking and the guess game.
+// index.html: inventory, tools carousel, "landed this week" and booking.
 import {
   smsHref, fill, carTitle, filterCars, distinct, newArrivals, staleDays, STALE_DAYS,
-  bookingDays, slotsFor, bookingBody, guessPool, dailyAnswer, judgeGuess, hintsAfter,
-  MAX_GUESSES, MIN_GUESS_NAMES, testDriveStatus, todayName,
+  bookingDays, slotsFor, bookingBody, testDriveStatus, todayName,
 } from './lib.js';
 import {
   h, readConfig, loadInventory, wireSheets, wireCopy, carousel, badge, priceBlock, carFacts, carButtons,
@@ -183,63 +182,6 @@ function setupBooking(inventory) {
   update();
 }
 
-// ---- Guess today's car ----
-
-function setupGuess(inventory) {
-  const pool = guessPool(inventory.cars);
-  const openers = [...document.querySelectorAll('[data-action="guess"]')];
-  if (pool.length < MIN_GUESS_NAMES) {
-    openers.forEach((o) => o.closest('.tool-card').remove());
-    return;
-  }
-  const answer = dailyAnswer(pool, Date.now(), config.booking.tz);
-  const panel = $('guess');
-  const select = $('guess-pick');
-  const log = $('guess-log');
-  const hints = $('guess-hints');
-  const status = $('guess-status');
-  const button = $('guess-go');
-  let misses = 0;
-  let done = false;
-
-  select.append(...pool.map((p) => h('option', { value: p.name, text: p.name })));
-  const drawHints = () => hints.replaceChildren(...hintsAfter(misses, answer).map((t) => h('li', { text: t })));
-
-  button.addEventListener('click', () => {
-    if (done) return;
-    const guess = pool.find((p) => p.name === select.value);
-    if (!guess) return;
-    const result = judgeGuess(guess, answer);
-    if (result.correct) {
-      done = true;
-      log.append(h('li', { class: 'hit', text: guess.name + ': that’s it.' }));
-      status.textContent = `Got it in ${misses + 1}. New car tomorrow.`;
-    } else {
-      misses += 1;
-      const notes = [result.make ? 'right make' : 'wrong make', result.body ? 'right body style' : 'wrong body style'];
-      log.append(h('li', { text: guess.name + ': ' + notes.join(', ') + '.' }));
-      [...select.options].find((o) => o.value === guess.name).disabled = true;
-      select.value = '';
-      if (misses >= MAX_GUESSES) {
-        done = true;
-        status.textContent = `Out of guesses. It was the ${answer.name}. New car tomorrow.`;
-      } else {
-        status.textContent = `${MAX_GUESSES - misses} guesses left.`;
-        drawHints();
-      }
-    }
-    if (done) { button.disabled = true; select.disabled = true; }
-  });
-  openers.forEach((o) => o.addEventListener('click', () => {
-    panel.hidden = false;
-    panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    select.focus();
-  }));
-  drawHints();
-}
-
-// ---- Start ----
-
 function setupStatus() {
   const status = testDriveStatus(Date.now(), config.booking, config.messages);
   if (status) {
@@ -264,6 +206,5 @@ loadInventory()
     setupInventory(inventory);
     setupLanded(inventory);
     setupBooking(inventory);
-    setupGuess(inventory);
     if (location.hash === '#book') $('book').scrollIntoView();
   });

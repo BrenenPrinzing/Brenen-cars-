@@ -106,8 +106,6 @@ def context(config: dict) -> dict:
         elif tool.get("action") == "sms_trade":
             link = (f'<a class="btn btn-line" href="{escape(sms_href(config, msgs["trade"]))}">'
                     f'{escape(tool["label"])}</a>')
-        elif tool.get("action") == "guess":
-            link = f'<button class="btn btn-line" type="button" data-action="guess">{escape(tool["label"])}</button>'
         else:
             raise ConfigError(f"tools.{tool.get('id')}: needs a url or a known action")
         tools.append(f'<article class="tool-card"><h3>{escape(tool["title"])}</h3>'

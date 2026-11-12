@@ -161,7 +161,7 @@ def test_fonts_are_self_hosted_open_license():
 
 def test_no_payment_signin_favorite_or_cookie_text():
     pattern = re.compile(r"payment|per month|/mo\b|monthly|financ|lease|\bsale\b|on sale|from \$|"
-                         r"sign[ -]?in|log[ -]?in|favorite|wishlist|cookie|subscribe|newsletter", re.I)
+                         r"sign[ -]?in|log[ -]?in|favorite|wishlist|garage|cookie|subscribe|newsletter|guess", re.I)
     for path in PAGES + SCRIPTS:
         text = path.read_text(encoding="utf-8")
         text = re.sub(r"<meta http-equiv[^>]+>", "", text)
@@ -215,9 +215,9 @@ def test_build_rejects_bad_tool_links(url):
         build_site.build(dict(CONFIG, tools=tools), ROOT / "src")
 
 
-def test_no_insurance_or_budget_tools_by_default():
+def test_no_insurance_budget_or_guess_game():
     ids = {t["id"] for t in CONFIG["tools"]}
-    assert ids == {"trade", "history", "recalls", "mpg", "guess"}
+    assert ids == {"trade", "history", "recalls", "mpg"}
 
 
 # --- Placeholders: nothing invented ---------------------------------------------------

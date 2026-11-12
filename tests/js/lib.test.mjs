@@ -102,22 +102,6 @@ test('search and chips filter cars', () => {
   assert.deepEqual(lib.distinct(cars, 'make'), ['Cadillac', 'Chevrolet']);
 });
 
-test('guess game: same car all day, new one from the date, six guesses', () => {
-  const cars = ['Escalade', 'XT5', 'XT4', 'CT5', 'LYRIQ', 'XT6', 'OPTIQ'].map((model, i) =>
-    ({ make: 'Cadillac', model, body: 'SUV', year: 2020 + i }));
-  const pool = lib.guessPool([...cars, cars[0]]);
-  assert.equal(pool.length, 7);
-  const a = lib.dailyAnswer(pool, at(8), 'America/Chicago');
-  assert.equal(lib.dailyAnswer(pool, at(17), 'America/Chicago').name, a.name);
-  const week = new Set(Array.from({ length: 14 }, (_, i) => lib.dailyAnswer(pool, at(8, 0, 12 + i), 'America/Chicago').name));
-  assert.ok(week.size > 1);
-  assert.equal(lib.MAX_GUESSES, 6);
-  assert.deepEqual(lib.judgeGuess(a, a), { correct: true, make: true, body: true });
-  assert.equal(lib.hintsAfter(0, a).length, 1);
-  assert.ok(lib.hintsAfter(5, a).length <= 5);
-  assert.equal(lib.dailyAnswer([], at(8), 'America/Chicago'), null);
-});
-
 test('test-drive status line follows the clock in Central time', () => {
   const m = { status_open: 'open until {end}', status_before: 'from {start}', status_closed: 'next {day} {start} to {end}' };
   assert.deepEqual(lib.testDriveStatus(at(10), booking, m), { open: true, text: 'open until 6:00 PM' });

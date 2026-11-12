@@ -110,13 +110,6 @@
       "text": "Compare official MPG and range numbers on fueleconomy.gov.",
       "url": "https://www.fueleconomy.gov/",
       "label": "Compare fuel economy"
-    },
-    {
-      "id": "guess",
-      "title": "Guess today's car",
-      "text": "Six guesses to name one car on the lot. New car every day.",
-      "action": "guess",
-      "label": "Play"
     }
   ],
   "link_allow_hosts": [

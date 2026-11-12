@@ -190,11 +190,6 @@ main > section { padding-block: 34px; }
 #tools-dots .dot::after { content: ""; position: absolute; inset: 0; margin: auto; width: 8px; height: 8px; border-radius: 50%; background: rgba(243, 239, 230, 0.35); }
 #tools-dots .dot.on::after { background: var(--gold-2); }
 .panel { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px 18px; }
-.guess { margin-top: 16px; }
-.hints { margin: 10px 0; padding-left: 18px; list-style: disc; color: var(--gold-2); }
-.guess-row { display: grid; grid-template-columns: 1fr auto; gap: 8px; }
-.guess-log { margin: 12px 0; padding-left: 22px; list-style: decimal; color: var(--muted); }
-.guess-log .hit { color: var(--gold-2); }
 
 /* 5. Not seeing it? */
 #landed { margin-top: 24px; border-top: 1px solid var(--line); padding-top: 18px; }
