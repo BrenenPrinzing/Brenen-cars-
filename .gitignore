@@ -1,0 +1,10 @@
+# R6: raw exports are never committed
+data/raw/
+*.csv
+*.xlsx
+*.xls
+
+__pycache__/
+.pytest_cache/
+node_modules/
+.DS_Store
