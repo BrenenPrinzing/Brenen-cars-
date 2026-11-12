@@ -57,17 +57,15 @@ These are still empty in `site.config.json`. Nothing was invented.
 
 | Setting | Now | What it does when filled |
 |---|---|---|
-| `headshot` | empty | Replaces the "BP" monogram (carried over from Muse's page). Put the file in `assets/img/`. |
 | `banner` | empty | Adds a banner image above the headshot. |
 | `price_disclaimer` | empty | Required before any price can show. |
 | `bio` | empty | A second line under the tagline. |
-| `email` | empty | Adds an Email button. Muse's page showed one; it is off until Brenen says yes. |
 | `domain` and `CNAME` | `DOMAIN_TBD` | See "Domain and DNS" below. |
 
-Already filled from Muse's page: tagline, store address, Facebook and Instagram
-links, test drive hours and the hours note. Details in [MUSE_INVENTORY.md](MUSE_INVENTORY.md).
+Already filled: headshot (Brenen's photo), phone, email, and from Muse's page the
+tagline, store address, Facebook and Instagram links, test drive hours and the hours note. Details in [MUSE_INVENTORY.md](MUSE_INVENTORY.md).
 
-The phone and text number is 816-762-5779 for both `phone` and `sms_phone`.
+The phone and text number is 816-601-1688 (Brenen's agent line) for both `phone` and `sms_phone`.
 
 After any change to `site.config.json`:
 

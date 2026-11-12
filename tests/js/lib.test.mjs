@@ -11,8 +11,8 @@ const messages = {
 const at = (h, m = 0, day = 12) => Date.UTC(2026, 10, day, h + 6, m);
 
 test('sms and tel links use the one number', () => {
-  assert.equal(lib.smsHref('816-762-5779', 'Hi Brenen, a & b'), 'sms:+18167625779?&body=Hi%20Brenen%2C%20a%20%26%20b');
-  assert.equal(lib.telHref('(816) 762-5779'), 'tel:+18167625779');
+  assert.equal(lib.smsHref('816-555-0100', 'Hi Brenen, a & b'), 'sms:+18165550100?&body=Hi%20Brenen%2C%20a%20%26%20b');
+  assert.equal(lib.telHref('(816) 555-0100'), 'tel:+18165550100');
 });
 
 test('14 days, Wed and Sun closed', () => {

@@ -56,7 +56,7 @@ def test_templates_hold_no_contact_details():
 def test_changing_the_number_changes_every_link():
     pages = built(dict(CONFIG, phone="913-555-0100", sms_phone="913-555-0100"))
     for name in ("index.html", "car.html", "brenen.vcf"):
-        assert "8167625779" not in pages[name] and "816-762-5779" not in pages[name]
+        assert "8166011688" not in pages[name] and "816-601-1688" not in pages[name]
         assert "+19135550100" in pages[name]
 
 
@@ -92,8 +92,9 @@ def test_no_other_phone_or_email_anywhere():
             assert CONFIG["email"] and m.group() == CONFIG["email"], f"{path.name}: {m.group()}"
 
 
-def test_email_is_off_by_default_and_appears_when_set():
-    assert "mailto:" not in (ROOT / "index.html").read_text()
+def test_email_button_follows_the_config():
+    assert "mailto:" not in built(dict(CONFIG, email=""))["index.html"]
+    assert f'href="mailto:{CONFIG["email"]}"' in (ROOT / "index.html").read_text()
     pages = built(dict(CONFIG, email="someone@example.com"))
     assert 'href="mailto:someone@example.com"' in pages["index.html"]
     assert "EMAIL;TYPE=INTERNET:someone@example.com" in pages["brenen.vcf"]
@@ -223,10 +224,10 @@ def test_no_insurance_or_budget_tools_by_default():
 
 def test_placeholders_until_brenen_sends_them():
     index = (ROOT / "index.html").read_text()
-    assert CONFIG["headshot"] == "" and "assets/img/headshot-placeholder.svg" in index
+    assert "assets/img/headshot-placeholder.svg" in built(dict(CONFIG, headshot="", headshot_small=""))["index.html"]
     assert CONFIG["banner"] == "" and "banner-img" not in index
     assert CONFIG["price_disclaimer"] == ""
-    assert CONFIG["email"] == "" and CONFIG["bio"] == ""
+    assert CONFIG["bio"] == ""
     bare = built(dict(CONFIG, socials={}))["index.html"]
     assert "social-row" not in bare and ">Follow<" not in bare
     assert (ROOT / "CNAME").read_text() == "DOMAIN_TBD\n"
@@ -291,9 +292,10 @@ def test_vcard_is_valid_3_0_and_matches_config():
     assert fields["FN"] == CONFIG["name"]
     assert fields["N"] == "Prinzing;Brenen;;;"
     assert fields["ORG"] == CONFIG["store"]["name"] and fields["TITLE"] == CONFIG["title"]
-    assert fields["TEL;TYPE=CELL,VOICE"] == PHONE == "+18167625779"
+    assert fields["TEL;TYPE=CELL,VOICE"] == PHONE == "+18166011688"
+    assert fields["EMAIL;TYPE=INTERNET"] == CONFIG["email"]
     assert fields["ADR;TYPE=WORK"] == ";;1151 W 104th St;Kansas City;MO;64114;USA"
-    assert not any(k.startswith(("EMAIL", "URL", "PHOTO")) for k in fields)
+    assert not any(k.startswith(("URL", "PHOTO")) for k in fields)
     assert all(len(line.encode()) <= 75 for line in lines)
 
 
@@ -330,7 +332,10 @@ def test_committed_inventory_has_only_allowed_keys():
 def test_no_store_images_or_brand_assets():
     tracked = git("ls-files").stdout.splitlines()
     images = [f for f in tracked if f.lower().endswith((".jpg", ".jpeg", ".png", ".webp", ".gif"))]
-    assert all(f.startswith("photos/") for f in images), images
+    assert all(f.startswith("photos/") or f in ("assets/img/headshot.jpg", "assets/img/headshot-sm.jpg")
+               for f in images), images
+    for f in images:                                       # no location data in any committed photo
+        assert not bi.photo_info(ROOT / f)["gps"], f
     assert not [f for f in tracked if re.search(r"cadillac|crest|gm[-_]logo", f, re.I)]
 
 
