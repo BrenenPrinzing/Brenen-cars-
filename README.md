@@ -94,7 +94,8 @@ the review list), and drops anything DriveCentric marks sold or delivered.
 
 That file is already the dealer site's own list, so sold cars are gone from it. The
 converter still applies every rule: KC stock only, hold list, whitelisted fields. It
-never publishes the file's `vdp_url`, `photo_url` (store photos, R5) or `engine`.
+never publishes the file's `vdp_url`, `photo_url` (the site serves its own copies of the
+photos, never links to the dealer's) or `engine`.
 
 **Price rule (Brenen, Nov 12).** A price shows only when the pull is under 24 hours
 old and:
@@ -136,8 +137,34 @@ hand; edit `site.config.json` or the templates in `src/`.
 
 ## Car photos
 
-Brenen's own photos only, in `photos/<STOCK>/`. See [photos/README.md](photos/README.md).
-The converter refuses to build if a photo still carries GPS location data.
+Decision (Brenen, Nov 12, 2026): rule R5 has one exception. The public-facing
+inventory may use the store's own public listing photos of each car, the same ones
+used in Brenen's Marketplace listings. **R5 still applies to everything else:** any
+other image on the site (headshot, banner, anything not a listing photo of a car in
+the inventory) must be Brenen's own or one he has the right to use.
+
+How they get here:
+
+1. **Muse** pulls each car's photos once from the dealer site into the private repo
+   `contact-site-inventory`, as `photos/<STOCK>/01.jpg`, `02.jpg`, ... (up to 5, in the
+   order the listing shows them). Muse re-pulls a car only when its listing photos
+   change, and can delete the folder when the car leaves the list.
+2. **The daily refresh** runs `tools/sync_photos.py` before the converter. It resizes
+   each photo to 960px, strips all EXIF data, and writes `photos/<STOCK>/site-NN.jpg`.
+   A photo is only reprocessed when Muse's copy changes. Folders for cars no longer
+   listed are removed.
+
+```
+python tools/sync_photos.py <inventory repo>/photos --inventory <inventory repo>/inventory-store.csv
+```
+
+Brenen's own shots can still go in `photos/<STOCK>/` under any other file name; they
+show first. See [photos/README.md](photos/README.md). The sync tool needs Pillow
+(`pip install pillow`).
+
+Size: about 60 KB a photo, so roughly 70 MB for 236 cars at 5 photos each. Old photos
+stay in the repo's git history after a car sells; if the repo grows past a few
+hundred MB the history can be trimmed.
 
 ## Tests
 
@@ -204,7 +231,7 @@ brenen.vcf              built contact card
 inventory/inventory.json  public inventory (whitelisted fields only)
 assets/                 css, js (vanilla modules), self-hosted fonts, placeholder images
 photos/<STOCK>/         Brenen's own car photos
-tools/                  refresh.py, build_inventory.py, check_dealer_prices.py, build_site.py, build_vcard.py
+tools/                  sync_photos.py, refresh.py, build_inventory.py, check_dealer_prices.py, build_site.py, build_vcard.py
 data/exclude.txt        manual hold list
 data/raw/               exports and price checks (gitignored)
 import/muse/            where Muse's page export would go
