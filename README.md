@@ -52,6 +52,41 @@ report link when the listing shows one; the site only links out to it.
 > with the GSM's OK and compare a few cars by hand. If it can't read the page it
 > reports "not found" and hides the price; it never guesses.
 
+## Keeping the page in sync with the dealer site
+
+One command does the whole refresh:
+
+```
+python tools/refresh.py data/raw/<export file>                  # export only
+python tools/refresh.py data/raw/<export file> --dealer-check   # plus the dealer site
+```
+
+- The **export** is the source for what's on the lot, what's new and what has a deal
+  on it.
+- With `--dealer-check`, every kept car's listing on the dealer site is read once. A
+  car the dealer site **no longer lists is dropped** from the page, so a car that sold
+  after the export doesn't linger. The same pass verifies prices and Carfax links.
+- Safety: cars are dropped only when the same check found at least half of the
+  checked cars. If most come back "not found", that is treated as a problem reading
+  the site, nothing is dropped, and the report says so. A failed fetch or a
+  robots.txt block never drops a car.
+- Only pass `--dealer-check` once the GSM has OK'd read-only checks of the dealer site.
+
+Between refreshes the page looks after itself: it shows the "Updated" date, warns
+when the list is 3 or more days old, and hides every price after 24 hours.
+
+### Daily automatic refresh (not set up yet)
+
+The plan: a scheduled job runs `tools/refresh.py ... --dealer-check` each morning,
+runs the tests, and commits `inventory/inventory.json`. Three things have to be in
+place first:
+
+1. **The GSM's OK** to read the dealer site.
+2. **A private place for the daily export.** Muse pulls it from DriveCentric and
+   uploads it there (spec section 8). It cannot be this repo, which is public.
+3. **Network access** from wherever the job runs to the dealer site and to that
+   private place.
+
 ## What Brenen still needs to send
 
 These are still empty in `site.config.json`. Nothing was invented.
@@ -145,7 +180,7 @@ brenen.vcf              built contact card
 inventory/inventory.json  public inventory (whitelisted fields only)
 assets/                 css, js (vanilla modules), self-hosted fonts, placeholder images
 photos/<STOCK>/         Brenen's own car photos
-tools/                  build_inventory.py, check_dealer_prices.py, build_site.py, build_vcard.py
+tools/                  refresh.py, build_inventory.py, check_dealer_prices.py, build_site.py, build_vcard.py
 data/exclude.txt        manual hold list
 data/raw/               exports and price checks (gitignored)
 import/muse/            where Muse's page export would go

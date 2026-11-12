@@ -38,7 +38,7 @@ def test_keeps_only_kc_unsold_real_stock(rows):
     assert not stocks & sx.SOLD_STOCKS
     assert not stocks & sx.TRANSIT_STOCKS
     assert report["dropped"] == {"sold": 2, "bad_stock": 4, "far_store": 13,
-                                 "excluded": 0, "duplicate": 0}
+                                 "excluded": 0, "duplicate": 0, "not_on_dealer_site": 0}
     assert inv["source_rows"] == len(sx.ROWS) and inv["kept"] == len(sx.KEPT_STOCKS)
 
 
@@ -233,6 +233,45 @@ def test_carfax_link_only_from_ok_check_and_carfax_host(rows):
     assert cars["C51234"]["carfax_url"].startswith("https://www.carfax.com/")
     assert "carfax_url" not in cars["CP60123"]
     assert "carfax_url" not in cars["C51199A"]
+
+
+# --- Sync with the dealer site: drop cars it no longer lists -------------------------
+
+def ok_checks(stocks, **over):
+    c = {s: {"status": "ok", "price": 1, "checked_at": FRESH} for s in stocks}
+    c.update(over)
+    return c
+
+
+def test_car_gone_from_dealer_site_is_dropped(rows):
+    gone = {"status": "not_found", "checked_at": FRESH}
+    c = ok_checks(sx.KEPT_STOCKS, CP60123=gone, T4321=gone)
+    inv, report = build(rows, price_checks=c, config=CONFIG)
+    assert set(by_stock(inv)) == sx.KEPT_STOCKS - {"CP60123", "T4321"}
+    assert report["gone"] == ["CP60123", "T4321"] and report["dropped"]["not_on_dealer_site"] == 2
+    assert inv["kept"] == len(sx.KEPT_STOCKS) - 2
+
+
+def test_stale_not_found_does_not_drop(rows):
+    c = ok_checks(sx.KEPT_STOCKS, CP60123={"status": "not_found", "checked_at": STALE})
+    assert "CP60123" in by_stock(build(rows, price_checks=c, config=CONFIG)[0])
+
+
+def test_failed_fetch_or_robots_block_never_drops(rows):
+    c = ok_checks(sx.KEPT_STOCKS, CP60123={"status": "fetch_failed", "checked_at": FRESH},
+                  T4321={"status": "robots_blocked", "checked_at": FRESH},
+                  C51240={"status": "no_price", "checked_at": FRESH})
+    assert set(by_stock(build(rows, price_checks=c, config=CONFIG)[0])) == sx.KEPT_STOCKS
+
+
+def test_broken_site_reader_cannot_empty_the_list(rows):
+    c = {s: {"status": "not_found", "checked_at": FRESH} for s in sx.KEPT_STOCKS}
+    inv, report = build(rows, price_checks=c)
+    assert set(by_stock(inv)) == sx.KEPT_STOCKS and report["gone"] == []
+    assert any("no cars were dropped" in w for w in report["warnings"])
+    # Just under half found: still treated as a reader problem.
+    some = ok_checks(list(sx.KEPT_STOCKS)[:4], **{s: c[s] for s in list(sx.KEPT_STOCKS)[4:]})
+    assert set(by_stock(build(rows, price_checks=some, config=CONFIG)[0])) == sx.KEPT_STOCKS
 
 
 # --- Acceptance 3: idempotent --------------------------------------------------------

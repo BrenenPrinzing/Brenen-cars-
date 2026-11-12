@@ -54,6 +54,9 @@ STOCK_OK = re.compile(r"^[A-Z]{1,3}\d{4,6}[A-Z]?$")
 CONDITION_ORDER = {"New": 0, "Demo": 1, "Pre-owned": 2}
 NEW_ARRIVAL_DAYS = 7
 PRICE_MAX_AGE = dt.timedelta(hours=24)
+# Cars the dealer site no longer lists are dropped, but only when the check clearly
+# worked: at least this share of the checked cars must have been found with a price.
+MIN_FOUND_SHARE = 0.5
 PHOTO_MAX_PX = 1600
 PHOTO_EXT = {".jpg", ".jpeg", ".webp"}
 
@@ -325,6 +328,33 @@ def load_price_checks(path: Path | None) -> dict:
     return {str(k).upper(): v for k, v in data.get("checks", {}).items()}
 
 
+def check_fresh(check: dict | None, now: dt.datetime) -> bool:
+    try:
+        age = now - parse_time(check["checked_at"])
+    except (KeyError, TypeError, ValueError):
+        return False
+    return dt.timedelta(minutes=-5) <= age < PRICE_MAX_AGE
+
+
+def gone_from_dealer_site(kept: list[dict], price_checks: dict, now: dt.datetime):
+    """Stocks to drop because the dealer site no longer lists them.
+
+    Returns (stocks, warning). Nothing is dropped unless the same fresh check run found
+    most of the other cars, so a broken page reader can never empty the list.
+    """
+    fresh = {r["stock"]: price_checks[r["stock"]] for r in kept
+             if check_fresh(price_checks.get(r["stock"]), now)}
+    missing = {s for s, c in fresh.items() if c.get("status") == "not_found"}
+    if not missing:
+        return set(), None
+    found = sum(1 for c in fresh.values() if c.get("status") == "ok")
+    if found / len(fresh) < MIN_FOUND_SHARE:
+        return set(), (f"{len(missing)} of {len(fresh)} checked cars were not found on the dealer "
+                       f"site and only {found} were. That looks like a problem reading the site, "
+                       f"so no cars were dropped for it. Check a few by hand.")
+    return missing, None
+
+
 def verified_price(export_price: int, check: dict | None, now: dt.datetime):
     """Return (price or None, reason). Publish only on an exact, fresh match."""
     if not check:
@@ -362,6 +392,11 @@ def build(rows: list[dict], *, exclude: set[str] = frozenset(), photos_dir: Path
     warnings: list[str] = []
     kept, dropped = filter_rows(rows, set(exclude))
     cars, review, hidden_prices, check_times = [], [], [], []
+    gone, gone_warning = gone_from_dealer_site(kept, price_checks, now)
+    if gone_warning:
+        warnings.append(gone_warning)
+    dropped["not_on_dealer_site"] = len(gone)
+    kept = [r for r in kept if r["stock"] not in gone]
 
     for row in kept:
         stock = row["stock"]
@@ -418,6 +453,7 @@ def build(rows: list[dict], *, exclude: set[str] = frozenset(), photos_dir: Path
                 "without --prices. Nothing was written.")
     validate(inventory)
     report = {"dropped": dropped, "review": review, "hidden_prices": hidden_prices,
+              "gone": sorted(gone),
               "warnings": warnings,
               "priced": sum(1 for c in cars if "price" in c)}
     return inventory, report
@@ -451,7 +487,10 @@ def print_report(inventory: dict, report: dict, out=None) -> None:
     print(f"Read {inventory['source_rows']} rows, kept {inventory['kept']}.", file=out)
     print(f"Dropped: {d['sold']} sold, {d['far_store']} Lawrence/Topeka/Independence, "
           f"{d['bad_stock']} in-transit or odd stock codes, {d['excluded']} on the hold "
-          f"list, {d['duplicate']} duplicates.", file=out)
+          f"list, {d['duplicate']} duplicates, {d.get('not_on_dealer_site', 0)} no longer on the "
+          f"dealer site.", file=out)
+    if report.get("gone"):
+        print("No longer on the dealer site (dropped): " + ", ".join(report["gone"]), file=out)
     print(f"Prices shown: {report['priced']} of {inventory['kept']} "
           f"(the rest say \"Text me for price\").", file=out)
     if report["hidden_prices"]:
