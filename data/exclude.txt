@@ -1,0 +1,2 @@
+# Manual hold list. One stock number per line.
+# Add any car with another rep's deal in proposal, then run the converter again.

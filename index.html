@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex">
+<meta name="description" content="Brenen Prinzing, Sales Consultant · Cable Dahmer Cadillac. Browse inventory and text or call Brenen directly.">
+<title>Brenen Prinzing | Cable Dahmer Cadillac</title>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://brenenprinzing.com/">
+<meta property="og:title" content="Brenen Prinzing | Cable Dahmer Cadillac">
+<meta property="og:description" content="Sales Consultant at Cable Dahmer Cadillac. Browse inventory and text or call Brenen directly.">
+<meta property="og:image" content="https://brenenprinzing.com/assets/img/banner.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="assets/fonts/jost-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/site.css">
+<script type="module" src="assets/js/app.js"></script>
+</head>
+<body>
+<header class="pill">
+  <a class="pill-id" href="index.html#top">
+    <img class="avatar" src="assets/img/headshot-sm.jpg" alt="" width="36" height="36">
+    <span>Brenen</span>
+  </a>
+  <div class="pill-actions">
+    <details class="sheet"><summary class="btn btn-gold btn-sm">Follow</summary><div class="sheet-panel"><p class="sheet-title">Follow Brenen</p><ul class="sheet-links"><li><a href="https://www.facebook.com/61595422784900" target="_blank" rel="noopener noreferrer">Facebook</a></li><li><a href="https://www.instagram.com/brenen.cadillackc" target="_blank" rel="noopener noreferrer">Instagram</a></li></ul></div></details>
+    <details class="sheet">
+      <summary class="btn btn-ghost btn-sm">Menu</summary>
+      <nav class="sheet-panel" aria-label="Sections">
+        <ul class="sheet-links"><li><a href="index.html#inventory">Inventory</a></li><li><a href="index.html#tools">Tools</a></li><li><a href="index.html#hunting">Not seeing it?</a></li><li><a href="index.html#book">Book a test drive</a></li><li><a href="index.html#contact">Talk to Brenen</a></li></ul>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<main>
+
+<section class="hero wrap" id="top">
+  <p class="eyebrow">Cable Dahmer Cadillac · Kansas City</p>
+  <img class="banner-img" src="assets/img/banner.jpg" alt="" width="1200" height="667">
+  <div class="frame">
+    <img src="assets/img/headshot.jpg" alt="Brenen Prinzing" width="320" height="400">
+  </div>
+  <h1>Brenen Prinzing</h1>
+  <p class="role">Sales Consultant · Cable Dahmer Cadillac</p>
+  <p class="tagline">I’m passionate about helping people find their perfect vehicle. Reach me directly below — you’ll talk to me, not the main store line.</p>
+  
+  <p class="status" id="status" hidden><span class="status-dot"></span><span id="status-text"></span></p>
+  <div class="actions">
+    <a class="btn btn-gold" href="sms:+18166011688?&amp;body=Hi%20Brenen%2C%20I%27d%20like%20a%20value%20on%20my%20car.%0AYear%20%2F%20Make%20%2F%20Model%3A%0AMiles%3A%0ACondition%3A">Value my car</a>
+    <a class="btn btn-line" href="brenen.vcf" download>Save to contacts</a>
+  </div>
+  <ul class="social-row" aria-label="Social links"><li><a href="https://www.facebook.com/61595422784900" target="_blank" rel="noopener noreferrer">Facebook</a></li><li><a href="https://www.instagram.com/brenen.cadillackc" target="_blank" rel="noopener noreferrer">Instagram</a></li></ul>
+</section>
+
+<section class="wrap" id="inventory" aria-labelledby="inv-h">
+  <div class="sec-head">
+    <h2 id="inv-h">Inventory</h2>
+    <p class="count"><span id="inv-count" aria-live="polite">Text Brenen for what&rsquo;s on the lot today.</span> <span class="muted" id="inv-updated"></span></p>
+  </div>
+  <p class="notice" id="inv-stale" hidden>This list is a few days old. Text to confirm a car is still here.</p>
+  <div class="filters" id="inv-filters" hidden>
+    <label class="search"><span class="sr">Search inventory</span>
+      <input type="search" id="inv-search" placeholder="Search year, make, model" autocomplete="off" enterkeyhint="search">
+    </label>
+    <div class="chips" role="group" aria-label="Filter inventory">
+      <button class="chip" type="button" data-cond="" aria-pressed="true">All</button>
+      <button class="chip" type="button" data-cond="New" aria-pressed="false">New</button>
+      <button class="chip" type="button" data-cond="Pre-owned" aria-pressed="false">Pre-owned</button>
+      <button class="chip" type="button" data-cond="Demo" aria-pressed="false">Demo</button>
+      <label class="chip chip-select"><span class="sr">Make</span>
+        <select id="inv-make"><option value="">Make</option></select></label>
+      <label class="chip chip-select"><span class="sr">Body</span>
+        <select id="inv-body"><option value="">Body</option></select></label>
+    </div>
+  </div>
+  <div class="grid" id="inv-grid"></div>
+  <p class="muted" id="inv-empty" hidden>Nothing matches that. Clear the search, or text Brenen what you&rsquo;re after.</p>
+  <noscript><p class="muted">The inventory list needs JavaScript. Every contact link on this page works without it.</p></noscript>
+  <p class="actions"><a class="btn btn-line" href="sms:+18166011688?&amp;body=Hi%20Brenen%2C%20I%27m%20interested%20in%20a%20vehicle%20you%20have%20listed.%20Can%20we%20set%20up%20a%20test%20drive%3F">Text Brenen about a car</a></p>
+</section>
+
+<section class="wrap" id="tools" aria-labelledby="tools-h">
+  <div class="sec-head"><h2 id="tools-h">Tools before money moves</h2></div>
+  <div class="tool-track" id="tools-track" tabindex="0" role="group" aria-label="Tools"><article class="tool-card"><h3>Trade-in value</h3><p>Text Brenen your car&#x27;s details and he&#x27;ll appraise it himself.</p><a class="btn btn-line" href="sms:+18166011688?&amp;body=Hi%20Brenen%2C%20I%27d%20like%20a%20value%20on%20my%20car.%0AYear%20%2F%20Make%20%2F%20Model%3A%0AMiles%3A%0ACondition%3A">Value my car</a></article><article class="tool-card"><h3>Vehicle history</h3><p>Free theft and total-loss check from the National Insurance Crime Bureau.</p><a class="btn btn-line" href="https://www.nicb.org/vincheck" target="_blank" rel="noopener noreferrer">Open NICB VINCheck</a></article><article class="tool-card"><h3>Recalls</h3><p>Look up open safety recalls by VIN on the government&#x27;s NHTSA site.</p><a class="btn btn-line" href="https://www.nhtsa.gov/recalls" target="_blank" rel="noopener noreferrer">Check recalls</a></article><article class="tool-card"><h3>Fuel economy</h3><p>Compare official MPG and range numbers on fueleconomy.gov.</p><a class="btn btn-line" href="https://www.fueleconomy.gov/" target="_blank" rel="noopener noreferrer">Compare fuel economy</a></article></div>
+  <div class="dots" id="tools-dots"></div>
+</section>
+
+<section class="wrap" id="hunting" aria-labelledby="hunt-h">
+  <div class="panel">
+    <h2 id="hunt-h">Not seeing it?</h2>
+    <p>The lot turns over fast. Text Brenen what you&rsquo;re hunting and he&rsquo;ll reach out when a match lands.</p>
+    <p class="actions"><a class="btn btn-gold" href="sms:+18166011688?&amp;body=Hi%20Brenen%2C%20I%27m%20hunting%20for%3A%0AYear%20%2F%20Make%20%2F%20Model%20%2F%20Color%20%2F%20Must-haves%3A">Text Brenen what you&rsquo;re hunting</a></p>
+    <div id="landed" hidden>
+      <h3>Landed this week</h3>
+      <ul class="landed" id="landed-list"></ul>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" id="book" aria-labelledby="book-h">
+  <div class="sec-head"><h2 id="book-h">Book a test drive</h2></div>
+  <div id="book-app" hidden>
+    <p class="car-chip" id="book-car" hidden></p>
+    <div class="days" id="book-days" role="group" aria-label="Pick a day"></div>
+    <div class="slots" id="book-slots" role="group" aria-label="Pick a time"></div>
+    <p class="muted" id="book-summary" aria-live="polite">Pick a day, then a time.</p>
+  </div>
+  <noscript><p class="muted">Tell Brenen the day and time that work for you.</p></noscript>
+  <p class="actions"><a class="btn btn-gold" id="book-cta" href="sms:+18166011688?&amp;body=Hi%20Brenen%2C%20I%27d%20like%20to%20book%20a%20test%20drive.">Text Brenen to book</a></p>
+  <p class="fine">Nothing is booked until Brenen texts you back. Times are Central.</p>
+</section>
+
+<section class="wrap" id="contact" aria-labelledby="talk-h">
+  <div class="talk">
+    <img class="talk-photo" src="assets/img/headshot-sm.jpg" alt="" width="88" height="88" loading="lazy">
+    <h2 id="talk-h">Talk to Brenen</h2>
+    <p class="talk-name">Brenen Prinzing</p>
+    <p class="muted">Sales Consultant · Cable Dahmer Cadillac · Kansas City, MO</p>
+    <div class="actions">
+      <a class="btn btn-gold" href="sms:+18166011688?&amp;body=Hi%20Brenen%2C%20I%27m%20interested%20in%20a%20vehicle%20you%20have%20listed.%20Can%20we%20set%20up%20a%20test%20drive%3F">Message Brenen</a>
+      <a class="btn btn-line" href="tel:+18166011688">Call 816-601-1688</a>
+      <a class="btn btn-line" href="mailto:bprinzing@cabledahmer.com">Email</a>
+      <button class="btn btn-ghost" type="button" data-copy="816-601-1688" hidden>Copy number</button>
+    </div>
+    <ul class="social-row" aria-label="Social links"><li><a href="https://www.facebook.com/61595422784900" target="_blank" rel="noopener noreferrer">Facebook</a></li><li><a href="https://www.instagram.com/brenen.cadillackc" target="_blank" rel="noopener noreferrer">Instagram</a></li></ul>
+    <div class="map">
+      <svg class="pin" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+      <p class="map-name">Cable Dahmer Cadillac</p>
+      <p class="address">1151 W 104th St, Kansas City, MO 64114</p>
+      <p class="map-links">
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=Cable+Dahmer+Cadillac+1151+W+104th+St+Kansas+City+MO+64114" target="_blank" rel="noopener noreferrer">Open in Maps</a>
+        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Cable+Dahmer+Cadillac+1151+W+104th+St+Kansas+City+MO+64114" target="_blank" rel="noopener noreferrer">Get directions</a>
+      </p>
+    </div>
+    <table class="hours">
+      <caption>Test drive hours</caption>
+      <tbody><tr data-day="Monday"><th scope="row">Monday</th><td>9:00 AM to 6:00 PM</td></tr><tr data-day="Tuesday"><th scope="row">Tuesday</th><td>9:00 AM to 6:00 PM</td></tr><tr data-day="Wednesday" class="off"><th scope="row">Wednesday</th><td>No test drives</td></tr><tr data-day="Thursday"><th scope="row">Thursday</th><td>9:00 AM to 6:00 PM</td></tr><tr data-day="Friday"><th scope="row">Friday</th><td>9:00 AM to 6:00 PM</td></tr><tr data-day="Saturday"><th scope="row">Saturday</th><td>9:00 AM to 6:00 PM</td></tr><tr data-day="Sunday" class="off"><th scope="row">Sunday</th><td>No test drives</td></tr></tbody>
+    </table>
+    <p class="hours-note">Text or call ahead and I’ll have the vehicle pulled up and ready when you arrive. Ask for Brenen Prinzing, Sales Consultant, so you’re connected directly to me.</p>
+  </div>
+</section>
+
+</main>
+<footer class="foot">
+  <div class="foot-cols">
+    <div>
+      <h2>Car research</h2>
+      <ul>
+        <li><a href="index.html#inventory">Browse inventory</a></li>
+        <li><a href="index.html#tools">Tools before money moves</a></li>
+        <li><a href="index.html#book">Book a test drive</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Free tools</h2>
+      <ul><li><a href="https://www.nicb.org/vincheck" target="_blank" rel="noopener noreferrer">Vehicle history</a></li><li><a href="https://www.nhtsa.gov/recalls" target="_blank" rel="noopener noreferrer">Recalls</a></li><li><a href="https://www.fueleconomy.gov/" target="_blank" rel="noopener noreferrer">Fuel economy</a></li></ul>
+    </div>
+  </div>
+  <p>Inventory and availability change daily. Text to confirm.</p>
+  <p class="fine" id="price-disclaimer">All vehicles purchase prices do not include tax, title, and registration fees. Prices include the listed rebates and incentives (All factory rebates assigned to dealer, including all applicable manufacturer rebates). Incentivized rates may affect incentives and/or pricing. Check with your dealer and or sales consultant to see available rebates you may qualify for. Offers may expire at end of month or the manufacturer date. We are not responsible for typographical, technical or misprint errors. EPA Estimates. Mileage May Vary. The Manufacturer&#x27;s Suggested Retail Price excludes tax, title, registration, and optional equipment. Dealer sets final price.</p>
+  <p>Independent page by Brenen Prinzing, sales consultant. Not an official Cadillac or GM site.</p>
+</footer>
+<script type="application/json" id="site-config">{"booking": {"days": ["Mon", "Tue", "Thu", "Fri", "Sat"], "days_ahead": 14, "end": "18:00", "slot_min": 30, "start": "09:00", "tz": "America/Chicago"}, "first_name": "Brenen", "messages": {"book": "Hi Brenen, I'd like to book a test drive.", "book_slot": "Hi Brenen, I'd like to book a test drive on {day} at {time}.", "book_slot_car": "Hi Brenen, I'd like to test drive the {car} (stock #{stock}) on {day} at {time}.", "car": "Hi Brenen, I'm interested in the {car} (stock #{stock}). Is it still available?", "general": "Hi Brenen, I'm interested in a vehicle you have listed. Can we set up a test drive?", "hunting": "Hi Brenen, I'm hunting for:\nYear / Make / Model / Color / Must-haves:", "price": "Hi Brenen, what's the price on the {car} (stock #{stock})?", "sold": "Hi Brenen, I was looking at stock #{stock}. Is it still available, or do you have something like it?", "status_before": "Test drives today from {start} — text me to reserve a time", "status_closed": "Next test drives: {day} {start} – {end} — text me anytime", "status_open": "Test drives available today until {end} — text me to book yours", "trade": "Hi Brenen, I'd like a value on my car.\nYear / Make / Model:\nMiles:\nCondition:"}, "name": "Brenen Prinzing", "price_disclaimer": "All vehicles purchase prices do not include tax, title, and registration fees. Prices include the listed rebates and incentives (All factory rebates assigned to dealer, including all applicable manufacturer rebates). Incentivized rates may affect incentives and/or pricing. Check with your dealer and or sales consultant to see available rebates you may qualify for. Offers may expire at end of month or the manufacturer date. We are not responsible for typographical, technical or misprint errors. EPA Estimates. Mileage May Vary. The Manufacturer's Suggested Retail Price excludes tax, title, registration, and optional equipment. Dealer sets final price.", "sms_phone": "816-601-1688"}</script>
+
+</body>
+</html>

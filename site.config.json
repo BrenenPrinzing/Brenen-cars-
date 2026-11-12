@@ -1,0 +1,140 @@
+{
+  "name": "Brenen Prinzing",
+  "first_name": "Brenen",
+  "title": "Sales Consultant",
+  "eyebrow": "Cable Dahmer Cadillac · Kansas City",
+  "tagline": "I’m passionate about helping people find their perfect vehicle. Reach me directly below — you’ll talk to me, not the main store line.",
+  "bio": "",
+  "phone": "816-601-1688",
+  "sms_phone": "816-601-1688",
+  "email": "bprinzing@cabledahmer.com",
+  "domain": "brenenprinzing.com",
+  "headshot": "assets/img/headshot.jpg",
+  "headshot_small": "assets/img/headshot-sm.jpg",
+  "banner": "assets/img/banner.jpg",
+  "store": {
+    "name": "Cable Dahmer Cadillac",
+    "city": "Kansas City, MO",
+    "address": "1151 W 104th St, Kansas City, MO 64114",
+    "maps_query": "Cable Dahmer Cadillac 1151 W 104th St Kansas City MO 64114",
+    "adr": {
+      "street": "1151 W 104th St",
+      "city": "Kansas City",
+      "region": "MO",
+      "zip": "64114",
+      "country": "USA"
+    }
+  },
+  "hours_label": "Test drive hours",
+  "hours": [
+    {
+      "day": "Monday",
+      "hours": "9:00 AM to 6:00 PM"
+    },
+    {
+      "day": "Tuesday",
+      "hours": "9:00 AM to 6:00 PM"
+    },
+    {
+      "day": "Wednesday",
+      "hours": "No test drives"
+    },
+    {
+      "day": "Thursday",
+      "hours": "9:00 AM to 6:00 PM"
+    },
+    {
+      "day": "Friday",
+      "hours": "9:00 AM to 6:00 PM"
+    },
+    {
+      "day": "Saturday",
+      "hours": "9:00 AM to 6:00 PM"
+    },
+    {
+      "day": "Sunday",
+      "hours": "No test drives"
+    }
+  ],
+  "hours_note": "Text or call ahead and I’ll have the vehicle pulled up and ready when you arrive. Ask for Brenen Prinzing, Sales Consultant, so you’re connected directly to me.",
+  "booking": {
+    "days": [
+      "Mon",
+      "Tue",
+      "Thu",
+      "Fri",
+      "Sat"
+    ],
+    "start": "09:00",
+    "end": "18:00",
+    "slot_min": 30,
+    "tz": "America/Chicago",
+    "days_ahead": 14
+  },
+  "socials": {
+    "Facebook": "https://www.facebook.com/61595422784900",
+    "Instagram": "https://www.instagram.com/brenen.cadillackc"
+  },
+  "extra_links": [],
+  "price_disclaimer": "All vehicles purchase prices do not include tax, title, and registration fees. Prices include the listed rebates and incentives (All factory rebates assigned to dealer, including all applicable manufacturer rebates). Incentivized rates may affect incentives and/or pricing. Check with your dealer and or sales consultant to see available rebates you may qualify for. Offers may expire at end of month or the manufacturer date. We are not responsible for typographical, technical or misprint errors. EPA Estimates. Mileage May Vary. The Manufacturer's Suggested Retail Price excludes tax, title, registration, and optional equipment. Dealer sets final price.",
+  "dealer_site": {
+    "base_url": "https://www.cabledahmercadillac.com",
+    "used_path": "/searchused.aspx?q={stock}",
+    "new_path": "/searchnew.aspx?q={stock}",
+    "price_label": "Cable Dahmer Price",
+    "admin_fee": 620
+  },
+  "tools": [
+    {
+      "id": "trade",
+      "title": "Trade-in value",
+      "text": "Text Brenen your car's details and he'll appraise it himself.",
+      "action": "sms_trade",
+      "label": "Value my car"
+    },
+    {
+      "id": "history",
+      "title": "Vehicle history",
+      "text": "Free theft and total-loss check from the National Insurance Crime Bureau.",
+      "url": "https://www.nicb.org/vincheck",
+      "label": "Open NICB VINCheck"
+    },
+    {
+      "id": "recalls",
+      "title": "Recalls",
+      "text": "Look up open safety recalls by VIN on the government's NHTSA site.",
+      "url": "https://www.nhtsa.gov/recalls",
+      "label": "Check recalls"
+    },
+    {
+      "id": "mpg",
+      "title": "Fuel economy",
+      "text": "Compare official MPG and range numbers on fueleconomy.gov.",
+      "url": "https://www.fueleconomy.gov/",
+      "label": "Compare fuel economy"
+    }
+  ],
+  "link_allow_hosts": [
+    "www.nicb.org",
+    "www.nhtsa.gov",
+    "www.fueleconomy.gov",
+    "www.google.com",
+    "www.carfax.com",
+    "www.facebook.com",
+    "www.instagram.com"
+  ],
+  "messages": {
+    "general": "Hi Brenen, I'm interested in a vehicle you have listed. Can we set up a test drive?",
+    "trade": "Hi Brenen, I'd like a value on my car.\nYear / Make / Model:\nMiles:\nCondition:",
+    "hunting": "Hi Brenen, I'm hunting for:\nYear / Make / Model / Color / Must-haves:",
+    "car": "Hi Brenen, I'm interested in the {car} (stock #{stock}). Is it still available?",
+    "price": "Hi Brenen, what's the price on the {car} (stock #{stock})?",
+    "sold": "Hi Brenen, I was looking at stock #{stock}. Is it still available, or do you have something like it?",
+    "book": "Hi Brenen, I'd like to book a test drive.",
+    "book_slot": "Hi Brenen, I'd like to book a test drive on {day} at {time}.",
+    "book_slot_car": "Hi Brenen, I'd like to test drive the {car} (stock #{stock}) on {day} at {time}.",
+    "status_open": "Test drives available today until {end} — text me to book yours",
+    "status_before": "Test drives today from {start} — text me to reserve a time",
+    "status_closed": "Next test drives: {day} {start} – {end} — text me anytime"
+  }
+}

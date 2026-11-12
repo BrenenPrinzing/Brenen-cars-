@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<link rel="icon" href="data:," />
+<title>Contact Brenen Prinzing — Cable Dahmer Cadillac</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f6f3ee;
+    --bg2:#ece7de;
+    --card:#ffffff;
+    --ink:#141414;
+    --ink2:#5a564f;
+    --ink3:#8a857d;
+    --line:#e3ddd2;
+    --gold:#a07c2c;
+    --gold-bright:#c9a227;
+    --gold-soft:#f3ead3;
+    --btn-dark:#141414;
+    --btn-dark-text:#f6f1e6;
+    --shadow:0 18px 45px rgba(20,18,12,.10), 0 2px 10px rgba(20,18,12,.06);
+    color-scheme:light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0e0e0e;
+      --bg2:#171512;
+      --card:#1a1917;
+      --ink:#f2eee6;
+      --ink2:#b8b2a6;
+      --ink3:#7d786e;
+      --line:#2e2b26;
+      --gold:#d4af5a;
+      --gold-bright:#e6c87a;
+      --gold-soft:#2a2417;
+      --btn-dark:#f2eee6;
+      --btn-dark-text:#141414;
+      --shadow:0 18px 45px rgba(0,0,0,.45), 0 2px 10px rgba(0,0,0,.3);
+      color-scheme:dark;
+    }
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:"Jost", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    background: radial-gradient(900px 500px at 50% -10%, var(--bg2) 0%, var(--bg) 55%);
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:600px;margin:0 auto;padding:28px 18px 40px}
+  /* Header */
+  .eyebrow{letter-spacing:.22em;text-transform:uppercase;font-size:11px;font-weight:600;color:var(--gold);text-align:center}
+  .avatar{
+    width:88px;height:88px;border-radius:50%;margin:18px auto 14px;
+    display:grid;place-items:center;
+    background:var(--btn-dark);color:var(--btn-dark-text);
+    font-family:"Marcellus", Georgia, serif;font-size:32px;letter-spacing:.04em;
+    border:2px solid var(--gold-bright);
+    box-shadow:0 0 0 6px var(--card), 0 0 0 7px var(--line), var(--shadow);
+  }
+  h1{font-family:"Marcellus", Georgia, serif;font-weight:400;font-size:42px;line-height:1.05;text-align:center;margin:6px 0 6px;letter-spacing:.01em}
+  .role{text-align:center;font-size:16px;color:var(--ink2);margin:0}
+  .role strong{color:var(--ink);font-weight:600}
+  .dealer{text-align:center;margin:8px 0 0;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3)}
+  .tagline{text-align:center;font-size:17px;line-height:1.5;color:var(--ink2);max-width:440px;margin:16px auto 0}
+  .tagline em{color:var(--ink);font-style:normal;border-bottom:2px solid var(--gold-bright);padding-bottom:1px}
+  .status{
+    margin:18px auto 0;width:fit-content;display:flex;align-items:center;gap:8px;
+    background:var(--card);border:1px solid var(--line);border-radius:999px;padding:7px 13px 7px 10px;
+    font-size:13.5px;font-weight:500;box-shadow:0 4px 14px rgba(0,0,0,.05)
+  }
+  .dot{width:9px;height:9px;border-radius:50%;background:#2e9e5b;flex:none}
+  .dot.closed{background:#b0a99b}
+  /* Card */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);padding:22px;margin-top:22px}
+  .card h2{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);margin:0 0 14px;font-weight:600}
+  /* Primary actions */
+  .actions{display:flex;flex-direction:column;gap:12px}
+  .btn{
+    display:flex;align-items:center;gap:14px;text-align:left;width:100%;
+    border-radius:16px;padding:16px 16px;border:1px solid transparent;cursor:pointer;
+    transition:transform .12s ease, box-shadow .12s ease, background .12s ease;
+  }
+  .btn:active{transform:scale(.985)}
+  .btn:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+  .btn-hero{padding:20px 16px}
+  .btn-hero .btn-title{font-size:19px}
+  .btn-hero .icon{width:52px;height:52px}
+  .btn-sm{padding:12px 14px;border-radius:14px}
+  .btn-sm .btn-title{font-size:15px}
+  .btn-sm .btn-sub{font-size:12.5px}
+  .btn-sm .icon{width:38px;height:38px;border-radius:10px}
+  .btn-sm .icon svg{width:19px;height:19px}
+  .emaillink{margin:14px 0 0;text-align:center;font-size:14px;color:var(--ink2)}
+  .emaillink a{color:var(--gold);font-weight:600;text-decoration:underline;text-underline-offset:3px;overflow-wrap:anywhere}
+  .btn-primary{background:var(--btn-dark);color:var(--btn-dark-text)}
+  .btn-primary .sub{color:color-mix(in srgb, var(--btn-dark-text) 68%, transparent)}
+  .btn-gold{background:linear-gradient(135deg,#b98f2e,#8f6d1f);color:#fff;border-color:#7a5c18}
+  .btn-gold .sub{color:rgba(255,255,255,.82)}
+  .btn-outline{background:var(--card);border-color:var(--line);color:var(--ink)}
+  .btn-outline .sub{color:var(--ink2)}
+  .icon{
+    width:46px;height:46px;border-radius:12px;flex:none;display:grid;place-items:center;
+    background:rgba(255,255,255,.14)
+  }
+  .btn-outline .icon{background:var(--gold-soft);color:var(--gold)}
+  .btn-primary .icon{background:rgba(255,255,255,.12);color:var(--gold-bright)}
+  .icon svg{width:22px;height:22px}
+  .btn-text{flex:1;min-width:0}
+  .btn-title{display:block;font-size:17px;font-weight:600;line-height:1.2;letter-spacing:.01em}
+  .btn-sub{display:block;font-size:13.5px;margin-top:2px;overflow-wrap:anywhere;line-height:1.35}
+  .chev{opacity:.55;flex:none}
+  .chev svg{width:18px;height:18px;display:block}
+  /* Secondary grid */
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .mini{
+    display:flex;flex-direction:column;gap:10px;padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--card);
+  }
+  .mini .icon{width:40px;height:40px;border-radius:10px;background:var(--gold-soft);color:var(--gold)}
+  .mini .icon svg{width:20px;height:20px}
+  .mini strong{font-size:15px;font-weight:600;line-height:1.25}
+  .mini span{font-size:13px;color:var(--ink2);line-height:1.35}
+  .mini:active{transform:scale(.985)}
+  /* Hours */
+  .hours{list-style:none;margin:0;padding:0}
+  .hours li{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px solid var(--line);font-size:15px}
+  .hours li:last-child{border-bottom:0;padding-bottom:2px}
+  .hours .d{color:var(--ink2)}
+  .hours .t{font-weight:600;text-align:right}
+  .hours li.today .d,.hours li.today .t{color:var(--gold)}
+  .hours li.off .t{color:var(--ink3);font-weight:500}
+  .note{font-size:14px;line-height:1.6;color:var(--ink2);margin:0}
+  .note strong{color:var(--ink)}
+  /* Copy row */
+  .copyrow{display:flex;gap:10px;margin-top:14px}
+  .copybtn{
+    flex:1;display:flex;align-items:center;justify-content:center;gap:8px;
+    font-family:inherit;font-size:13.5px;font-weight:600;letter-spacing:.02em;
+    padding:11px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;
+  }
+  .copybtn:active{transform:scale(.97)}
+  .footer{text-align:center;color:var(--ink3);font-size:13px;line-height:1.6;margin-top:24px;padding:0 8px}
+  .footer a{text-decoration:underline;text-underline-offset:3px}
+  .divider{width:44px;height:2px;background:var(--gold-bright);margin:18px auto 0;border-radius:2px;opacity:.9}
+  .toast{
+    position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(16px);opacity:0;pointer-events:none;
+    background:var(--btn-dark);color:var(--btn-dark-text);font-size:14px;font-weight:500;padding:11px 18px;border-radius:999px;
+    box-shadow:0 10px 30px rgba(0,0,0,.25);transition:all .25s ease;z-index:20;white-space:nowrap;
+  }
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  @media (max-width:480px){
+    h1{font-size:36px}
+    .grid{grid-template-columns:1fr 1fr}
+    .btn{gap:10px;padding:14px 12px}
+    .btn .icon{width:40px;height:40px}
+    .btn-sub{font-size:12.6px;letter-spacing:-.01em}
+    .chev{display:none}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .btn,.toast{transition:none}
+  }
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <p class="eyebrow">Cable Dahmer Cadillac &nbsp;·&nbsp; Kansas City</p>
+  <div class="avatar" aria-hidden="true">BP</div>
+  <h1>Brenen Prinzing</h1>
+  <p class="role"><strong>Sales Consultant</strong> — Cable Dahmer Cadillac</p>
+  <p class="dealer">1151 W 104th St, Kansas City, MO 64114</p>
+  <p class="tagline">I’m passionate about helping people find their <em>perfect vehicle</em>. Reach me directly below — you’ll talk to me, not the main store line.</p>
+
+  <div class="status" id="statusPill" aria-live="polite"><span class="dot" id="statusDot"></span><span id="statusText">Checking test drive hours…</span></div>
+
+  <div class="divider" aria-hidden="true"></div>
+
+  <!-- Primary contact -->
+  <section class="card" aria-label="Contact Brenen directly">
+    <h2>Reach me directly</h2>
+    <div class="actions">
+      <a class="btn btn-gold btn-hero" href="sms:+18166011688?&amp;body=Hi%20Brenen%2C%20I%27m%20interested%20in%20a%20vehicle%20you%20have%20listed.%20Can%20we%20set%20up%20a%20test%20drive%3F">
+        <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></span>
+        <span class="btn-text"><span class="btn-title">Text Brenen</span><span class="btn-sub sub">816-601-1688 · Fastest way to reach me</span></span>
+        <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m9 6 6 6-6 6"/></svg></span>
+      </a>
+
+      <a class="btn btn-primary" href="tel:+18166011688">
+        <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+        <span class="btn-text"><span class="btn-title">Call My Direct Line</span><span class="btn-sub sub">816-601-1688 · Ask for Brenen Prinzing</span></span>
+        <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m9 6 6 6-6 6"/></svg></span>
+      </a>
+
+      <a class="btn btn-outline btn-sm" href="https://m.me/61595422784900" target="_blank" rel="noopener">
+        <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.36 2 2 6.13 2 11.7c0 2.91 1.19 5.53 3.14 7.4V22l2.92-1.6c.78.22 1.6.33 2.45.33h.01c5.64 0 9.98-4.13 9.98-9.7S17.64 2 12 2zm1.09 12.46-2.53-2.7-4.93 2.7 5.43-5.76 2.59 2.7 4.87-2.7-5.43 5.76z"/></svg></span>
+        <span class="btn-text"><span class="btn-title">Message on Messenger</span><span class="btn-sub sub">Through my Facebook Page</span></span>
+        <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m9 6 6 6-6 6"/></svg></span>
+      </a>
+    </div>
+
+    <p class="emaillink">Prefer email? <a href="mailto:bprinzing@cabledahmer.com?subject=Vehicle%20inquiry%20—%20test%20drive&amp;body=Hi%20Brenen%2C%0A%0AI%27m%20interested%20in%20a%20vehicle%20you%20have%20listed%20and%20would%20like%20to%20set%20up%20a%20test%20drive.%0A%0AThanks!">bprinzing@cabledahmer.com</a></p>
+
+    <div class="copyrow">
+      <button class="copybtn" type="button" data-copy="8166011688" data-label="Phone number copied">⧉ Copy phone</button>
+      <button class="copybtn" type="button" data-copy="bprinzing@cabledahmer.com" data-label="Email copied">⧉ Copy email</button>
+      <button class="copybtn" type="button" id="saveContact">↓ Save contact</button>
+    </div>
+  </section>
+
+  <!-- Visit & follow -->
+  <section class="card" aria-label="Visit and follow">
+    <h2>Visit &amp; follow along</h2>
+    <div class="grid">
+      <a class="mini" href="https://www.google.com/maps/search/?api=1&amp;query=Cable+Dahmer+Cadillac+1151+W+104th+St+Kansas+City+MO+64114" target="_blank" rel="noopener">
+        <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
+        <strong>Get Directions</strong>
+        <span>Cable Dahmer Cadillac<br>1151 W 104th St, Kansas City</span>
+      </a>
+      <a class="mini" href="https://www.facebook.com/61595422784900" target="_blank" rel="noopener">
+        <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8h2.5V4.5H14A4.5 4.5 0 0 0 9.5 9v2H7v3.5h2.5V21h3.5v-6.5h2.6l.4-3.5h-3V9c0-.6.4-1 1-1Z"/></svg></span>
+        <strong>Facebook Page</strong>
+        <span>Brenen Prinzing — Cadillac Sales KC · New listings &amp; walkarounds</span>
+      </a>
+      <a class="mini" href="https://www.instagram.com/brenen.cadillackc" target="_blank" rel="noopener">
+        <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg></span>
+        <strong>Instagram</strong>
+        <span>@brenen.cadillackc<br>Daily arrivals &amp; behind the scenes</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Hours -->
+  <section class="card" aria-label="Test drive hours">
+    <h2>Test drive hours</h2>
+    <ul class="hours" id="hoursList">
+      <li data-days="1"><span class="d">Monday</span><span class="t">9:00 AM – 6:00 PM</span></li>
+      <li data-days="2"><span class="d">Tuesday</span><span class="t">9:00 AM – 6:00 PM</span></li>
+      <li data-days="3" class="off"><span class="d">Wednesday</span><span class="t">No test drives</span></li>
+      <li data-days="4"><span class="d">Thursday</span><span class="t">9:00 AM – 6:00 PM</span></li>
+      <li data-days="5"><span class="d">Friday</span><span class="t">9:00 AM – 6:00 PM</span></li>
+      <li data-days="6"><span class="d">Saturday</span><span class="t">9:00 AM – 6:00 PM</span></li>
+      <li data-days="0" class="off"><span class="d">Sunday</span><span class="t">No test drives</span></li>
+    </ul>
+    <p class="note" style="margin-top:14px">Text or call ahead and I’ll have the vehicle pulled up and ready when you arrive. <strong>Ask for Brenen Prinzing, Sales Consultant</strong>, so you’re connected directly to me.</p>
+  </section>
+
+  <p class="footer">
+    Brenen Prinzing · Sales Consultant · Cable Dahmer Cadillac<br>
+    Direct: <a href="tel:+18166011688">816-601-1688</a> · <a href="mailto:bprinzing@cabledahmer.com">bprinzing@cabledahmer.com</a>
+  </p>
+</main>
+
+<div class="toast" id="toast" role="status" aria-live="polite">Copied</div>
+
+<script>
+(function(){
+  // Live test-drive status in America/Chicago
+  var openDays = {1:true,2:true,4:true,5:true,6:true}; // Mon Tue Thu Fri Sat
+  var dayNames = {0:"Sunday",1:"Monday",2:"Tuesday",3:"Wednesday",4:"Thursday",5:"Friday",6:"Saturday"};
+  function chicagoNow(){
+    try{
+      var s = new Date().toLocaleString("en-US",{timeZone:"America/Chicago"});
+      return new Date(s);
+    }catch(e){ return new Date(); }
+  }
+  function nextOpenDay(fromDay){
+    for(var i=1;i<=7;i++){
+      var d=(fromDay+i)%7;
+      if(openDays[d]) return dayNames[d];
+    }
+    return "";
+  }
+  var now = chicagoNow();
+  var day = now.getDay();
+  var mins = now.getHours()*60 + now.getMinutes();
+  var open = !!openDays[day] && mins >= 9*60 && mins < 18*60;
+  var textEl = document.getElementById("statusText");
+  var dotEl = document.getElementById("statusDot");
+  if(open){
+    textEl.textContent = "Test drives available today until 6:00 PM — text me to book yours";
+    dotEl.classList.remove("closed");
+  } else if(!!openDays[day] && mins < 9*60){
+    textEl.textContent = "Test drives today from 9:00 AM — text me to reserve a time";
+    dotEl.classList.add("closed");
+  } else {
+    textEl.textContent = "Next test drives: " + nextOpenDay(day) + " 9:00 AM – 6:00 PM — text me anytime";
+    dotEl.classList.add("closed");
+  }
+  // Highlight today in hours list
+  var items = document.querySelectorAll("#hoursList li");
+  for(var i=0;i<items.length;i++){
+    if(parseInt(items[i].getAttribute("data-days"),10)===day){ items[i].classList.add("today"); }
+  }
+
+  // Copy buttons
+  var toast = document.getElementById("toast");
+  var toastTimer=null;
+  function showToast(msg){
+    toast.textContent=msg;
+    toast.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer=setTimeout(function(){toast.classList.remove("show");},1800);
+  }
+  function copyText(t, label){
+    function done(){ showToast(label); }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(t).then(done).catch(function(){ fallback(); });
+    } else { fallback(); }
+    function fallback(){
+      var ta=document.createElement("textarea");
+      ta.value=t; ta.style.position="fixed"; ta.style.opacity="0";
+      document.body.appendChild(ta); ta.select();
+      try{ document.execCommand("copy"); done(); }catch(e){ showToast(t); }
+      document.body.removeChild(ta);
+    }
+  }
+  var copyBtns=document.querySelectorAll("[data-copy]");
+  for(var j=0;j<copyBtns.length;j++){
+    (function(b){
+      b.addEventListener("click",function(){ copyText(b.getAttribute("data-copy"), b.getAttribute("data-label")); });
+    })(copyBtns[j]);
+  }
+
+  // Save contact (vCard download)
+  document.getElementById("saveContact").addEventListener("click", function(){
+    var vcard = [
+      "BEGIN:VCARD",
+      "VERSION:3.0",
+      "FN:Brenen Prinzing",
+      "N:Prinzing;Brenen;;;",
+      "TITLE:Sales Consultant",
+      "ORG:Cable Dahmer Cadillac",
+      "TEL;TYPE=CELL,WORK:+18166011688",
+      "EMAIL;TYPE=WORK:bprinzing@cabledahmer.com",
+      "ADR;TYPE=WORK:;;1151 W 104th St;Kansas City;MO;64114;USA",
+      "END:VCARD"
+    ].join("\r\n");
+    var blob = new Blob([vcard], {type:"text/vcard"});
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href=url; a.download="Brenen-Prinzing.vcf";
+    document.body.appendChild(a); a.click();
+    document.body.removeChild(a);
+    setTimeout(function(){ URL.revokeObjectURL(url); }, 800);
+    showToast("Contact card downloaded");
+  });
+})();
+</script>
+</body>
+</html>

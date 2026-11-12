@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex">
+<title>Car details | {{name}}</title>
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/site.css">
+<script type="module" src="assets/js/car.js"></script>
+</head>
+<body>
+{{header}}
+<main class="wrap car-page" id="car">
+  <p class="muted">Loading this car&hellip;</p>
+  <noscript>
+    <p>Car details need JavaScript. You can still reach {{first_name}} directly.</p>
+    <p class="actions"><a class="btn btn-gold" href="{{sms_general}}">Text {{first_name}}</a>
+    <a class="btn btn-line" href="{{tel}}">Call {{phone_display}}</a></p>
+  </noscript>
+</main>
+{{footer}}
+</body>
+</html>
