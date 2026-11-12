@@ -354,6 +354,29 @@ def test_fee_rule_applies_to_drivecentric_exports_too(rows):
     assert cars["C51234"]["price"] == 119610 and "price" not in cars["C51240"]
 
 
+def test_site_list_paired_with_drivecentric_file(tmp_path, capsys):
+    sx.write_csv(tmp_path / "store.csv", SITE_HEADERS, SITE_ROWS)
+    sx.write_csv(tmp_path / "dc.csv", sx.HEADERS, [
+        ["2027 Cadillac Escalade", "No", "No", "Platinum Sport", "C51234", "130565.0", "0.0", "279", "2", "", "1", "3"],
+        ["2023 Cadillac XT5", "No", "Yes", "Premium Luxury", "CP60123", "38995.0", "0.0", "52849", "0", "", "0", "40"],
+    ])
+    (tmp_path / "cfg.json").write_text(json.dumps(FEE_CONFIG))
+    out = tmp_path / "inv.json"
+    assert bi.main([str(tmp_path / "store.csv"), "--dc-export", str(tmp_path / "dc.csv"),
+                    "--config", str(tmp_path / "cfg.json"), "--out", str(out), "--photos", str(tmp_path / "p"),
+                    "--exclude", str(tmp_path / "x.txt"), "--prices", str(tmp_path / "none.json"),
+                    "--site-checked-at", FRESH, "--now", "2026-11-12T18:00:00Z"]) == 0
+    cars = {c["stock"]: c for c in json.loads(out.read_text())["cars"]}
+    assert cars["C51234"]["price"] == 131185 and cars["C51234"]["new_arrival"] is True
+    assert "CP60123" not in cars                              # DriveCentric says delivered
+    assert "price" not in cars["CX60500"]                     # not in the DriveCentric file
+    printed = capsys.readouterr().out
+    assert "REVIEW" in printed and "C51234" in printed        # deal count carried over
+    assert "CX60500" in printed and "not in the DriveCentric file" in printed
+    text = out.read_text().lower()
+    assert not {"deals", "leads", "msrp", '"age"'} & {w for w in ("deals", "leads", "msrp", '"age"') if w in text}
+
+
 def test_condition_disagreement_is_reported(tmp_path):
     rows = bi.read_export(sx.write_csv(tmp_path / "s.csv", SITE_HEADERS, [
         ["C51234"] + SITE_ROWS[0][1:6] + ["Used"] + SITE_ROWS[0][7:]]))

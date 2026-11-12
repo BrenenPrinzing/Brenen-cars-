@@ -82,9 +82,14 @@ private Drive folder "Daily Inventory Export". The converter reads Muse's
 `inventory-store.csv` directly:
 
 ```
-python tools/build_inventory.py data/raw/inventory-store.csv --site-checked-at <time Muse pulled it>
+python tools/build_inventory.py data/raw/inventory-store.csv \
+    --dc-export data/raw/inventory-dc.csv --site-checked-at <time Muse pulled the site>
 python -m pytest
 ```
+
+`inventory-dc.csv` is the DriveCentric export Muse used that morning. Paired by stock
+number, it supplies the price to compare, Age (for "Landed this week") and Deals (for
+the review list), and drops anything DriveCentric marks sold or delivered.
 
 That file is already the dealer site's own list, so sold cars are gone from it. The
 converter still applies every rule: KC stock only, hold list, whitelisted fields. It
@@ -94,15 +99,6 @@ never publishes the file's `vdp_url`, `photo_url` (store photos, R5) or `engine`
 (`dealer_site.admin_fee`); DriveCentric's price does not. A price shows only when
 DriveCentric's price is exactly $620 less than the site price, and the pull is under
 24 hours old. The site price is the one shown.
-
-**Columns the converter can use if Muse adds them to `inventory-store.csv`:**
-
-| Column | What it turns on |
-|---|---|
-| `dc_price` | Prices. Without it every car says "Text me for price". |
-| `pulled_at` | The pull time (ISO, e.g. `2026-11-12T14:23:00Z`), so `--site-checked-at` isn't needed. |
-| `age` | "Landed this week" (cars with Age 7 or less). Age itself is never published. |
-| `deals` | The review list of cars with a deal on them, for `data/exclude.txt`. |
 
 Commit `inventory/inventory.json` only. Never commit anything from `data/raw/`.
 

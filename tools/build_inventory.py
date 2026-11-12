@@ -390,6 +390,28 @@ def verified_price(export_price: int, check: dict | None, now: dt.datetime, fee:
     return listed, "match"
 
 
+DC_FIELDS = ("pricing", "age", "deals", "sold", "delivered")
+
+
+def merge_dc(site_rows: list[dict], dc_rows: list[dict]) -> tuple[list[dict], list[str]]:
+    """Add DriveCentric's price, age, deal count and sold flags to Muse's site rows.
+
+    Matched by stock number. Returns (rows, stocks that are on the site list but not in
+    the DriveCentric file). Unmatched cars stay listed, with no price.
+    """
+    dc = {r.get("stocknumber", "").strip().upper(): r for r in dc_rows}
+    out, unmatched = [], []
+    for row in site_rows:
+        stock = row.get("stocknumber", "").strip().upper()
+        match = dc.get(stock)
+        if match is None:
+            unmatched.append(stock)
+            out.append(row)
+        else:
+            out.append({**row, **{k: match[k] for k in DC_FIELDS if k in match}})
+    return out, unmatched
+
+
 def site_check(row: dict, site_checked_at: str | None) -> dict | None:
     """Muse's daily site list carries the dealer site's own price in a `price` column.
 
@@ -564,6 +586,8 @@ def main(argv=None) -> int:
     ap.add_argument("--config", type=Path, default=ROOT / "site.config.json")
     ap.add_argument("--prices", type=Path, default=ROOT / "data" / "raw" / "price_checks.json",
                     help="output of tools/check_dealer_prices.py (prices stay hidden without it)")
+    ap.add_argument("--dc-export", type=Path, help="DriveCentric export to pair with Muse's "
+                    "site list: supplies the price to compare, Age and Deals")
     ap.add_argument("--site-checked-at", help="ISO time Muse pulled the site list, when the "
                     "file has no pulled_at column")
     ap.add_argument("--date", help="value for 'updated' (default: today, UTC)")
@@ -571,6 +595,9 @@ def main(argv=None) -> int:
     a = ap.parse_args(argv)
     try:
         rows = read_export(a.export)
+        unmatched = []
+        if a.dc_export:
+            rows, unmatched = merge_dc(rows, read_export(a.dc_export))
         config = json.loads(a.config.read_text(encoding="utf-8")) if a.config.exists() else {}
         inventory, report = build(
             rows, exclude=load_exclude(a.exclude), photos_dir=a.photos,
@@ -582,6 +609,9 @@ def main(argv=None) -> int:
     a.out.parent.mkdir(parents=True, exist_ok=True)
     a.out.write_text(dumps(inventory), encoding="utf-8", newline="\n")
     print_report(inventory, report)
+    if unmatched:
+        print(f"NOTE: {len(unmatched)} cars on the site list are not in the DriveCentric file "
+              f"(listed with no price): " + ", ".join(unmatched[:20]))
     print(f"\nWrote {a.out}")
     return 0
 
