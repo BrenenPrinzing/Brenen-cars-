@@ -320,7 +320,7 @@ def check_all(cars: list[dict], *, base: str, templates: dict, fetcher=fetch,
     return {"source": base, "generated_at": stamp(), "checks": checks}
 
 
-def print_report(doc: dict, export_prices: dict, out=None) -> None:
+def print_report(doc: dict, export_prices: dict, out=None, fee: int = 0) -> None:
     out = out or sys.stdout
     ok = match = 0
     problems = []
@@ -330,12 +330,12 @@ def print_report(doc: dict, export_prices: dict, out=None) -> None:
             continue
         ok += 1
         mine = export_prices.get(stock, 0)
-        if mine == c["price"]:
+        if mine > 0 and mine + fee == c["price"]:
             match += 1
         else:
-            problems.append(f"  {stock}: mismatch (export ${mine:,} vs site ${c['price']:,})")
+            problems.append(f"  {stock}: mismatch (DriveCentric ${mine:,} + ${fee:,} fee vs site ${c['price']:,})")
     print(f"Checked {len(doc['checks'])} cars: {ok} listed with a price, {match} match "
-          f"the export exactly.", file=out)
+          f"DriveCentric plus the fee.", file=out)
     if problems:
         print("Price will be hidden (\"Text me for price\") for:", file=out)
         print("\n".join(problems), file=out)
@@ -378,7 +378,7 @@ def main(argv=None) -> int:
     doc = check_all(cars, base=base, templates=templates, delay=a.delay)
     a.out.parent.mkdir(parents=True, exist_ok=True)
     a.out.write_text(json.dumps(doc, indent=1, sort_keys=True) + "\n", encoding="utf-8")
-    print_report(doc, {r["stock"]: bi.to_int(r.get("pricing")) for r in kept})
+    print_report(doc, {r["stock"]: bi.to_int(r.get("pricing")) for r in kept}, fee=bi.admin_fee(config))
     print(f"\nWrote {a.out} (gitignored). Now run tools/build_inventory.py.")
     return 0
 

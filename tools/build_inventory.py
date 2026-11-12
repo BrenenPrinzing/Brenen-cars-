@@ -358,8 +358,17 @@ def gone_from_dealer_site(kept: list[dict], price_checks: dict, now: dt.datetime
     return missing, None
 
 
-def verified_price(export_price: int, check: dict | None, now: dt.datetime):
-    """Return (price or None, reason). Publish only on an exact, fresh match."""
+def admin_fee(config: dict | None) -> int:
+    return to_int(((config or {}).get("dealer_site") or {}).get("admin_fee"))
+
+
+def verified_price(export_price: int, check: dict | None, now: dt.datetime, fee: int = 0):
+    """Return (price or None, reason). Publish only on an exact, fresh match.
+
+    The dealer site lists the price with the admin fee; DriveCentric holds it without.
+    A match is: DriveCentric price + fee == site price, to the dollar. The site price
+    (fee included) is what gets published.
+    """
     if not check:
         return None, "no dealer-site check"
     if check.get("status") != "ok":
@@ -368,16 +377,42 @@ def verified_price(export_price: int, check: dict | None, now: dt.datetime):
     if not isinstance(listed, int) or listed <= 0:
         return None, "no price on dealer site"
     if export_price <= 0:
-        return None, "no price in export"
+        return None, "no DriveCentric price to compare"
     try:
         age = now - parse_time(check["checked_at"])
     except (KeyError, ValueError):
         return None, "check has no time"
     if age >= PRICE_MAX_AGE or age < dt.timedelta(minutes=-5):
         return None, "check is over 24 hours old"
-    if listed != export_price:
-        return None, f"mismatch (export ${export_price:,} vs site ${listed:,})"
+    if listed != export_price + fee:
+        plus = f" + ${fee:,} fee" if fee else ""
+        return None, f"mismatch (DriveCentric ${export_price:,}{plus} vs site ${listed:,})"
     return listed, "match"
+
+
+def site_check(row: dict, site_checked_at: str | None) -> dict | None:
+    """Muse's daily site list carries the dealer site's own price in a `price` column.
+
+    That row is the dealer-site check. The time comes from a `pulled_at` / `checked_at`
+    column or from --site-checked-at; without a time the price stays hidden.
+    """
+    if "price" not in row:
+        return None
+    when = row.get("pulledat", "").strip() or row.get("checkedat", "").strip() or site_checked_at
+    price = to_int(row.get("price"))
+    check = {"status": "ok" if price > 0 else "no_price"}
+    if price > 0:
+        check["price"] = price
+    if when:
+        check["checked_at"] = when
+    return check
+
+
+def file_condition(row: dict) -> str | None:
+    text = row.get("condition", "").strip().lower()
+    if not text:
+        return None
+    return "New" if text == "new" else "Pre-owned"
 
 
 def disclaimer_set(config: dict) -> bool:
@@ -388,13 +423,15 @@ def disclaimer_set(config: dict) -> bool:
 
 def build(rows: list[dict], *, exclude: set[str] = frozenset(), photos_dir: Path | None = None,
           price_checks: dict | None = None, config: dict | None = None,
-          date: str | None = None, now: dt.datetime | None = None) -> tuple[dict, dict]:
+          date: str | None = None, now: dt.datetime | None = None,
+          site_checked_at: str | None = None) -> tuple[dict, dict]:
     """Return (inventory dict, report dict). Raises BuildError on any hard stop."""
     now = now or dt.datetime.now(dt.timezone.utc)
     price_checks = price_checks or {}
     warnings: list[str] = []
     kept, dropped = filter_rows(rows, set(exclude))
     cars, review, hidden_prices, check_times = [], [], [], []
+    fee = admin_fee(config)
     gone, gone_warning = gone_from_dealer_site(kept, price_checks, now)
     if gone_warning:
         warnings.append(gone_warning)
@@ -403,7 +440,10 @@ def build(rows: list[dict], *, exclude: set[str] = frozenset(), photos_dir: Path
 
     for row in kept:
         stock = row["stock"]
-        year, make, model = split_vehicle(row.get("vehicle", ""))
+        if row.get("vehicle", "").strip():
+            year, make, model = split_vehicle(row["vehicle"])
+        else:  # Muse's site list has the three as separate columns
+            year, make, model = to_int(row.get("year")), row.get("make", "").strip(), row.get("model", "").strip()
         condition = condition_for(stock)
         car = {
             "stock": stock, "year": year, "make": make, "model": model,
@@ -423,12 +463,17 @@ def build(rows: list[dict], *, exclude: set[str] = frozenset(), photos_dir: Path
         if age_text and to_int(age_text) <= NEW_ARRIVAL_DAYS:
             car["new_arrival"] = True
 
-        check = price_checks.get(stock)
-        price, reason = verified_price(to_int(row.get("pricing")), check, now)
+        check = price_checks.get(stock) or site_check(row, site_checked_at)
+        dc_price = to_int(row.get("pricing") or row.get("dcprice"))
+        price, reason = verified_price(dc_price, check, now, fee)
+        told = file_condition(row)
+        if told and told != ("Pre-owned" if condition == "Pre-owned" else "New"):
+            warnings.append(f"{stock}: stock number says {condition} but the file says "
+                            f"{row.get('condition', '').strip()}. Shown as {condition}.")
         if price:
             car["price"] = price
             check_times.append(parse_time(check["checked_at"]))
-        elif price_checks:
+        elif check:
             hidden_prices.append((stock, reason))
         carfax = (check or {}).get("carfax_url")
         if carfax and (check or {}).get("status") == "ok" and is_carfax_url(carfax):
@@ -511,13 +556,16 @@ def print_report(inventory: dict, report: dict, out=None) -> None:
 
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
-    ap.add_argument("export", type=Path, help="DriveCentric export (.csv or .xlsx)")
+    ap.add_argument("export", type=Path,
+                    help="DriveCentric export or Muse's inventory-store file (.csv or .xlsx)")
     ap.add_argument("--out", type=Path, default=ROOT / "inventory" / "inventory.json")
     ap.add_argument("--exclude", type=Path, default=ROOT / "data" / "exclude.txt")
     ap.add_argument("--photos", type=Path, default=ROOT / "photos")
     ap.add_argument("--config", type=Path, default=ROOT / "site.config.json")
     ap.add_argument("--prices", type=Path, default=ROOT / "data" / "raw" / "price_checks.json",
                     help="output of tools/check_dealer_prices.py (prices stay hidden without it)")
+    ap.add_argument("--site-checked-at", help="ISO time Muse pulled the site list, when the "
+                    "file has no pulled_at column")
     ap.add_argument("--date", help="value for 'updated' (default: today, UTC)")
     ap.add_argument("--now", help="ISO time used for the 24-hour price check (default: now)")
     a = ap.parse_args(argv)
@@ -527,7 +575,7 @@ def main(argv=None) -> int:
         inventory, report = build(
             rows, exclude=load_exclude(a.exclude), photos_dir=a.photos,
             price_checks=load_price_checks(a.prices), config=config, date=a.date,
-            now=parse_time(a.now) if a.now else None)
+            now=parse_time(a.now) if a.now else None, site_checked_at=a.site_checked_at)
     except BuildError as e:
         print(f"BUILD FAILED: {e}", file=sys.stderr)
         return 1

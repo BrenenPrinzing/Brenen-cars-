@@ -216,7 +216,6 @@ def test_price_only_on_exact_fresh_match(rows):
     assert "fetch_failed" in hidden["C51199A"]
     assert "robots_blocked" in hidden["T4321"]
     assert hidden["CT60222"] == "no price on dealer site"
-    assert hidden["P61234"] == "no dealer-site check"
     assert inv["prices_checked_at"] == FRESH
 
 
@@ -288,6 +287,79 @@ def test_broken_site_reader_cannot_empty_the_list(rows):
     # Just under half found: still treated as a reader problem.
     some = ok_checks(list(sx.KEPT_STOCKS)[:4], **{s: c[s] for s in list(sx.KEPT_STOCKS)[4:]})
     assert set(by_stock(build(rows, price_checks=some, config=CONFIG)[0])) == sx.KEPT_STOCKS
+
+
+# --- Muse's daily site list (inventory-store.csv) ------------------------------------
+
+SITE_HEADERS = ["stock_number", "vin", "year", "make", "model", "trim", "condition", "price",
+                "mileage", "exterior_color", "interior_color", "engine", "vdp_url", "photo_url"]
+SITE_ROWS = [
+    ["C51234", "1GYS9GKL9VR000001", "2027", "Cadillac", "Escalade", "Platinum Sport", "New", "131185", "279",
+     "Black Raven", "Sheer Gray, Full Leather", "6.2L V8 engine", "https://dealer.example/new-1", "https://dealer.example/1.jpg"],
+    ["CP60123", "1GYKNCRS0PZ000000", "2023", "Cadillac", "XT5", "Premium Luxury", "Certified Pre-Owned", "39615", "52849",
+     "Stellar Black", "Jet Black", "3.6L V6", "https://dealer.example/used-2", "https://dealer.example/2.jpg"],
+    ["CX60500", "1HGCV1F50KA000000", "2019", "Honda", "Accord", "EX-L", "Used", "", "88049",
+     "White", "Black", "1.5L", "https://dealer.example/used-3", "https://dealer.example/3.jpg"],
+    ["L12345", "5XYP5DHC0NG000000", "2022", "Kia", "Telluride", "SX", "Used", "39000", "30000",
+     "Gray", "Black", "3.8L", "https://dealer.example/used-4", "https://dealer.example/4.jpg"],
+]
+FEE_CONFIG = dict(CONFIG, dealer_site={"admin_fee": 620})
+
+
+def site_rows(tmp_path, extra_headers=(), extra=()):
+    rows = [r + list(e) for r, e in zip(SITE_ROWS, extra)] if extra else SITE_ROWS
+    return bi.read_export(sx.write_csv(tmp_path / "store.csv", SITE_HEADERS + list(extra_headers), rows))
+
+
+def test_site_list_builds_cars_without_prices_or_dealer_urls(tmp_path):
+    inv, report = build(site_rows(tmp_path), config=FEE_CONFIG, site_checked_at=FRESH)
+    cars = by_stock(inv)
+    assert set(cars) == {"C51234", "CP60123", "CX60500"}             # Lawrence unit dropped
+    assert cars["C51234"] == {"stock": "C51234", "year": 2027, "make": "Cadillac", "model": "Escalade",
+                              "trim": "Platinum Sport", "condition": "New", "body": "SUV", "photos": [],
+                              "ext_color": "Black Raven", "int_color": "Sheer Gray, Full Leather",
+                              "vin": "1GYS9GKL9VR000001"}             # no miles on new, no price
+    assert cars["CP60123"]["condition"] == "Pre-owned" and cars["CP60123"]["miles"] == 52800
+    text = bi.dumps(inv)
+    assert "dealer.example" not in text and "131185" not in text and "engine" not in text.lower()
+    assert dict(report["hidden_prices"])["C51234"] == "no DriveCentric price to compare"
+    assert dict(report["hidden_prices"])["CX60500"] == "check no_price"
+    assert not report["warnings"]
+
+
+def test_site_price_shows_only_when_drivecentric_is_exactly_the_fee_less(tmp_path):
+    rows = site_rows(tmp_path, ["dc_price"], [["130565"], ["38990"], ["21000"], ["38380"]])
+    inv, report = build(rows, config=FEE_CONFIG, site_checked_at=FRESH)
+    cars = by_stock(inv)
+    assert cars["C51234"]["price"] == 131185                          # 130,565 + 620, site price shown
+    assert "price" not in cars["CP60123"]                             # 38,990 + 620 != 39,615
+    assert "38,990 + $620 fee vs site $39,615" in dict(report["hidden_prices"])["CP60123"]
+    assert "130565" not in bi.dumps(inv)                              # DriveCentric price never published
+    assert inv["prices_checked_at"] == FRESH
+
+
+def test_site_price_needs_a_pull_time_under_24_hours(tmp_path):
+    rows = site_rows(tmp_path, ["dc_price"], [["130565"], ["38995"], [""], [""]])
+    assert not any("price" in c for c in build(rows, config=FEE_CONFIG)[0]["cars"])
+    assert not any("price" in c for c in build(rows, config=FEE_CONFIG, site_checked_at=STALE)[0]["cars"])
+    timed = site_rows(tmp_path, ["dc_price", "pulled_at"], [["130565", FRESH], ["38995", STALE], ["", FRESH], ["", FRESH]])
+    cars = by_stock(build(timed, config=FEE_CONFIG)[0])
+    assert cars["C51234"]["price"] == 131185 and "price" not in cars["CP60123"]
+
+
+def test_fee_rule_applies_to_drivecentric_exports_too(rows):
+    c = checks(C51234={"status": "ok", "price": 119610, "checked_at": FRESH},      # 118,990 + 620
+               C51240={"status": "ok", "price": 63990, "checked_at": FRESH})       # equal, so no match
+    cars = by_stock(build(rows, price_checks=c, config=FEE_CONFIG)[0])
+    assert cars["C51234"]["price"] == 119610 and "price" not in cars["C51240"]
+
+
+def test_condition_disagreement_is_reported(tmp_path):
+    rows = bi.read_export(sx.write_csv(tmp_path / "s.csv", SITE_HEADERS, [
+        ["C51234"] + SITE_ROWS[0][1:6] + ["Used"] + SITE_ROWS[0][7:]]))
+    inv, report = build(rows)
+    assert inv["cars"][0]["condition"] == "New"
+    assert any("C51234" in w and "Used" in w for w in report["warnings"])
 
 
 # --- Acceptance 3: idempotent --------------------------------------------------------

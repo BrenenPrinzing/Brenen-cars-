@@ -176,6 +176,7 @@ def test_price_never_shows_without_its_disclaimer():
     assert "config.price_disclaimer })" in block          # fine print under every price
     assert ui.count("formatPrice(") == 1                  # the only place a price is drawn
     assert 'id="price-disclaimer">All vehicles purchase prices do not include tax, title' in (ROOT / "index.html").read_text()
+    assert "website form" not in CONFIG["price_disclaimer"] and "SMS" not in CONFIG["price_disclaimer"]
     pages = built(dict(CONFIG, price_disclaimer="Fee <b> & tax."))
     assert 'id="price-disclaimer">Fee &lt;b&gt; &amp; tax.</p>' in pages["index.html"]
 

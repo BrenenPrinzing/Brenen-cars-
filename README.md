@@ -75,36 +75,40 @@ python tools/refresh.py data/raw/<export file> --dealer-check   # plus the deale
 Between refreshes the page looks after itself: it shows the "Updated" date, warns
 when the list is 3 or more days old, and hides every price after 24 hours.
 
-### Dealer-site access: Muse's lane
+### Muse's daily site list (the normal source from Nov 12)
 
-Muse handles reading the dealer site (Brenen, Nov 12). This build environment cannot
-reach it. What Muse runs, from a copy of this repo, with the day's export:
+Each morning Muse pulls the live inventory from the dealer site and saves it to the
+private Drive folder "Daily Inventory Export". The converter reads Muse's
+`inventory-store.csv` directly:
 
 ```
-python tools/refresh.py data/raw/<export file> --dealer-check
+python tools/build_inventory.py data/raw/inventory-store.csv --site-checked-at <time Muse pulled it>
 python -m pytest
 ```
 
-Then commit `inventory/inventory.json` only. Never commit anything from `data/raw/`.
+That file is already the dealer site's own list, so sold cars are gone from it. The
+converter still applies every rule: KC stock only, hold list, whitelisted fields. It
+never publishes the file's `vdp_url`, `photo_url` (store photos, R5) or `engine`.
 
-**First run, before trusting it:** the page reader has only been tested on made-up
-pages. On the first real run, pick five cars and compare by hand:
+**Price rule (Brenen, Nov 12).** The site price includes the $620 Administrative Fee
+(`dealer_site.admin_fee`); DriveCentric's price does not. A price shows only when
+DriveCentric's price is exactly $620 less than the site price, and the pull is under
+24 hours old. The site price is the one shown.
 
-1. Does the price in the report equal the "Cable Dahmer Price" on the car's page (the
-   one that includes the Administrative Fee, not the "Retail Price")? The reader looks
-   for the label set in `dealer_site.price_label`.
-2. Does the export's Pricing column hold that same fee-inclusive number? If the export
-   holds the Retail Price instead, no price will ever match and every car will say
-   "Text me for price". Tell Brenen and Claude; the fix is a decision, not a guess.
-3. Are the search addresses right (`dealer_site.used_path`, `new_path`)? If most cars
-   come back "not found", they are wrong, and nothing gets dropped.
-4. Does robots.txt allow those pages? If not, the report says "robots blocked".
+**Columns the converter can use if Muse adds them to `inventory-store.csv`:**
 
-### Daily automatic refresh (not set up yet)
+| Column | What it turns on |
+|---|---|
+| `dc_price` | Prices. Without it every car says "Text me for price". |
+| `pulled_at` | The pull time (ISO, e.g. `2026-11-12T14:23:00Z`), so `--site-checked-at` isn't needed. |
+| `age` | "Landed this week" (cars with Age 7 or less). Age itself is never published. |
+| `deals` | The review list of cars with a deal on them, for `data/exclude.txt`. |
 
-The plan: each morning Muse pulls the DriveCentric export into a private place, runs
-the two commands above, and pushes `inventory/inventory.json` if the tests pass and
-the report has no cars to review. The export never goes in this repo, which is public.
+Commit `inventory/inventory.json` only. Never commit anything from `data/raw/`.
+
+`tools/check_dealer_prices.py` and `tools/refresh.py --dealer-check` remain as a
+fallback for building from a raw DriveCentric export. They have never run against
+the real site.
 
 ## What Brenen still needs to send
 
