@@ -101,7 +101,7 @@ main > section { padding-block: 34px; }
 /* 2. Hero */
 .hero { text-align: center; padding-top: 30px; }
 .hero .actions, .hero .social-row { justify-content: center; }
-.banner-img { width: 100%; max-height: 220px; object-fit: cover; border-radius: var(--radius); margin-bottom: 22px; }
+.banner-img { width: 100%; height: auto; aspect-ratio: 9 / 5; object-fit: cover; border-radius: var(--radius); margin-bottom: 22px; }
 .frame { position: relative; width: min(240px, 62vw); margin: 0 auto 22px; padding: 12px; }
 .frame img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 6px; background: var(--panel); }
 .frame::before, .frame::after { content: ""; position: absolute; width: 46px; height: 46px; border: 2px solid var(--gold); }

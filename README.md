@@ -6,8 +6,9 @@ nothing: no forms, no cookies, no analytics, no outside scripts or fonts.
 
 Full spec: [SPEC.md](SPEC.md). Status of the Muse page import: [MUSE_INVENTORY.md](MUSE_INVENTORY.md).
 
-**Not live.** GitHub Pages is off, no domain is bought, and `CNAME` holds the
-placeholder `DOMAIN_TBD`. Going live waits for Brenen's yes and the GSM's OK.
+**Not live.** GitHub Pages is off. The domain is `brenenprinzing.com` (in `CNAME` and
+`site.config.json`); nothing points to this repo until Pages is turned on and the DNS
+records below are added. Going live waits for Brenen's yes and the GSM's OK.
 
 ## How to refresh inventory (3 steps)
 
@@ -57,12 +58,10 @@ These are still empty in `site.config.json`. Nothing was invented.
 
 | Setting | Now | What it does when filled |
 |---|---|---|
-| `banner` | empty | Adds a banner image above the headshot. |
 | `price_disclaimer` | empty | Required before any price can show. |
 | `bio` | empty | A second line under the tagline. |
-| `domain` and `CNAME` | `DOMAIN_TBD` | See "Domain and DNS" below. |
 
-Already filled: headshot (Brenen's photo), phone, email, and from Muse's page the
+Already filled: headshot and banner (Brenen's images), domain, phone, email, and from Muse's page the
 tagline, store address, Facebook and Instagram links, test drive hours and the hours note. Details in [MUSE_INVENTORY.md](MUSE_INVENTORY.md).
 
 The phone and text number is 816-601-1688 (Brenen's agent line) for both `phone` and `sms_phone`.
@@ -105,9 +104,7 @@ Order of steps, all Brenen's, after the GSM's OK:
 
 1. **Buy the domain** at a registrar of his choice, on his own account (about $10 to
    $20 a year for a .com).
-2. **Put the domain in the repo.** Replace `DOMAIN_TBD` in the `CNAME` file and in
-   `site.config.json` (`domain`) with the bare domain, for example
-   `brenenprinzing.com`. Run `python tools/build_site.py`, commit and push.
+2. **Domain in the repo: done.** `CNAME` and `site.config.json` hold `brenenprinzing.com`.
 3. **Add these DNS records at the registrar.**
 
    | Type | Host / Name | Value |

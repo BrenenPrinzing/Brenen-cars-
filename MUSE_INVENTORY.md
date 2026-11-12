@@ -53,7 +53,8 @@ pixels, embeds or iframes.
 2. Email: show it.
 3. Messenger: stays removed.
 
-## Still open
+## Added after the export
 
-- Banner: Brenen asked for the Facebook Page banner. This build environment cannot
-  reach facebook.com, so the image has to be sent as a file. `banner` stays empty.
+- Banner: Brenen sent his Facebook Page banner as a file. Cropped to center the car and
+  drop the name text; saved as `assets/img/banner.jpg`.
+- Domain: brenenprinzing.com.

@@ -225,12 +225,12 @@ def test_no_insurance_or_budget_tools_by_default():
 def test_placeholders_until_brenen_sends_them():
     index = (ROOT / "index.html").read_text()
     assert "assets/img/headshot-placeholder.svg" in built(dict(CONFIG, headshot="", headshot_small=""))["index.html"]
-    assert CONFIG["banner"] == "" and "banner-img" not in index
+    assert "banner-img" not in built(dict(CONFIG, banner=""))["index.html"]
     assert CONFIG["price_disclaimer"] == ""
     assert CONFIG["bio"] == ""
     bare = built(dict(CONFIG, socials={}))["index.html"]
     assert "social-row" not in bare and ">Follow<" not in bare
-    assert (ROOT / "CNAME").read_text() == "DOMAIN_TBD\n"
+    assert (ROOT / "CNAME").read_text() == CONFIG["domain"] + "\n" == "brenenprinzing.com\n"
 
 
 def test_muse_page_content_is_carried_over():
@@ -288,14 +288,15 @@ def test_vcard_is_valid_3_0_and_matches_config():
     assert raw.endswith(b"END:VCARD\r\n") and b"\r\n" in raw and b"\n" not in raw.replace(b"\r\n", b"")
     lines = raw.decode().strip().split("\r\n")
     assert lines[0] == "BEGIN:VCARD" and lines[1] == "VERSION:3.0" and lines[-1] == "END:VCARD"
-    fields = dict(line.split(":", 1) for line in lines)
+    fields = dict(line.split(":", 1) for line in lines)  # URL value keeps its own colon
     assert fields["FN"] == CONFIG["name"]
     assert fields["N"] == "Prinzing;Brenen;;;"
     assert fields["ORG"] == CONFIG["store"]["name"] and fields["TITLE"] == CONFIG["title"]
     assert fields["TEL;TYPE=CELL,VOICE"] == PHONE == "+18166011688"
     assert fields["EMAIL;TYPE=INTERNET"] == CONFIG["email"]
     assert fields["ADR;TYPE=WORK"] == ";;1151 W 104th St;Kansas City;MO;64114;USA"
-    assert not any(k.startswith(("URL", "PHOTO")) for k in fields)
+    assert fields["URL"] == "https://brenenprinzing.com/"
+    assert not any(k.startswith("PHOTO") for k in fields)
     assert all(len(line.encode()) <= 75 for line in lines)
 
 
@@ -332,7 +333,7 @@ def test_committed_inventory_has_only_allowed_keys():
 def test_no_store_images_or_brand_assets():
     tracked = git("ls-files").stdout.splitlines()
     images = [f for f in tracked if f.lower().endswith((".jpg", ".jpeg", ".png", ".webp", ".gif"))]
-    assert all(f.startswith("photos/") or f in ("assets/img/headshot.jpg", "assets/img/headshot-sm.jpg")
+    assert all(f.startswith("photos/") or f in ("assets/img/headshot.jpg", "assets/img/headshot-sm.jpg", "assets/img/banner.jpg")
                for f in images), images
     for f in images:                                       # no location data in any committed photo
         assert not bi.photo_info(ROOT / f)["gps"], f

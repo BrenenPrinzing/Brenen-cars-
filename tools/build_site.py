@@ -144,7 +144,7 @@ def context(config: dict) -> dict:
         "headshot": escape(headshot or PLACEHOLDER_HEADSHOT),
         "avatar": escape(str(config.get("headshot_small") or "").strip() or headshot or PLACEHOLDER_HEADSHOT),
         "headshot_alt": escape(config["name"] if headshot else "Brenen Prinzing monogram"),
-        "banner": (f'<img class="banner-img" src="{escape(config["banner"])}" alt="">'
+        "banner": (f'<img class="banner-img" src="{escape(config["banner"])}" alt="" width="1200" height="667">'
                    if str(config.get("banner") or "").strip() else ""),
         "eyebrow": f'<p class="eyebrow">{escape(config["eyebrow"])}</p>' if config.get("eyebrow") else "",
         "hours_note": (f'<p class="hours-note">{escape(config["hours_note"])}</p>'
