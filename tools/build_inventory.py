@@ -553,7 +553,7 @@ def dumps(inventory: dict) -> str:
     return json.dumps(inventory, indent=1, ensure_ascii=False) + "\n"
 
 
-def print_report(inventory: dict, report: dict, out=None) -> None:
+def print_report(inventory: dict, report: dict, out=None, list_deals: bool = False) -> None:
     out = out or sys.stdout
     d = report["dropped"]
     print(f"Read {inventory['source_rows']} rows, kept {inventory['kept']}.", file=out)
@@ -569,7 +569,11 @@ def print_report(inventory: dict, report: dict, out=None) -> None:
         print("\nPrices hidden:", file=out)
         for stock, reason in report["hidden_prices"]:
             print(f"  {stock}: {reason}", file=out)
-    if report["review"]:
+    if report["review"] and not list_deals:
+        # Brenen, Nov 12: list every car and rely on "Text to confirm".
+        print(f"\n{len(report['review'])} listed cars have a deal on them (all listed; add a stock # "
+              f"to data/exclude.txt to hold one, or run with --list-deals to see them).", file=out)
+    if report["review"] and list_deals:
         print("\nREVIEW: these kept cars have a deal on them. If another rep's deal is "
               "in proposal, add the stock # to data/exclude.txt and run again:", file=out)
         for stock, vehicle, deals in report["review"]:
@@ -590,6 +594,8 @@ def main(argv=None) -> int:
                     help="output of tools/check_dealer_prices.py (prices stay hidden without it)")
     ap.add_argument("--dc-export", type=Path, help="DriveCentric export to pair with Muse's "
                     "site list: supplies the price to compare, Age and Deals")
+    ap.add_argument("--list-deals", action="store_true",
+                    help="print every kept car that has a deal on it")
     ap.add_argument("--site-checked-at", help="ISO time Muse pulled the site list, when the "
                     "file has no pulled_at column")
     ap.add_argument("--date", help="value for 'updated' (default: today, UTC)")
@@ -610,7 +616,7 @@ def main(argv=None) -> int:
         return 1
     a.out.parent.mkdir(parents=True, exist_ok=True)
     a.out.write_text(dumps(inventory), encoding="utf-8", newline="\n")
-    print_report(inventory, report)
+    print_report(inventory, report, list_deals=a.list_deals)
     if unmatched:
         print(f"NOTE: {len(unmatched)} cars on the site list are not in the DriveCentric file "
               f"(listed with no price): " + ", ".join(unmatched[:20]))

@@ -19,9 +19,10 @@ records below are added. Going live waits for Brenen's yes and the GSM's OK.
    python tools/build_inventory.py data/raw/<export file>
    ```
 
-   Read the terminal report. If it lists cars under **REVIEW** (cars with a deal on
-   them) and another rep's deal is in proposal, add those stock numbers to
-   `data/exclude.txt` and run it again.
+   Read the terminal report. Every unsold car is listed, including ones with a deal on
+   them (Brenen, Nov 12: rely on "Text to confirm"). To hold a specific car, add its
+   stock number to `data/exclude.txt` and run again. `--list-deals` prints the cars
+   that have a deal.
 3. Commit `inventory/inventory.json` (and any new `photos/`) and push.
 
 ### Showing prices (optional, needs the GSM's OK first)

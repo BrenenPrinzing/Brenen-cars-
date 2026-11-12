@@ -371,7 +371,7 @@ def test_site_list_paired_with_drivecentric_file(tmp_path, capsys):
     assert bi.main([str(tmp_path / "store.csv"), "--dc-export", str(tmp_path / "dc.csv"),
                     "--config", str(tmp_path / "cfg.json"), "--out", str(out), "--photos", str(tmp_path / "p"),
                     "--exclude", str(tmp_path / "x.txt"), "--prices", str(tmp_path / "none.json"),
-                    "--site-checked-at", FRESH, "--now", "2026-11-12T18:00:00Z"]) == 0
+                    "--list-deals", "--site-checked-at", FRESH, "--now", "2026-11-12T18:00:00Z"]) == 0
     cars = {c["stock"]: c for c in json.loads(out.read_text())["cars"]}
     assert cars["C51234"]["price"] == 131185 and cars["C51234"]["new_arrival"] is True
     assert "CP60123" not in cars                              # DriveCentric says delivered
@@ -425,6 +425,9 @@ def test_review_list_prints_kept_cars_with_deals(rows, capsys):
     inv, report = build(rows)
     assert {r[0] for r in report["review"]} == {"DC50111", "C51199A"}   # sold ones not listed
     bi.print_report(inv, report)
+    quiet = capsys.readouterr().out
+    assert "2 listed cars have a deal" in quiet and "C51199A" not in quiet
+    bi.print_report(inv, report, list_deals=True)
     out = capsys.readouterr().out
     assert "C51199A" in out and "exclude.txt" in out
     assert "deals" not in bi.dumps(inv).lower()
