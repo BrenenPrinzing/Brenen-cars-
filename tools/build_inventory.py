@@ -502,7 +502,8 @@ def build(rows: list[dict], *, exclude: set[str] = frozenset(), photos_dir: Path
             car["carfax_url"] = carfax
 
         if to_int(row.get("deals")) > 0:
-            review.append((stock, row.get("vehicle", ""), to_int(row.get("deals"))))
+            review.append((stock, " ".join(str(x) for x in (year, make, model) if x),
+                           to_int(row.get("deals"))))
         cars.append(car)
 
     cars.sort(key=lambda c: (CONDITION_ORDER[c["condition"]], c["make"].lower(),
