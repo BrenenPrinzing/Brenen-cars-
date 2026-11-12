@@ -1,7 +1,7 @@
 {
  "updated": "2026-11-12",
- "source_rows": 229,
- "kept": 228,
+ "source_rows": 237,
+ "kept": 236,
  "cars": [
   {
    "stock": "C14884",
@@ -2102,6 +2102,58 @@
    "price": 57940
   },
   {
+   "stock": "DC15288",
+   "year": 2026,
+   "make": "Cadillac",
+   "model": "CT5",
+   "trim": "Sport",
+   "condition": "Demo",
+   "body": "Sedan",
+   "photos": [],
+   "ext_color": "Argent Silver Metallic",
+   "int_color": "Jet Black With Jet Black Accents, Leather Seating Surfaces",
+   "vin": "1G6DU5RK9T0127506"
+  },
+  {
+   "stock": "DC15310",
+   "year": 2026,
+   "make": "Cadillac",
+   "model": "CT5",
+   "trim": "Sport",
+   "condition": "Demo",
+   "body": "Sedan",
+   "photos": [],
+   "ext_color": "Deep Space Metallic",
+   "int_color": "Whisper Beige With Jet Black Accents, Leather Seating Surfaces",
+   "vin": "1G6DU5RK6T0128032"
+  },
+  {
+   "stock": "DC15342",
+   "year": 2026,
+   "make": "Cadillac",
+   "model": "CT5",
+   "trim": "Sport",
+   "condition": "Demo",
+   "body": "Sedan",
+   "photos": [],
+   "ext_color": "Black Raven",
+   "int_color": "Jet Black With Jet Black Accents, Leather Seating Surfaces",
+   "vin": "1G6DU5RK5T0129317"
+  },
+  {
+   "stock": "DC15343",
+   "year": 2026,
+   "make": "Cadillac",
+   "model": "CT5",
+   "trim": "Sport",
+   "condition": "Demo",
+   "body": "Sedan",
+   "photos": [],
+   "ext_color": "Vibrant White Tricoat",
+   "int_color": "Jet Black With Jet Black Accents, Leather Seating Surfaces",
+   "vin": "1G6DU5RK9T0129238"
+  },
+  {
    "stock": "DC14810",
    "year": 2026,
    "make": "Cadillac",
@@ -2191,6 +2243,45 @@
    "price": 134180
   },
   {
+   "stock": "DC15201",
+   "year": 2026,
+   "make": "Cadillac",
+   "model": "Escalade ESV",
+   "trim": "Sport",
+   "condition": "Demo",
+   "body": "SUV",
+   "photos": [],
+   "ext_color": "Vibrant White Tricoat",
+   "int_color": "Renaissance Red With Jet Black Accents, Leather Seating Surfaces With Faceted Quilting",
+   "vin": "1GYS9PKL7TR468624"
+  },
+  {
+   "stock": "DC15299",
+   "year": 2027,
+   "make": "Cadillac",
+   "model": "LYRIQ",
+   "trim": "Signature Luxury",
+   "condition": "Demo",
+   "body": "EV",
+   "photos": [],
+   "ext_color": "Vibrant White Tricoat",
+   "int_color": "Black Nappa With Sky Cool Gray Accents, Full Leather Seats With Perforated Inserts",
+   "vin": "1GYKPTRL7VZ305611"
+  },
+  {
+   "stock": "DC15302",
+   "year": 2027,
+   "make": "Cadillac",
+   "model": "LYRIQ",
+   "trim": "Signature Luxury",
+   "condition": "Demo",
+   "body": "EV",
+   "photos": [],
+   "ext_color": "Argent Silver Metallic",
+   "int_color": "Black Nappa With Sky Cool Gray Accents, Full Leather Seats With Perforated Inserts",
+   "vin": "1GYKPTRLXVZ305604"
+  },
+  {
    "stock": "DC14557",
    "year": 2026,
    "make": "Cadillac",
@@ -2232,6 +2323,19 @@
    "int_color": "Black, Inteluxe Seats With Perforated Inserts And Embroidery/Quilting Seat Trim",
    "vin": "3GYK3GM46VS106078",
    "price": 65895
+  },
+  {
+   "stock": "DC15316",
+   "year": 2027,
+   "make": "Cadillac",
+   "model": "VISTIQ",
+   "trim": "Sport",
+   "condition": "Demo",
+   "body": "EV",
+   "photos": [],
+   "ext_color": "Vibrant White Tricoat",
+   "int_color": "Sheer Gray, Inteluxe Seats With Perforated Inserts And Piping",
+   "vin": "1GYC3NML4VZ705032"
   },
   {
    "stock": "DC14902",
