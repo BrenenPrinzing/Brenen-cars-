@@ -64,13 +64,40 @@ function setupInventory(inventory) {
   }
   $('inv-search').addEventListener('input', (e) => { filters.q = e.target.value; draw(); });
 
+  // Paged at 10 per page with numbered tabs top and bottom (Brenen, 2026-11-12:
+  // the long scroll list is out; this matches his original page design).
+  const PAGE_SIZE = 10;
+  let page = 1;
+  let filterKey = '';
+  function drawPager(pages) {
+    for (const nav of [$('inv-pager-top'), $('inv-pager-bottom')]) {
+      nav.hidden = pages <= 1;
+      nav.replaceChildren(...Array.from({ length: pages }, (_, i) => {
+        const btn = h('button', { type: 'button', class: 'pager-btn',
+          'aria-pressed': String(i + 1 === page), 'aria-label': `Page ${i + 1}`,
+          text: String(i + 1) });
+        btn.addEventListener('click', () => {
+          page = i + 1;
+          draw();
+          $('inventory').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+        return btn;
+      }));
+    }
+  }
   function draw() {
     const shown = filterCars(cars, filters);
-    grid.replaceChildren(...shown.map((car) => card(car, inventory)));
+    const key = [filters.q, filters.condition, filters.make, filters.body].join('|');
+    if (key !== filterKey) { filterKey = key; page = 1; }
+    const pages = Math.max(1, Math.ceil(shown.length / PAGE_SIZE));
+    if (page > pages) page = pages;
+    const items = shown.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
+    grid.replaceChildren(...items.map((car) => card(car, inventory)));
     count.textContent = shown.length === cars.length
       ? `${cars.length} listed`
       : `${shown.length} of ${cars.length} listed`;
     empty.hidden = shown.length > 0;
+    drawPager(pages);
   }
   $('inv-filters').hidden = false;
   draw();
