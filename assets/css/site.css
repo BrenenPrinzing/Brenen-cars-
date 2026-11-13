@@ -271,7 +271,9 @@ main > section { padding-block: 34px; }
 }
 
 /* Inventory pager: numbered tabs above and below the grid, chip-styled. */
-.pager { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0; }
+.pager { display: flex; flex-wrap: nowrap; gap: 8px; margin: 14px 0; overflow-x: auto; padding-bottom: 4px; scrollbar-width: none; }
+.pager::-webkit-scrollbar { display: none; }
+.pager-btn { flex: none; }
 .pager-btn {
   min-height: var(--tap); min-width: var(--tap); padding: 8px 12px;
   background: var(--panel); color: var(--text); border: 1px solid var(--line); border-radius: 999px;

@@ -64,9 +64,9 @@ function setupInventory(inventory) {
   }
   $('inv-search').addEventListener('input', (e) => { filters.q = e.target.value; draw(); });
 
-  // Paged at 10 per page with numbered tabs top and bottom (Brenen, 2026-11-12:
+  // Paged at 5 per page with numbered tabs top and bottom (Brenen, 2026-11-12:
   // the long scroll list is out; this matches his original page design).
-  const PAGE_SIZE = 10;
+  const PAGE_SIZE = 5;
   let page = 1;
   let filterKey = '';
   function drawPager(pages) {
