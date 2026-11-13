@@ -3,6 +3,11 @@
 Muse pushes small, Brenen-approved updates to this repo from the Muse side.
 Read this file after pulling main. Newest first.
 
+## 2026-11-12 — 6 cars per page
+Brenen: 6 divides evenly into the grid rows. `PAGE_SIZE` 5 → 6 in
+`assets/js/app.js`; asset versions bumped to `?v=4`.
+
+
 ## 2026-11-12 — 5 cars per page; pager tabs are a single-line carousel
 Brenen: 10 per page still felt long, and the wrapped tab rows ate space.
 `PAGE_SIZE` is now 5 in `assets/js/app.js`, and `.pager` is a single
