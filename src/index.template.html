@@ -11,8 +11,8 @@
 {{social_meta}}
 <link rel="preload" href="assets/fonts/jost-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/css/site.css">
-<script type="module" src="assets/js/app.js"></script>
+<link rel="stylesheet" href="assets/css/site.css?v=2">
+<script type="module" src="assets/js/app.js?v=2"></script>
 </head>
 <body>
 {{header}}
@@ -57,9 +57,7 @@
         <select id="inv-body"><option value="">Body</option></select></label>
     </div>
   </div>
-  <nav class="pager" id="inv-pager-top" aria-label="Inventory pages" hidden></nav>
   <div class="grid" id="inv-grid"></div>
-  <nav class="pager" id="inv-pager-bottom" aria-label="Inventory pages" hidden></nav>
   <p class="muted" id="inv-empty" hidden>Nothing matches that. Clear the search, or text {{first_name}} what you&rsquo;re after.</p>
   <noscript><p class="muted">The inventory list needs JavaScript. Every contact link on this page works without it.</p></noscript>
   <p class="actions"><a class="btn btn-line" href="{{sms_general}}">Text {{first_name}} about a car</a></p>
