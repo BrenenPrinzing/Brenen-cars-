@@ -210,7 +210,7 @@ def load_exclude(path: Path | None) -> set[str]:
 
 def filter_rows(rows: list[dict], exclude: set[str]) -> tuple[list[dict], dict]:
     """Apply the keep rules. Returns (kept rows with 'stock' set, drop counts)."""
-    dropped = {"sold": 0, "delivered": 0, "bad_stock": 0, "far_store": 0, "excluded": 0, "duplicate": 0}
+    dropped = {"sold": 0, "delivered": 0, "held": 0, "bad_stock": 0, "far_store": 0, "excluded": 0, "duplicate": 0}
     kept, seen = [], set()
     for row in rows:
         stock = row.get("stocknumber", "").strip().upper()
@@ -222,6 +222,8 @@ def filter_rows(rows: list[dict], exclude: set[str]) -> tuple[list[dict], dict]:
             dropped["bad_stock"] += 1
         elif FAR_STORE.match(stock):
             dropped["far_store"] += 1
+        elif row.get("notindc") == "yes":
+            dropped["held"] += 1
         elif stock in exclude:
             dropped["excluded"] += 1
         elif stock in seen:
@@ -396,8 +398,8 @@ DC_FIELDS = ("pricing", "age", "deals", "sold", "delivered")
 def merge_dc(site_rows: list[dict], dc_rows: list[dict]) -> tuple[list[dict], list[str]]:
     """Add DriveCentric's price, age, deal count and sold flags to Muse's site rows.
 
-    Matched by stock number. Returns (rows, stocks that are on the site list but not in
-    the DriveCentric file). Unmatched cars stay listed, with no price.
+    Matched by stock number. Returns (rows, held): a car on the site list that is not in
+    the DriveCentric file yet is held off the page until it is (Brenen, Nov 13, 2026).
     """
     dc = {r.get("stocknumber", "").strip().upper(): r for r in dc_rows}
     out, unmatched = [], []
@@ -406,10 +408,22 @@ def merge_dc(site_rows: list[dict], dc_rows: list[dict]) -> tuple[list[dict], li
         match = dc.get(stock)
         if match is None:
             unmatched.append(stock)
-            out.append(row)
+            out.append(dict(row, notindc="yes"))
         else:
             out.append({**row, **{k: match[k] for k in DC_FIELDS if k in match}})
     return out, unmatched
+
+
+def held_stocks(rows: list[dict]) -> list[str]:
+    """Stocks held only because DriveCentric doesn't have them yet (not ones dropped anyway)."""
+    out = []
+    for row in rows:
+        stock = row.get("stocknumber", "").strip().upper()
+        if (row.get("notindc") == "yes" and STOCK_OK.match(stock) and not FAR_STORE.match(stock)
+                and row.get("sold", "").strip().lower() not in SOLD_YES
+                and row.get("delivered", "").strip().lower() not in SOLD_YES):
+            out.append(stock)
+    return out
 
 
 def site_check(row: dict, site_checked_at: str | None) -> dict | None:
@@ -559,7 +573,7 @@ def print_report(inventory: dict, report: dict, out=None, list_deals: bool = Fal
     print(f"Read {inventory['source_rows']} rows, kept {inventory['kept']}.", file=out)
     print(f"Dropped: {d['sold']} sold, {d['delivered']} delivered, {d['far_store']} Lawrence/Topeka/Independence, "
           f"{d['bad_stock']} in-transit or odd stock codes, {d['excluded']} on the hold "
-          f"list, {d['duplicate']} duplicates, {d.get('not_on_dealer_site', 0)} no longer on the "
+          f"list, {d.get('held', 0)} not in DriveCentric yet, {d['duplicate']} duplicates, {d.get('not_on_dealer_site', 0)} no longer on the "
           f"dealer site.", file=out)
     if report.get("gone"):
         print("No longer on the dealer site (dropped): " + ", ".join(report["gone"]), file=out)
@@ -617,9 +631,10 @@ def main(argv=None) -> int:
     a.out.parent.mkdir(parents=True, exist_ok=True)
     a.out.write_text(dumps(inventory), encoding="utf-8", newline="\n")
     print_report(inventory, report, list_deals=a.list_deals)
-    if unmatched:
-        print(f"NOTE: {len(unmatched)} cars on the site list are not in the DriveCentric file "
-              f"(listed with no price): " + ", ".join(unmatched[:20]))
+    held = held_stocks(rows)
+    if held:
+        print(f"HELD: {len(held)} cars on the site list are not in DriveCentric yet and are "
+              f"left off the page until they are: " + ", ".join(held[:20]))
     print(f"\nWrote {a.out}")
     return 0
 

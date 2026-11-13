@@ -47,6 +47,8 @@ at brenenprinzing.com. It is standalone: not part of Keyhand, no Keyhand service
   (`inventory-store.csv`, `inventory-dc.csv`, `photos/`). Those files never go in
   this repo. Only the rebuilt `inventory/inventory.json` and the shrunken photos do.
 - KC stores only (R2). Sold and delivered cars are dropped. (Delivered: Nov 12, 2026)
+- A car on Muse's site list that is not in the DriveCentric file yet is held off the
+  page (no listing, no photos) until DriveCentric has it. (Nov 13, 2026)
 - List every other car, including ones with a deal on them, and rely on
   "Text to confirm". `data/exclude.txt` holds a specific car if he asks. (Nov 12, 2026)
 - Msrp, leads, last lead, deals and age never reach the public file (R3, R6).

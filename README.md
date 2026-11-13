@@ -90,7 +90,8 @@ python -m pytest
 
 `inventory-dc.csv` is the DriveCentric export Muse used that morning. Paired by stock
 number, it supplies the price to compare, Age (for "Landed this week") and Deals (for
-the review list), and drops anything DriveCentric marks sold or delivered.
+the review list), and drops anything DriveCentric marks sold or delivered. A car that is not in the
+DriveCentric file yet is held off the page until it is (Brenen, Nov 13, 2026).
 
 That file is already the dealer site's own list, so sold cars are gone from it. The
 converter still applies every rule: KC stock only, hold list, whitelisted fields. It
@@ -155,7 +156,8 @@ How they get here:
    listed are removed.
 
 ```
-python tools/sync_photos.py <inventory repo>/photos --inventory <inventory repo>/inventory-store.csv
+python tools/sync_photos.py <inventory repo>/photos --inventory <inventory repo>/inventory-store.csv \
+    --dc-export <inventory repo>/inventory-dc.csv
 ```
 
 Brenen's own shots can still go in `photos/<STOCK>/` under any other file name; they

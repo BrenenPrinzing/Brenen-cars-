@@ -37,7 +37,7 @@ def test_keeps_only_kc_unsold_real_stock(rows):
     assert not stocks & sx.FAR_STOCKS
     assert not stocks & sx.SOLD_STOCKS
     assert not stocks & sx.TRANSIT_STOCKS
-    assert report["dropped"] == {"sold": 2, "delivered": 0, "bad_stock": 4, "far_store": 13,
+    assert report["dropped"] == {"sold": 2, "delivered": 0, "held": 0, "bad_stock": 4, "far_store": 13,
                                  "excluded": 0, "duplicate": 0, "not_on_dealer_site": 0}
     assert inv["source_rows"] == len(sx.ROWS) and inv["kept"] == len(sx.KEPT_STOCKS)
 
@@ -375,10 +375,10 @@ def test_site_list_paired_with_drivecentric_file(tmp_path, capsys):
     cars = {c["stock"]: c for c in json.loads(out.read_text())["cars"]}
     assert cars["C51234"]["price"] == 131185 and cars["C51234"]["new_arrival"] is True
     assert "CP60123" not in cars                              # DriveCentric says delivered
-    assert "price" not in cars["CX60500"]                     # not in the DriveCentric file
+    assert "CX60500" not in cars                              # not in DriveCentric yet: held
     printed = capsys.readouterr().out
     assert "REVIEW" in printed and "C51234" in printed        # deal count carried over
-    assert "CX60500" in printed and "not in the DriveCentric file" in printed
+    assert "HELD: 1 cars" in printed and "CX60500" in printed
     text = out.read_text().lower()
     assert not {"deals", "leads", "msrp", '"age"'} & {w for w in ("deals", "leads", "msrp", '"age"') if w in text}
 
