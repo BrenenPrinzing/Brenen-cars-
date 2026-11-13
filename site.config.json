@@ -129,7 +129,7 @@
   ],
   "messages": {
     "general": "Hi Brenen, I'm interested in a vehicle you have listed. Can we set up a test drive?",
-    "trade": "Hi Brenen, I'd like a value on my car.\nYear / Make / Model:\nMiles:\nCondition:",
+    "trade": "Hi Brenen, I'd like an appraisal on my car.\nFirst name:\nLast name:\nMobile number:",
     "hunting": "Hi Brenen, I'm hunting for:\nYear / Make / Model / Color / Must-haves:",
     "car": "Hi Brenen, I'm interested in the {car} (stock #{stock}). Is it still available?",
     "price": "Hi Brenen, what's the price on the {car} (stock #{stock})?",
