@@ -104,3 +104,29 @@ def test_converter_lists_own_photos_before_site_photos(dirs, tmp_path):
     car = bi.build(rows, photos_dir=dest)[0]["cars"][0]
     assert car["photos"][0] == "photos/C51234/01.jpg"
     assert car["photos"][1:] == [f"photos/C51234/site-0{i}.jpg" for i in range(1, 6)]
+
+
+def test_cars_not_in_drivecentric_get_no_photos(dirs, tmp_path):
+    import sample_export as sx
+    src, dest = dirs
+    sx.write_csv(tmp_path / "store.csv", ["Vehicle", "Sold", "Stock Number"],
+                 [["2026 Cadillac Escalade", "No", "C51234"], ["2023 Cadillac XT5", "No", "CP60123"]])
+    sx.write_csv(tmp_path / "dc.csv", ["Vehicle", "Stock Number"], [["2026 Cadillac Escalade", "C51234"]])
+    stocks = sp.kept_stocks(tmp_path / "store.csv", None, tmp_path / "dc.csv")
+    assert stocks == {"C51234"}
+    sp.sync(src, dest, stocks)
+    assert (dest / "C51234").is_dir() and not (dest / "CP60123").exists()
+
+
+def test_photo_sync_stops_on_incomplete_drivecentric(dirs, tmp_path, capsys):
+    import sample_export as sx
+    src, dest = dirs
+    sx.write_csv(tmp_path / "store.csv", ["Vehicle", "Sold", "Stock Number"],
+                 [["2026 Cadillac LYRIQ", "No", f"C5{i:04d}"] for i in range(40)])
+    sx.write_csv(tmp_path / "dc.csv", ["Vehicle", "Stock Number"], [["x", "C50000"]])
+    sp.sync(src, dest, {"C51234"})
+    code = sp.main([str(src), "--inventory", str(tmp_path / "store.csv"),
+                    "--dc-export", str(tmp_path / "dc.csv"), "--dest", str(dest),
+                    "--exclude", str(tmp_path / "x.txt")])
+    assert code == 1 and (dest / "C51234").is_dir()                  # nothing deleted
+    assert "PHOTO SYNC STOPPED" in capsys.readouterr().err

@@ -92,6 +92,11 @@ python -m pytest
 number, it supplies the price to compare, Age (for "Landed this week") and Deals (for
 the review list), and drops anything DriveCentric marks sold or delivered.
 
+A car that is not in the DriveCentric file yet is held off the page, photos included,
+until it is (Brenen, Nov 13, 2026). If more than 10 cars and more than a quarter of the
+list are missing from DriveCentric, the build stops instead: that means the DriveCentric
+export is incomplete, and holding them all would empty the site.
+
 That file is already the dealer site's own list, so sold cars are gone from it. The
 converter still applies every rule: KC stock only, hold list, whitelisted fields. It
 never publishes the file's `vdp_url`, `photo_url` (the site serves its own copies of the
@@ -155,7 +160,8 @@ How they get here:
    listed are removed.
 
 ```
-python tools/sync_photos.py <inventory repo>/photos --inventory <inventory repo>/inventory-store.csv
+python tools/sync_photos.py <inventory repo>/photos --inventory <inventory repo>/inventory-store.csv \
+    --dc-export <inventory repo>/inventory-dc.csv
 ```
 
 Brenen's own shots can still go in `photos/<STOCK>/` under any other file name; they

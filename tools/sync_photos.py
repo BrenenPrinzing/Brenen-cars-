@@ -38,8 +38,11 @@ SOURCE_EXT = {".jpg", ".jpeg", ".png", ".webp"}
 MAX_SOURCE_BYTES = 25_000_000
 
 
-def kept_stocks(inventory_csv: Path, exclude: Path | None) -> set[str]:
+def kept_stocks(inventory_csv: Path, exclude: Path | None, dc_export: Path | None = None) -> set[str]:
     rows = bi.read_export(inventory_csv)
+    if dc_export:
+        rows, _ = bi.merge_dc(rows, bi.read_export(dc_export))   # held cars get no photos
+        bi.check_held(rows)
     kept, _ = bi.filter_rows(rows, bi.load_exclude(exclude))
     return {r["stock"] for r in kept}
 
@@ -111,6 +114,8 @@ def main(argv=None) -> int:
     ap.add_argument("--inventory", type=Path, required=True, help="Muse's inventory-store.csv")
     ap.add_argument("--dest", type=Path, default=bi.ROOT / "photos")
     ap.add_argument("--exclude", type=Path, default=bi.ROOT / "data" / "exclude.txt")
+    ap.add_argument("--dc-export", type=Path, help="DriveCentric export: cars not in it yet are "
+                    "held, so their photos are not copied")
     ap.add_argument("--max-per-car", type=int, default=5)
     ap.add_argument("--max-px", type=int, default=960)
     a = ap.parse_args(argv)
@@ -122,7 +127,12 @@ def main(argv=None) -> int:
     except ImportError:
         print("sync_photos.py needs Pillow: pip install pillow", file=sys.stderr)
         return 1
-    r = sync(a.source, a.dest, kept_stocks(a.inventory, a.exclude), a.max_per_car, a.max_px)
+    try:
+        stocks = kept_stocks(a.inventory, a.exclude, a.dc_export)
+    except bi.BuildError as e:
+        print(f"PHOTO SYNC STOPPED: {e}", file=sys.stderr)
+        return 1
+    r = sync(a.source, a.dest, stocks, a.max_per_car, a.max_px)
     print(f"Photos: {r['cars']} cars have photos. {r['written']} new or changed, "
           f"{r['reused']} reused, {r['removed']} folders removed for cars no longer listed.")
     for s in r["skipped"]:
