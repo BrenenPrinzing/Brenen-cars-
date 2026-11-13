@@ -1,7 +1,7 @@
 {
- "updated": "2026-11-12",
- "source_rows": 237,
- "kept": 236,
+ "updated": "2026-11-13",
+ "source_rows": 229,
+ "kept": 228,
  "cars": [
   {
    "stock": "C14884",
@@ -623,7 +623,6 @@
    "ext_color": "Sandstone",
    "int_color": "Black, Leather Seating Surfaces With Precision Perforated Inserts",
    "vin": "1GYS9FKL1VR146154",
-   "new_arrival": true,
    "price": 118415
   },
   {
@@ -1263,27 +1262,6 @@
    "price": 143815
   },
   {
-   "stock": "C15324",
-   "year": 2027,
-   "make": "Cadillac",
-   "model": "Escalade ESV",
-   "trim": "V-Series",
-   "condition": "New",
-   "body": "SUV",
-   "photos": [
-    "photos/C15324/site-01.jpg",
-    "photos/C15324/site-02.jpg",
-    "photos/C15324/site-03.jpg",
-    "photos/C15324/site-04.jpg",
-    "photos/C15324/site-05.jpg"
-   ],
-   "ext_color": "Black Raven",
-   "int_color": "Sheer Gray With Black Accents, Full Semi-Aniline Leather Seats With Faceted Quilting",
-   "vin": "1GYS9SK94VR144749",
-   "new_arrival": true,
-   "price": 187495
-  },
-  {
    "stock": "C15325",
    "year": 2027,
    "make": "Cadillac",
@@ -1300,8 +1278,7 @@
    ],
    "ext_color": "Black Raven",
    "int_color": "Black, Full Semi-Aniline Leather Seats With Mondrian Quilting",
-   "vin": "1GYS9SK91VR144725",
-   "new_arrival": true
+   "vin": "1GYS9SK91VR144725"
   },
   {
    "stock": "C15110",
@@ -1480,8 +1457,7 @@
    ],
    "ext_color": "Black Raven",
    "int_color": "Jet Black, Full Semi-Aniline Leather Seats With Mondrian Quilting",
-   "vin": "1GYS9SK98TR444338",
-   "price": 199409
+   "vin": "1GYS9SK98TR444338"
   },
   {
    "stock": "C14336",
@@ -1502,26 +1478,6 @@
    "int_color": "Harbor Blue With Backen Black Accents, Nouveauluxe Seats With Carrington Falls Perforated Pattern",
    "vin": "1GYTEDKL4TU100431",
    "price": 132269
-  },
-  {
-   "stock": "C14339",
-   "year": 2026,
-   "make": "Cadillac",
-   "model": "ESCALADE IQ",
-   "trim": "Sport",
-   "condition": "New",
-   "body": "EV",
-   "photos": [
-    "photos/C14339/site-01.jpg",
-    "photos/C14339/site-02.jpg",
-    "photos/C14339/site-03.jpg",
-    "photos/C14339/site-04.jpg",
-    "photos/C14339/site-05.jpg"
-   ],
-   "ext_color": "Black Cherry Tintcoat",
-   "int_color": "Backen Black With Santorini Accents, Inteluxe Seats With Fjord (Chevron) Quilting Pattern",
-   "vin": "1GYTEEKL5TU100430",
-   "price": 113990
   },
   {
    "stock": "C15269",
@@ -1923,7 +1879,6 @@
    "ext_color": "Vibrant White Tricoat",
    "int_color": "Sky Cool Gray With Santorini Blue Accents, Inteluxe Seats With Perforated Inserts",
    "vin": "1GYKPURLXVZ306841",
-   "new_arrival": true,
    "price": 66970
   },
   {
@@ -1944,7 +1899,6 @@
    "ext_color": "Opulent Blue Metallic",
    "int_color": "Black Nappa With Sky Cool Gray Accents, Full Leather Seats With Perforated Inserts",
    "vin": "1GYKPYRL6VZ306908",
-   "new_arrival": true,
    "price": 83910
   },
   {
@@ -2286,7 +2240,6 @@
    "ext_color": "Black Raven",
    "int_color": "Autumn Canyon, Inteluxe Seats With Perforated Inserts And Embroidered Embellishments Seat Trim",
    "vin": "3GYK3GM46VS111149",
-   "new_arrival": true,
    "price": 61250
   },
   {
@@ -3305,25 +3258,6 @@
    "price": 65895
   },
   {
-   "stock": "DC15316",
-   "year": 2027,
-   "make": "Cadillac",
-   "model": "VISTIQ",
-   "trim": "Sport",
-   "condition": "Demo",
-   "body": "EV",
-   "photos": [
-    "photos/DC15316/site-01.jpg",
-    "photos/DC15316/site-02.jpg",
-    "photos/DC15316/site-03.jpg",
-    "photos/DC15316/site-04.jpg",
-    "photos/DC15316/site-05.jpg"
-   ],
-   "ext_color": "Vibrant White Tricoat",
-   "int_color": "Sheer Gray, Inteluxe Seats With Perforated Inserts And Piping",
-   "vin": "1GYC3NML4VZ705032"
-  },
-  {
    "stock": "DC14902",
    "year": 2026,
    "make": "Cadillac",
@@ -3463,28 +3397,8 @@
    "miles": 63900,
    "ext_color": "Ebony Twilight Metallic",
    "int_color": "Ebony Seats With Ebony Interior Accents, Leatherette Seat Trim",
-   "vin": "KL4AMESL3RB191504"
-  },
-  {
-   "stock": "DB18927A",
-   "year": 2020,
-   "make": "Buick",
-   "model": "Envision",
-   "trim": "Essence",
-   "condition": "Pre-owned",
-   "body": "SUV",
-   "photos": [
-    "photos/DB18927A/site-01.jpg",
-    "photos/DB18927A/site-02.jpg",
-    "photos/DB18927A/site-03.jpg",
-    "photos/DB18927A/site-04.jpg",
-    "photos/DB18927A/site-05.jpg"
-   ],
-   "miles": 72000,
-   "ext_color": "Satin Steel Metallic",
-   "int_color": "With Ebony Interior Accents",
-   "vin": "LRBFXCSA1LD209045",
-   "price": 18435
+   "vin": "KL4AMESL3RB191504",
+   "price": 20620
   },
   {
    "stock": "B19527G",
@@ -3499,7 +3413,8 @@
    "ext_color": "Deep Garnet Metallic",
    "int_color": "Light Neutral, Perforated Leather-Appointed Seat Trim",
    "vin": "1G4GF5G34EF230862",
-   "new_arrival": true
+   "new_arrival": true,
+   "price": 18403
   },
   {
    "stock": "DC14912A",
@@ -3561,7 +3476,8 @@
    "miles": 13600,
    "ext_color": "Argent Silver Metallic",
    "int_color": "Jet Black, Leather Seating Surfaces With Mini-Perforated Inserts",
-   "vin": "1G6DH5RL8S0115326"
+   "vin": "1G6DH5RL8S0115326",
+   "price": 45620
   },
   {
    "stock": "CP2035",
@@ -3582,7 +3498,6 @@
    "ext_color": "Radiant Red Tintcoat",
    "int_color": "Jet Black With Jet Black Accents, Leather Seating Surfaces",
    "vin": "1G6DS5RW8S0122496",
-   "new_arrival": true,
    "price": 53071
   },
   {
@@ -3619,7 +3534,8 @@
    "ext_color": "Shadow Metallic",
    "int_color": "With Chevron Perforated Inserts",
    "vin": "1G6DV5RW4M0124045",
-   "new_arrival": true
+   "new_arrival": true,
+   "price": 35625
   },
   {
    "stock": "C15121A",
@@ -3679,27 +3595,6 @@
    "price": 54019
   },
   {
-   "stock": "CP2032",
-   "year": 2021,
-   "make": "Cadillac",
-   "model": "Escalade",
-   "trim": "Sport",
-   "condition": "Pre-owned",
-   "body": "SUV",
-   "photos": [
-    "photos/CP2032/site-01.jpg",
-    "photos/CP2032/site-02.jpg",
-    "photos/CP2032/site-03.jpg",
-    "photos/CP2032/site-04.jpg",
-    "photos/CP2032/site-05.jpg"
-   ],
-   "miles": 90000,
-   "ext_color": "Crystal White Tricoat",
-   "int_color": "(With Fine Line Brandy Wood Trim.)",
-   "vin": "1GYS4FKL8MR305328",
-   "price": 53620
-  },
-  {
    "stock": "C15172A",
    "year": 2020,
    "make": "Cadillac",
@@ -3753,7 +3648,8 @@
    "miles": 38200,
    "ext_color": "Flare Metallic",
    "int_color": "Camelia With Backen Black Accents, Nouveauluxe Seating With Evren (Back Inserts) And Cygnus (Seat Cushion) Perforated Pattern",
-   "vin": "1GYTEDKL8SU103041"
+   "vin": "1GYTEDKL8SU103041",
+   "price": 96934
   },
   {
    "stock": "CX3340",
@@ -3819,21 +3715,6 @@
    "price": 19492
   },
   {
-   "stock": "CP2036",
-   "year": 2017,
-   "make": "Cadillac",
-   "model": "XT5",
-   "trim": "FWD",
-   "condition": "Pre-owned",
-   "body": "SUV",
-   "photos": [],
-   "miles": 141600,
-   "ext_color": "Radiant Silver Metallic",
-   "int_color": "With Jet Black Accents",
-   "vin": "1GYKNARS8HZ115306",
-   "new_arrival": true
-  },
-  {
    "stock": "CT2306A",
    "year": 2021,
    "make": "Cadillac",
@@ -3846,7 +3727,6 @@
    "ext_color": "Stellar Black Metallic",
    "int_color": "With Jet Black Accents",
    "vin": "1GYKPHRS3MZ209252",
-   "new_arrival": true,
    "price": 27120
   },
   {
@@ -3946,7 +3826,6 @@
    "ext_color": "Silver Ice Metallic",
    "int_color": "Jet Black, Perforated Leather-Appointed Front Seat Trim",
    "vin": "1GC4YPE70LF207319",
-   "new_arrival": true,
    "price": 45691
   },
   {
@@ -4193,22 +4072,8 @@
    "miles": 35800,
    "ext_color": "White Frost Tricoat",
    "int_color": "After Dark, Perforated Leather-Appointed Seat Trim",
-   "vin": "1GKENRKSXRJ151000"
-  },
-  {
-   "stock": "CT2317A",
-   "year": 2019,
-   "make": "GMC",
-   "model": "Acadia",
-   "trim": "SLE",
-   "condition": "Pre-owned",
-   "body": "SUV",
-   "photos": [],
-   "miles": 119400,
-   "ext_color": "Ebony Twilight Metallic",
-   "int_color": "Dark Ash Gray/ Light Ash Gray, Seat Trim, Premium Cloth",
-   "vin": "1GKKNLLS6KZ136516",
-   "new_arrival": true
+   "vin": "1GKENRKSXRJ151000",
+   "price": 45920
   },
   {
    "stock": "B19392A",
@@ -4426,9 +4291,25 @@
    "photos": [],
    "miles": 7700,
    "ext_color": "Red",
-   "int_color": "Red",
    "vin": "2HKRW2H85NH641652",
-   "new_arrival": true
+   "new_arrival": true,
+   "price": 29367
+  },
+  {
+   "stock": "B18934A",
+   "year": 2018,
+   "make": "Jeep",
+   "model": "Compass",
+   "trim": "Trailhawk",
+   "condition": "Pre-owned",
+   "body": "SUV",
+   "photos": [],
+   "miles": 69400,
+   "ext_color": "White Clearcoat",
+   "int_color": "Ruby Red/Black",
+   "vin": "3C4NJDDB6JT345849",
+   "new_arrival": true,
+   "price": 15830
   },
   {
    "stock": "C15204A",
@@ -4490,7 +4371,8 @@
    "miles": 52700,
    "ext_color": "Wolf Gray",
    "int_color": "Black",
-   "vin": "5XYP5DGC5RG554309"
+   "vin": "5XYP5DGC5RG554309",
+   "price": 37620
   },
   {
    "stock": "B18979A",
@@ -4510,7 +4392,8 @@
    "miles": 114600,
    "ext_color": "Everlasting Silve",
    "int_color": "Black",
-   "vin": "5XYP5DHC6MG105793"
+   "vin": "5XYP5DHC6MG105793",
+   "price": 24620
   },
   {
    "stock": "C15074A",
@@ -4564,7 +4447,7 @@
    "body": "SUV",
    "photos": [],
    "miles": 21000,
-   "ext_color": "Red Carpet Metallic Tinted Clearcoat",
+   "ext_color": "Red Carpet Metall",
    "int_color": "Light Smoked Truffle",
    "vin": "5LMPJ8K43RJ841899",
    "new_arrival": true,
@@ -4584,7 +4467,7 @@
    "int_color": "Black Onyx",
    "vin": "5LMJJ2LG6SEL09248",
    "new_arrival": true,
-   "price": 72162
+   "price": 76836
   },
   {
    "stock": "C15273A",
@@ -4609,22 +4492,6 @@
    "price": 78074
   },
   {
-   "stock": "CT2301G",
-   "year": 2017,
-   "make": "Lincoln",
-   "model": "Navigator",
-   "trim": "Select",
-   "condition": "Pre-owned",
-   "body": "SUV",
-   "photos": [],
-   "miles": 157000,
-   "ext_color": "Ruby Red Metallic",
-   "int_color": "Ebony",
-   "vin": "5LMJJ2JT1HEL03110",
-   "new_arrival": true,
-   "price": 16410
-  },
-  {
    "stock": "CT2286",
    "year": 2025,
    "make": "Mazda",
@@ -4644,19 +4511,6 @@
    "int_color": "Black W/Brown",
    "vin": "7MMVABEM4SN378001",
    "price": 27620
-  },
-  {
-   "stock": "CT2318",
-   "year": 2024,
-   "make": "Mitsubishi",
-   "model": "Outlander",
-   "trim": "SE",
-   "condition": "Pre-owned",
-   "body": "SUV",
-   "photos": [],
-   "miles": 71100,
-   "vin": "JA4J3VA89RZ039038",
-   "new_arrival": true
   },
   {
    "stock": "CT2285A",
@@ -4716,5 +4570,5 @@
    "price": 33920
   }
  ],
- "prices_checked_at": "2026-11-12T14:23:00Z"
+ "prices_checked_at": "2026-11-13T14:23:00Z"
 }
