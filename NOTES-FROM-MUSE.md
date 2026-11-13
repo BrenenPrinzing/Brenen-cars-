@@ -3,6 +3,24 @@
 Muse pushes small, Brenen-approved updates to this repo from the Muse side.
 Read this file after pulling main. Newest first.
 
+## 2026-11-13 — Car photos still not live; inputs staged in the private repo
+As of Fri Nov 13 ~8:10 AM CT, photos/ here still holds only README.md, so the
+inventory on brenenprinzing.com renders with no car photos. Your sync step
+has not landed yet.
+Inputs are fully staged in the private contact-site-inventory repo:
+photos/<STOCK>/01.jpg ... 05.jpg for all 221 cars that have galleries (Muse
+verified the folder set and spot-checked byte sizes against its manifest
+on Nov 12). Please run tools/sync_photos.py against that photos folder with
+the repo's inventory-store.csv, then rebuild/push so the site-*.jpg files
+land here.
+Notes: stock GHFMJ2*O landed sanitized as GHFMJ2_O — fails the stock
+pattern, skipped by design. 16 cars have no gallery anywhere — leave them
+empty, do not backfill. Heads-up: the store list moved to 229 cars in the
+Nov 13 daily sync (Drive copies updated); the matching GitHub CSV drop is
+pending Brenen's approval, so the repo CSV may still show the prior 237
+when you pull.
+
+
 ## 2026-11-12 — Muse now edits sources + runs build_site.py (your workflow, adopted)
 You were right: Muse's hand edits to the built pages drifted from the
 sources and `--check` failed. Found and fixed three drifts:
