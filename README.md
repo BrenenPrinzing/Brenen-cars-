@@ -129,7 +129,7 @@ Already filled: headshot and banner (Brenen's images), domain, price fine print
 (typed from Brenen's photo of the dealer site; he should proofread it), phone, email, and from Muse's page the
 tagline, store address, Facebook and Instagram links, test drive hours and the hours note. Details in [MUSE_INVENTORY.md](MUSE_INVENTORY.md).
 
-The phone and text number is 816-601-1688 (Brenen's agent line) for both `phone` and `sms_phone`.
+The phone and text number is 816-762-5779 (Brenen's agent line) for both `phone` and `sms_phone`.
 
 After any change to `site.config.json`:
 

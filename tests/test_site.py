@@ -56,7 +56,7 @@ def test_templates_hold_no_contact_details():
 def test_changing_the_number_changes_every_link():
     pages = built(dict(CONFIG, phone="913-555-0100", sms_phone="913-555-0100"))
     for name in ("index.html", "car.html", "brenen.vcf"):
-        assert "8166011688" not in pages[name] and "816-601-1688" not in pages[name]
+        assert "8167625779" not in pages[name] and "816-762-5779" not in pages[name]
         assert "+19135550100" in pages[name]
 
 
@@ -311,7 +311,7 @@ def test_vcard_is_valid_3_0_and_matches_config():
     assert fields["FN"] == CONFIG["name"]
     assert fields["N"] == "Prinzing;Brenen;;;"
     assert fields["ORG"] == CONFIG["store"]["name"] and fields["TITLE"] == CONFIG["title"]
-    assert fields["TEL;TYPE=CELL,VOICE"] == PHONE == "+18166011688"
+    assert fields["TEL;TYPE=CELL,VOICE"] == PHONE == "+18167625779"
     assert fields["EMAIL;TYPE=INTERNET"] == CONFIG["email"]
     assert fields["ADR;TYPE=WORK"] == ";;1151 W 104th St;Kansas City;MO;64114;USA"
     assert fields["URL"] == "https://brenenprinzing.com/"

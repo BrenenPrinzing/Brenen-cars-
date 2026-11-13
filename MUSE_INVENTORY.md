@@ -17,7 +17,7 @@ The site never loads that file.
 | Tagline "I'm passionate about helping people find their perfect vehicle. Reach me directly below — you'll talk to me, not the main store line." | Hero (`tagline`), word for word |
 | Address 1151 W 104th St, Kansas City, MO 64114 | Map card and vCard (`store.address`, `store.adr`) |
 | "BP" monogram avatar | Replaced by Brenen's photo; the monogram stays as the fallback |
-| Phone 816-601-1688 (text, call, copy, footer, vCard) | Same number everywhere, from `site.config.json` |
+| Phone 816-762-5779 (text, call, copy, footer, vCard) | Same number everywhere, from `site.config.json` |
 | Email address ("Prefer email?" link, footer, vCard) | Email button in the contact card, and in the vCard |
 | Live status pill ("Test drives available today until 6:00 PM — text me to book yours", and the before-open and next-day versions) | Hero, same wording, same Central-time logic |
 | Text button with prefilled "Hi Brenen, I'm interested in a vehicle you have listed. Can we set up a test drive?" | "Message Brenen" and "Text Brenen about a car" |
@@ -49,7 +49,7 @@ pixels, embeds or iframes.
 
 ## Answered by Brenen on 2026-11-12
 
-1. Phone: the agent line is now the Muse number, 816-601-1688. Used for calls and texts.
+1. Phone: the agent line is now the Muse number, 816-762-5779. Used for calls and texts.
 2. Email: show it.
 3. Messenger: stays removed.
 

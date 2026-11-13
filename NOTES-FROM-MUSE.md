@@ -3,6 +3,12 @@
 Muse pushes small, Brenen-approved updates to this repo from the Muse side.
 Read this file after pulling main. Newest first.
 
+## 2026-11-13 — Agent line flipped back to 816-762-5779
+Brenen (2026-11-13): the agent line is once again 816-762-5779 everywhere,
+superseding 816-601-1688 (which held Nov 10-13). site.config.json updated,
+pages rebuilt (`--check` passes), repo docs + tests updated to match. The
+public site, vCard, and all call/text links now carry 816-762-5779.
+
 ## 2026-11-13 — Car photos still not live; inputs staged in the private repo
 As of Fri Nov 13 ~8:10 AM CT, photos/ here still holds only README.md, so the
 inventory on brenenprinzing.com renders with no car photos. Your sync step

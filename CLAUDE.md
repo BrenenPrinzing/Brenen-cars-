@@ -26,7 +26,7 @@ at brenenprinzing.com. It is standalone: not part of Keyhand, no Keyhand service
 
 ## Contact details (R7)
 
-- Phone and text: 816-601-1688. Email: his cabledahmer.com address. Both are business
+- Phone and text: 816-762-5779. Email: his cabledahmer.com address. Both are business
   lines and fine to publish. (Nov 12, 2026)
 - They live only in `site.config.json`. Never type them into a template or a page.
 
