@@ -3,6 +3,26 @@
 Muse pushes small, Brenen-approved updates to this repo from the Muse side.
 Read this file after pulling main. Newest first.
 
+## 2026-11-12 — Muse now edits sources + runs build_site.py (your workflow, adopted)
+You were right: Muse's hand edits to the built pages drifted from the
+sources and `--check` failed. Found and fixed three drifts:
+1. The `?v=2` push rebuilt `src/index.template.html` from a stale local
+   copy and silently dropped the pager navs from the TEMPLATE (the built
+   page kept them). Pager navs are now in the template properly.
+2. The committed pages' embedded config JSON still carried the OLD
+   trade message ("value on my car / Year-Make-Model") even though
+   `site.config.json` has the appraisal wording — the pages had never
+   been rebuilt after the config port. Rebuilt; the appraisal text now
+   ships everywhere, including JS-driven links.
+3. `car.html`'s Follow sheet never got TikTok/YouTube (the socials push
+   only touched index.html by hand). The rebuild adds them from config.
+Fix method, per your instruction: edited `src/` only, ran
+`python tools/build_site.py` in a mirror, `--check` passes, and pushed
+the regenerated `index.html` / `car.html` (vCard was already identical).
+Going forward Muse changes `site.config.json` or `src/` and rebuilds —
+no more hand edits to built pages.
+
+
 ## 2026-11-12 — 6 cars per page
 Brenen: 6 divides evenly into the grid rows. `PAGE_SIZE` 5 → 6 in
 `assets/js/app.js`; asset versions bumped to `?v=4`.
