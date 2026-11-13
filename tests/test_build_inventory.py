@@ -383,6 +383,33 @@ def test_site_list_paired_with_drivecentric_file(tmp_path, capsys):
     assert not {"deals", "leads", "msrp", '"age"'} & {w for w in ("deals", "leads", "msrp", '"age"') if w in text}
 
 
+def test_incomplete_drivecentric_file_stops_the_build(tmp_path):
+    rows = [{"stocknumber": f"C5{i:04d}", "vehicle": "2026 Cadillac LYRIQ", "sold": "No"}
+            for i in range(40)]
+    dc = [{"stocknumber": f"C5{i:04d}"} for i in range(25)]          # 15 of 40 missing
+    merged, _ = bi.merge_dc(rows, dc)
+    with pytest.raises(bi.BuildError, match="incomplete DriveCentric export"):
+        bi.check_held(merged)
+    merged, _ = bi.merge_dc(rows, dc + [{"stocknumber": f"C5{i:04d}"} for i in range(25, 32)])
+    assert len(bi.check_held(merged)) == 8                           # 8 waiting: normal
+    out_of_area = rows + [{"stocknumber": f"L1{i:04d}", "sold": "No"} for i in range(30)]
+    merged, _ = bi.merge_dc(out_of_area, dc + [{"stocknumber": f"C5{i:04d}"} for i in range(25, 40)])
+    assert bi.check_held(merged) == []                               # dropped anyway, not held
+
+
+def test_cli_stops_and_writes_nothing_on_incomplete_drivecentric(tmp_path, capsys):
+    sx.write_csv(tmp_path / "store.csv", ["Vehicle", "Sold", "Stock Number"],
+                 [["2026 Cadillac LYRIQ", "No", f"C5{i:04d}"] for i in range(40)])
+    sx.write_csv(tmp_path / "dc.csv", ["Vehicle", "Stock Number"], [["x", "C50000"]])
+    out = tmp_path / "inv.json"
+    assert bi.main([str(tmp_path / "store.csv"), "--dc-export", str(tmp_path / "dc.csv"),
+                    "--out", str(out), "--config", str(tmp_path / "none.json"),
+                    "--photos", str(tmp_path / "p"), "--exclude", str(tmp_path / "x.txt"),
+                    "--prices", str(tmp_path / "none2.json")]) == 1
+    assert not out.exists()
+    assert "incomplete DriveCentric export" in capsys.readouterr().err
+
+
 def test_condition_disagreement_is_reported(tmp_path):
     rows = bi.read_export(sx.write_csv(tmp_path / "s.csv", SITE_HEADERS, [
         ["C51234"] + SITE_ROWS[0][1:6] + ["Used"] + SITE_ROWS[0][7:]]))

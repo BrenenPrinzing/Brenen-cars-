@@ -116,3 +116,17 @@ def test_cars_not_in_drivecentric_get_no_photos(dirs, tmp_path):
     assert stocks == {"C51234"}
     sp.sync(src, dest, stocks)
     assert (dest / "C51234").is_dir() and not (dest / "CP60123").exists()
+
+
+def test_photo_sync_stops_on_incomplete_drivecentric(dirs, tmp_path, capsys):
+    import sample_export as sx
+    src, dest = dirs
+    sx.write_csv(tmp_path / "store.csv", ["Vehicle", "Sold", "Stock Number"],
+                 [["2026 Cadillac LYRIQ", "No", f"C5{i:04d}"] for i in range(40)])
+    sx.write_csv(tmp_path / "dc.csv", ["Vehicle", "Stock Number"], [["x", "C50000"]])
+    sp.sync(src, dest, {"C51234"})
+    code = sp.main([str(src), "--inventory", str(tmp_path / "store.csv"),
+                    "--dc-export", str(tmp_path / "dc.csv"), "--dest", str(dest),
+                    "--exclude", str(tmp_path / "x.txt")])
+    assert code == 1 and (dest / "C51234").is_dir()                  # nothing deleted
+    assert "PHOTO SYNC STOPPED" in capsys.readouterr().err

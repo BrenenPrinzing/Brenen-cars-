@@ -49,6 +49,9 @@ at brenenprinzing.com. It is standalone: not part of Keyhand, no Keyhand service
 - KC stores only (R2). Sold and delivered cars are dropped. (Delivered: Nov 12, 2026)
 - A car on Muse's site list that is not in the DriveCentric file yet is held off the
   page (no listing, no photos) until DriveCentric has it. (Nov 13, 2026)
+  If more than 10 cars and more than a quarter of the list are missing, the build stops
+  instead: the DriveCentric export is incomplete. Don't loosen that guard to get a
+  refresh through; ask Muse for a complete export.
 - List every other car, including ones with a deal on them, and rely on
   "Text to confirm". `data/exclude.txt` holds a specific car if he asks. (Nov 12, 2026)
 - Msrp, leads, last lead, deals and age never reach the public file (R3, R6).

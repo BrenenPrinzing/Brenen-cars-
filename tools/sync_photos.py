@@ -42,6 +42,7 @@ def kept_stocks(inventory_csv: Path, exclude: Path | None, dc_export: Path | Non
     rows = bi.read_export(inventory_csv)
     if dc_export:
         rows, _ = bi.merge_dc(rows, bi.read_export(dc_export))   # held cars get no photos
+        bi.check_held(rows)
     kept, _ = bi.filter_rows(rows, bi.load_exclude(exclude))
     return {r["stock"] for r in kept}
 
@@ -126,7 +127,12 @@ def main(argv=None) -> int:
     except ImportError:
         print("sync_photos.py needs Pillow: pip install pillow", file=sys.stderr)
         return 1
-    r = sync(a.source, a.dest, kept_stocks(a.inventory, a.exclude, a.dc_export), a.max_per_car, a.max_px)
+    try:
+        stocks = kept_stocks(a.inventory, a.exclude, a.dc_export)
+    except bi.BuildError as e:
+        print(f"PHOTO SYNC STOPPED: {e}", file=sys.stderr)
+        return 1
+    r = sync(a.source, a.dest, stocks, a.max_per_car, a.max_px)
     print(f"Photos: {r['cars']} cars have photos. {r['written']} new or changed, "
           f"{r['reused']} reused, {r['removed']} folders removed for cars no longer listed.")
     for s in r["skipped"]:

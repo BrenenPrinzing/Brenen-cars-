@@ -210,7 +210,8 @@ def load_exclude(path: Path | None) -> set[str]:
 
 def filter_rows(rows: list[dict], exclude: set[str]) -> tuple[list[dict], dict]:
     """Apply the keep rules. Returns (kept rows with 'stock' set, drop counts)."""
-    dropped = {"sold": 0, "delivered": 0, "held": 0, "bad_stock": 0, "far_store": 0, "excluded": 0, "duplicate": 0}
+    dropped = {"sold": 0, "delivered": 0, "held": 0, "bad_stock": 0, "far_store": 0,
+               "excluded": 0, "duplicate": 0}
     kept, seen = [], set()
     for row in rows:
         stock = row.get("stocknumber", "").strip().upper()
@@ -414,16 +415,40 @@ def merge_dc(site_rows: list[dict], dc_rows: list[dict]) -> tuple[list[dict], li
     return out, unmatched
 
 
-def held_stocks(rows: list[dict]) -> list[str]:
-    """Stocks held only because DriveCentric doesn't have them yet (not ones dropped anyway)."""
+# A few cars are always waiting on DriveCentric. Many more means the DriveCentric file is
+# incomplete (wrong export, cut off), and holding them all would empty the site.
+MAX_HELD = 10
+MAX_HELD_SHARE = 0.25
+
+
+def listable_stocks(rows: list[dict]) -> list[str]:
+    """Stocks that pass the store, sold and stock-code rules, before the DriveCentric hold."""
     out = []
     for row in rows:
         stock = row.get("stocknumber", "").strip().upper()
-        if (row.get("notindc") == "yes" and STOCK_OK.match(stock) and not FAR_STORE.match(stock)
+        if (STOCK_OK.match(stock) and not FAR_STORE.match(stock)
                 and row.get("sold", "").strip().lower() not in SOLD_YES
                 and row.get("delivered", "").strip().lower() not in SOLD_YES):
             out.append(stock)
     return out
+
+
+def held_stocks(rows: list[dict]) -> list[str]:
+    """Stocks held only because DriveCentric doesn't have them yet (not ones dropped anyway)."""
+    notindc = {r.get("stocknumber", "").strip().upper() for r in rows if r.get("notindc") == "yes"}
+    return [s for s in listable_stocks(rows) if s in notindc]
+
+
+def check_held(rows: list[dict]) -> list[str]:
+    """Return the held stocks, or stop the build if so many are missing the file looks wrong."""
+    held = held_stocks(rows)
+    listable = len(listable_stocks(rows))
+    if len(held) > MAX_HELD and len(held) > MAX_HELD_SHARE * listable:
+        raise BuildError(
+            f"{len(held)} of {listable} cars on the site list are missing from the DriveCentric "
+            f"file. That looks like an incomplete DriveCentric export, not cars waiting to be "
+            f"added, so nothing was written. Check inventory-dc.csv.")
+    return held
 
 
 def site_check(row: dict, site_checked_at: str | None) -> dict | None:
@@ -573,8 +598,8 @@ def print_report(inventory: dict, report: dict, out=None, list_deals: bool = Fal
     print(f"Read {inventory['source_rows']} rows, kept {inventory['kept']}.", file=out)
     print(f"Dropped: {d['sold']} sold, {d['delivered']} delivered, {d['far_store']} Lawrence/Topeka/Independence, "
           f"{d['bad_stock']} in-transit or odd stock codes, {d['excluded']} on the hold "
-          f"list, {d.get('held', 0)} not in DriveCentric yet, {d['duplicate']} duplicates, {d.get('not_on_dealer_site', 0)} no longer on the "
-          f"dealer site.", file=out)
+          f"list, {d.get('held', 0)} not in DriveCentric yet, {d['duplicate']} duplicates, "
+          f"{d.get('not_on_dealer_site', 0)} no longer on the dealer site.", file=out)
     if report.get("gone"):
         print("No longer on the dealer site (dropped): " + ", ".join(report["gone"]), file=out)
     print(f"Prices shown: {report['priced']} of {inventory['kept']} "
@@ -617,9 +642,10 @@ def main(argv=None) -> int:
     a = ap.parse_args(argv)
     try:
         rows = read_export(a.export)
-        unmatched = []
+        held = []
         if a.dc_export:
-            rows, unmatched = merge_dc(rows, read_export(a.dc_export))
+            rows, _ = merge_dc(rows, read_export(a.dc_export))
+            held = check_held(rows)
         config = json.loads(a.config.read_text(encoding="utf-8")) if a.config.exists() else {}
         inventory, report = build(
             rows, exclude=load_exclude(a.exclude), photos_dir=a.photos,
@@ -631,7 +657,6 @@ def main(argv=None) -> int:
     a.out.parent.mkdir(parents=True, exist_ok=True)
     a.out.write_text(dumps(inventory), encoding="utf-8", newline="\n")
     print_report(inventory, report, list_deals=a.list_deals)
-    held = held_stocks(rows)
     if held:
         print(f"HELD: {len(held)} cars on the site list are not in DriveCentric yet and are "
               f"left off the page until they are: " + ", ".join(held[:20]))
