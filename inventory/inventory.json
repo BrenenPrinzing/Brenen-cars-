@@ -1,7 +1,7 @@
 {
- "updated": "2026-11-13",
- "source_rows": 229,
- "kept": 221,
+ "updated": "2026-11-14",
+ "source_rows": 247,
+ "kept": 246,
  "cars": [
   {
    "stock": "C14884",
@@ -20,8 +20,7 @@
    ],
    "ext_color": "Radiant Red Tintcoat",
    "int_color": "Whisper Beige With Jet Black Accents, Leather Seating Surfaces",
-   "vin": "1G6DU5RK7T0113412",
-   "price": 61265
+   "vin": "1G6DU5RK7T0113412"
   },
   {
    "stock": "C14962",
@@ -40,8 +39,7 @@
    ],
    "ext_color": "Black Raven",
    "int_color": "Jet Black With Jet Black Accents, Leather Seating Surfaces",
-   "vin": "1G6DU5RKXT0116935",
-   "price": 60055
+   "vin": "1G6DU5RKXT0116935"
   },
   {
    "stock": "C14965",
@@ -60,8 +58,7 @@
    ],
    "ext_color": "Deep Space Metallic",
    "int_color": "Jet Black With Jet Black Accents, Leather Seating Surfaces",
-   "vin": "1G6DP5RK7T0116222",
-   "price": 58790
+   "vin": "1G6DP5RK7T0116222"
   },
   {
    "stock": "C15115",
@@ -80,8 +77,7 @@
    ],
    "ext_color": "Coastal Blue Metallic",
    "int_color": "Jet Black With Jet Black Accents, Leather Seating Surfaces",
-   "vin": "1G6DU5RK9T0123522",
-   "price": 63915
+   "vin": "1G6DU5RK9T0123522"
   },
   {
    "stock": "C15128",
@@ -100,8 +96,7 @@
    ],
    "ext_color": "Black Raven",
    "int_color": "Jet Black With Jet Black Accents, Leather Seating Surfaces",
-   "vin": "1G6DS5RK7T0123931",
-   "price": 57190
+   "vin": "1G6DS5RK7T0123931"
   },
   {
    "stock": "C15129",
@@ -120,8 +115,7 @@
    ],
    "ext_color": "Deep Space Metallic",
    "int_color": "Jet Black With Jet Black Accents, Leather Seating Surfaces",
-   "vin": "1G6DU5RK2T0123930",
-   "price": 63565
+   "vin": "1G6DU5RK2T0123930"
   },
   {
    "stock": "C15156",
@@ -140,8 +134,7 @@
    ],
    "ext_color": "Argent Silver Metallic",
    "int_color": "Sedona Sauvage With Jet Black Accents, Semi-Aniline Leather Seats",
-   "vin": "1G6DS5RK7T0124660",
-   "price": 62140
+   "vin": "1G6DS5RK7T0124660"
   },
   {
    "stock": "C15158",
@@ -160,8 +153,7 @@
    ],
    "ext_color": "Vibrant White Tricoat",
    "int_color": "Jet Black With Jet Black Accents, Leather Seating Surfaces",
-   "vin": "1G6DS5RK5T0124768",
-   "price": 58840
+   "vin": "1G6DS5RK5T0124768"
   },
   {
    "stock": "C15209",
@@ -180,8 +172,7 @@
    ],
    "ext_color": "Vibrant White Tricoat",
    "int_color": "Maple Sugar With Jet Black Accents, Leather Seating Surfaces",
-   "vin": "1G6DS5RK0T0125066",
-   "price": 58840
+   "vin": "1G6DS5RK0T0125066"
   },
   {
    "stock": "C15210",
@@ -200,8 +191,7 @@
    ],
    "ext_color": "Deep Space Metallic",
    "int_color": "Jet Black With Jet Black Accents, Leather Seating Surfaces",
-   "vin": "1G6DS5RK6T0124990",
-   "price": 54435
+   "vin": "1G6DS5RK6T0124990"
   },
   {
    "stock": "C15212",
@@ -220,8 +210,7 @@
    ],
    "ext_color": "Black Raven",
    "int_color": "Sedona Sauvage With Jet Black Accents, Semi-Aniline Leather Seats",
-   "vin": "1G6DS5RKXT0124510",
-   "price": 61515
+   "vin": "1G6DS5RKXT0124510"
   },
   {
    "stock": "C15222",
@@ -240,8 +229,7 @@
    ],
    "ext_color": "Black Raven",
    "int_color": "Jet Black With Jet Black Accents, Leather Seating Surfaces",
-   "vin": "1G6DS5RK4T0125250",
-   "price": 53810
+   "vin": "1G6DS5RK4T0125250"
   },
   {
    "stock": "C15223",
@@ -260,8 +248,7 @@
    ],
    "ext_color": "Deep Space Metallic",
    "int_color": "Jet Black With Jet Black Accents, Leather Seating Surfaces",
-   "vin": "1G6DU5RK4T0125338",
-   "price": 63915
+   "vin": "1G6DU5RK4T0125338"
   },
   {
    "stock": "C15224",
@@ -280,8 +267,7 @@
    ],
    "ext_color": "Summit White",
    "int_color": "Sahara Beige With Jet Black Accents, Leather Seating Surfaces",
-   "vin": "1G6DS5RK2T0125392",
-   "price": 51995
+   "vin": "1G6DS5RK2T0125392"
   },
   {
    "stock": "C15229",
@@ -300,8 +286,7 @@
    ],
    "ext_color": "Vibrant White Tricoat",
    "int_color": "Jet Black With Jet Black Accents, Leather Seating Surfaces",
-   "vin": "1G6DU5RK3T0125802",
-   "price": 64515
+   "vin": "1G6DU5RK3T0125802"
   },
   {
    "stock": "C15259",
@@ -320,8 +305,7 @@
    ],
    "ext_color": "Black Raven",
    "int_color": "Jet Black With Jet Black Accents, Leather Seating Surfaces",
-   "vin": "1G6DU5RK5T0126448",
-   "price": 63590
+   "vin": "1G6DU5RK5T0126448"
   },
   {
    "stock": "C15263",
@@ -340,8 +324,7 @@
    ],
    "ext_color": "Typhoon Metallic",
    "int_color": "Jet Black With Jet Black Accents, Leather Seating Surfaces",
-   "vin": "1G6DU5RK9T0125853",
-   "price": 63915
+   "vin": "1G6DU5RK9T0125853"
   },
   {
    "stock": "C15284",
@@ -360,8 +343,7 @@
    ],
    "ext_color": "Summit White",
    "int_color": "Jet Black With Jet Black Accents, Inteluxe Seats",
-   "vin": "1G6DU5RK4T0126862",
-   "price": 53595
+   "vin": "1G6DU5RK4T0126862"
   },
   {
    "stock": "C15305",
@@ -380,8 +362,7 @@
    ],
    "ext_color": "Black Raven",
    "int_color": "Jet Black With Jet Black Accents, Inteluxe Seats",
-   "vin": "1G6DU5RK7T0127472",
-   "price": 53595
+   "vin": "1G6DU5RK7T0127472"
   },
   {
    "stock": "C15323",
@@ -400,8 +381,7 @@
    ],
    "ext_color": "Deep Space Metallic",
    "int_color": "Jet Black With Jet Black Accents, Leather Seating Surfaces",
-   "vin": "1G6DU5RK5T0128278",
-   "price": 63915
+   "vin": "1G6DU5RK5T0128278"
   },
   {
    "stock": "C15333",
@@ -421,8 +401,7 @@
    "ext_color": "Argent Silver Metallic",
    "int_color": "Jet Black With Jet Black Accents, Leather Seating Surfaces",
    "vin": "1G6DU5RK9T0128400",
-   "new_arrival": true,
-   "price": 63915
+   "new_arrival": true
   },
   {
    "stock": "C14837",
@@ -441,15 +420,14 @@
    ],
    "ext_color": "Black Raven",
    "int_color": "Sheer Gray With Black Accents, Full Semi-Aniline Leather Seats With Faceted Quilting",
-   "vin": "1GYS9GKL9VR141578",
-   "price": 131185
+   "vin": "1GYS9GKL9VR141578"
   },
   {
    "stock": "C14840",
    "year": 2027,
    "make": "Cadillac",
    "model": "Escalade",
-   "trim": "4WD Platinum Sport",
+   "trim": "Platinum Sport",
    "condition": "New",
    "body": "SUV",
    "photos": [
@@ -462,15 +440,14 @@
    "ext_color": "Deep Sea Metallic",
    "int_color": "Sheer Gray With Black Accents, Full Semi-Aniline Leather Seats With Faceted Quilting",
    "vin": "1GYS9GKL0VR105617",
-   "new_arrival": true,
-   "price": 133109
+   "new_arrival": true
   },
   {
    "stock": "C15256",
    "year": 2027,
    "make": "Cadillac",
    "model": "Escalade",
-   "trim": "4WD Platinum Sport",
+   "trim": "Platinum Sport",
    "condition": "New",
    "body": "SUV",
    "photos": [
@@ -482,15 +459,14 @@
    ],
    "ext_color": "Vibrant White Tricoat",
    "int_color": "Black, Full Semi-Aniline Leather Seats With Mondrian Quilting",
-   "vin": "1GYS9GKL0VR111059",
-   "price": 140695
+   "vin": "1GYS9GKL0VR111059"
   },
   {
    "stock": "C15275",
    "year": 2027,
    "make": "Cadillac",
    "model": "Escalade",
-   "trim": "4WD Platinum Sport",
+   "trim": "Platinum Sport",
    "condition": "New",
    "body": "SUV",
    "photos": [
@@ -502,15 +478,14 @@
    ],
    "ext_color": "Black Raven",
    "int_color": "Black, Full Semi-Aniline Leather Seats With Mondrian Quilting",
-   "vin": "1GYS9GKL8VR112086",
-   "price": 132710
+   "vin": "1GYS9GKL8VR112086"
   },
   {
    "stock": "C15280",
    "year": 2027,
    "make": "Cadillac",
    "model": "Escalade",
-   "trim": "4WD Platinum Sport",
+   "trim": "Platinum Sport",
    "condition": "New",
    "body": "SUV",
    "photos": [
@@ -522,15 +497,14 @@
    ],
    "ext_color": "Vibrant White Tricoat",
    "int_color": "Black, Full Semi-Aniline Leather Seats With Mondrian Quilting",
-   "vin": "1GYS9GKL9VR112971",
-   "price": 134035
+   "vin": "1GYS9GKL9VR112971"
   },
   {
    "stock": "C15283",
    "year": 2027,
    "make": "Cadillac",
    "model": "Escalade",
-   "trim": "4WD Platinum Sport",
+   "trim": "Platinum Sport",
    "condition": "New",
    "body": "SUV",
    "photos": [
@@ -542,8 +516,7 @@
    ],
    "ext_color": "Black Raven",
    "int_color": "Black, Full Semi-Aniline Leather Seats With Mondrian Quilting",
-   "vin": "1GYS9GKL0VR112065",
-   "price": 132710
+   "vin": "1GYS9GKL0VR112065"
   },
   {
    "stock": "C15287",
@@ -562,15 +535,14 @@
    ],
    "ext_color": "Black Raven",
    "int_color": "Black, Full Semi-Aniline Leather Seats With Mondrian Quilting",
-   "vin": "1GYS9DKL0VR126367",
-   "price": 132040
+   "vin": "1GYS9DKL0VR126367"
   },
   {
    "stock": "C15295",
    "year": 2027,
    "make": "Cadillac",
    "model": "Escalade",
-   "trim": "4WD Sport",
+   "trim": "Sport",
    "condition": "New",
    "body": "SUV",
    "photos": [
@@ -582,8 +554,7 @@
    ],
    "ext_color": "Vibrant White Tricoat",
    "int_color": "Black, Leather Seating Surfaces With Precision Perforated Inserts",
-   "vin": "1GYS9FKL8VR122403",
-   "price": 119015
+   "vin": "1GYS9FKL8VR122403"
   },
   {
    "stock": "C15307",
@@ -602,8 +573,7 @@
    ],
    "ext_color": "Black Raven",
    "int_color": "Black, Leather Seating Surfaces With Precision Perforated Inserts",
-   "vin": "1GYS9FKL2VR128939",
-   "price": 117690
+   "vin": "1GYS9FKL2VR128939"
   },
   {
    "stock": "C15328",
@@ -622,8 +592,7 @@
    ],
    "ext_color": "Sandstone",
    "int_color": "Black, Leather Seating Surfaces With Precision Perforated Inserts",
-   "vin": "1GYS9FKL1VR146154",
-   "price": 118415
+   "vin": "1GYS9FKL1VR146154"
   },
   {
    "stock": "C14829",
@@ -642,8 +611,7 @@
    ],
    "ext_color": "Black Raven",
    "int_color": "Jet Black, Full Semi-Aniline Leather Seats With Mondrian Quilting",
-   "vin": "1GYS9GKL4TR472176",
-   "price": 130155
+   "vin": "1GYS9GKL4TR472176"
   },
   {
    "stock": "C15090",
@@ -662,8 +630,7 @@
    ],
    "ext_color": "Black Raven",
    "int_color": "Jet Black, Leather Seating Surfaces With Precision Perforated Inserts",
-   "vin": "1GYS9FKL3TR397433",
-   "price": 114955
+   "vin": "1GYS9FKL3TR397433"
   },
   {
    "stock": "C15092",
@@ -682,8 +649,7 @@
    ],
    "ext_color": "Vibrant White Tricoat",
    "int_color": "Jet Black, Leather Seating Surfaces With Precision Perforated Inserts",
-   "vin": "1GYS9FKL0TR396157",
-   "price": 116280
+   "vin": "1GYS9FKL0TR396157"
   },
   {
    "stock": "C15097",
@@ -702,8 +668,7 @@
    ],
    "ext_color": "Black Raven",
    "int_color": "Jet Black, Full Semi-Aniline Leather Seats With Mondrian Quilting",
-   "vin": "1GYS9GKL8TR446759",
-   "price": 130360
+   "vin": "1GYS9GKL8TR446759"
   },
   {
    "stock": "C15098",
@@ -722,8 +687,7 @@
    ],
    "ext_color": "Vibrant White Tricoat",
    "int_color": "Jet Black, Full Semi-Aniline Leather Seats With Mondrian Quilting",
-   "vin": "1GYS9GKL7TR445134",
-   "price": 131685
+   "vin": "1GYS9GKL7TR445134"
   },
   {
    "stock": "C15100",
@@ -742,8 +706,7 @@
    ],
    "ext_color": "Vibrant White Tricoat",
    "int_color": "Jet Black, Leather Seating Surfaces With Precision Perforated Inserts",
-   "vin": "1GYS9FKL8TR445167",
-   "price": 116375
+   "vin": "1GYS9FKL8TR445167"
   },
   {
    "stock": "C15102",
@@ -762,8 +725,7 @@
    ],
    "ext_color": "Black Raven",
    "int_color": "Jet Black, Full Semi-Aniline Leather Seats With Mondrian Quilting",
-   "vin": "1GYS9GKL5TR446783",
-   "price": 130360
+   "vin": "1GYS9GKL5TR446783"
   },
   {
    "stock": "C15104",
@@ -782,8 +744,7 @@
    ],
    "ext_color": "Vibrant White Tricoat",
    "int_color": "Jet Black, Full Semi-Aniline Leather Seats With Mondrian Quilting",
-   "vin": "1GYS9GKL1TR445128",
-   "price": 131685
+   "vin": "1GYS9GKL1TR445128"
   },
   {
    "stock": "C15105",
@@ -802,8 +763,7 @@
    ],
    "ext_color": "Vibrant White Tricoat",
    "int_color": "Jet Black, Full Semi-Aniline Leather Seats With Mondrian Quilting",
-   "vin": "1GYS9GKL8TR445160",
-   "price": 131685
+   "vin": "1GYS9GKL8TR445160"
   },
   {
    "stock": "C15106",
@@ -822,8 +782,7 @@
    ],
    "ext_color": "Black Raven",
    "int_color": "Jet Black, Leather Seating Surfaces With Precision Perforated Inserts",
-   "vin": "1GYS9FKL6TR446950",
-   "price": 115050
+   "vin": "1GYS9FKL6TR446950"
   },
   {
    "stock": "C15108",
@@ -842,8 +801,7 @@
    ],
    "ext_color": "Vibrant White Tricoat",
    "int_color": "Jet Black, Leather Seating Surfaces With Precision Perforated Inserts",
-   "vin": "1GYS9FKL0TR445180",
-   "price": 116375
+   "vin": "1GYS9FKL0TR445180"
   },
   {
    "stock": "C15109",
@@ -862,8 +820,7 @@
    ],
    "ext_color": "Vibrant White Tricoat",
    "int_color": "Jet Black, Leather Seating Surfaces With Precision Perforated Inserts",
-   "vin": "1GYS9FKL3TR445187",
-   "price": 116375
+   "vin": "1GYS9FKL3TR445187"
   },
   {
    "stock": "C15116",
@@ -882,8 +839,7 @@
    ],
    "ext_color": "Black Raven",
    "int_color": "Jet Black, Full Semi-Aniline Leather Seats With Mondrian Quilting",
-   "vin": "1GYS9GKL7TR446753",
-   "price": 130360
+   "vin": "1GYS9GKL7TR446753"
   },
   {
    "stock": "C15117",
@@ -902,8 +858,7 @@
    ],
    "ext_color": "Black Raven",
    "int_color": "Jet Black, Leather Seating Surfaces With Precision Perforated Inserts",
-   "vin": "1GYS9FKL5TR447135",
-   "price": 115050
+   "vin": "1GYS9FKL5TR447135"
   },
   {
    "stock": "C15131",
@@ -922,8 +877,7 @@
    ],
    "ext_color": "Deep Sea Metallic",
    "int_color": "Sheer Gray With Jet Black Accents, Full Semi-Aniline Leather Seats With Faceted Quilting",
-   "vin": "1GYS9GKL0TR454113",
-   "price": 131085
+   "vin": "1GYS9GKL0TR454113"
   },
   {
    "stock": "C15133",
@@ -980,8 +934,7 @@
    ],
    "ext_color": "Vibrant White Tricoat",
    "int_color": "Sheer Gray With Jet Black Accents, Full Semi-Aniline Leather Seats With Faceted Quilting",
-   "vin": "1GYS9GKL3TR454428",
-   "price": 132180
+   "vin": "1GYS9GKL3TR454428"
   },
   {
    "stock": "C15142",
@@ -1038,8 +991,7 @@
    ],
    "ext_color": "Black Raven",
    "int_color": "Whisper Beige With Gideon Accents, Full Semi-Aniline Leather Seats With Mini-Chevron Perforated Inserts",
-   "vin": "1GYS9DKLXTR455851",
-   "price": 130065
+   "vin": "1GYS9DKLXTR455851"
   },
   {
    "stock": "C15150",
@@ -1058,8 +1010,7 @@
    ],
    "ext_color": "Deep Sea Metallic",
    "int_color": "Jet Black, Leather Seating Surfaces With Precision Perforated Inserts",
-   "vin": "1GYS9FKL2TR456522",
-   "price": 113880
+   "vin": "1GYS9FKL2TR456522"
   },
   {
    "stock": "C15162",
@@ -1078,8 +1029,7 @@
    ],
    "ext_color": "Deep Sea Metallic",
    "int_color": "Sheer Gray With Jet Black Accents, Full Semi-Aniline Leather Seats With Faceted Quilting",
-   "vin": "1GYS9GKL3TR454154",
-   "price": 131085
+   "vin": "1GYS9GKL3TR454154"
   },
   {
    "stock": "C15164",
@@ -1098,8 +1048,7 @@
    ],
    "ext_color": "Black Raven",
    "int_color": "Sheer Gray With Jet Black Accents, Full Semi-Aniline Leather Seats With Faceted Quilting",
-   "vin": "1GYS9GKL5TR455855",
-   "price": 130855
+   "vin": "1GYS9GKL5TR455855"
   },
   {
    "stock": "C15170",
@@ -1118,8 +1067,7 @@
    ],
    "ext_color": "Black Raven",
    "int_color": "Sheer Gray With Jet Black Accents, Full Semi-Aniline Leather Seats With Faceted Quilting",
-   "vin": "1GYS9GKL6TR391762",
-   "price": 130360
+   "vin": "1GYS9GKL6TR391762"
   },
   {
    "stock": "C15203",
@@ -1138,8 +1086,7 @@
    ],
    "ext_color": "Galactic Gray Metallic",
    "int_color": "Whisper Beige With Gideon Accents, Full Semi-Aniline Leather Seats With Mini-Chevron Perforated Inserts",
-   "vin": "1GYS9DKL0TR460850",
-   "price": 130790
+   "vin": "1GYS9DKL0TR460850"
   },
   {
    "stock": "C15220",
@@ -1158,8 +1105,7 @@
    ],
    "ext_color": "Black Raven",
    "int_color": "Jet Black, Full Semi-Aniline Leather Seats With Mondrian Quilting",
-   "vin": "1GYS9GKL4TR470315",
-   "price": 130855
+   "vin": "1GYS9GKL4TR470315"
   },
   {
    "stock": "C15242",
@@ -1178,8 +1124,7 @@
    ],
    "ext_color": "Black Raven",
    "int_color": "Sheer Gray With Jet Black Accents, Full Semi-Aniline Leather Seats With Faceted Quilting",
-   "vin": "1GYS9GKL6TR474558",
-   "price": 130855
+   "vin": "1GYS9GKL6TR474558"
   },
   {
    "stock": "C15260",
@@ -1198,8 +1143,7 @@
    ],
    "ext_color": "Galactic Gray Metallic",
    "int_color": "Sheer Gray With Jet Black Accents, Full Semi-Aniline Leather Seats With Faceted Quilting",
-   "vin": "1GYS9GKL3TR461461",
-   "price": 131580
+   "vin": "1GYS9GKL3TR461461"
   },
   {
    "stock": "C15334",
@@ -1218,15 +1162,14 @@
    ],
    "ext_color": "Deep Sea Metallic",
    "int_color": "Sheer Gray With Jet Black Accents, Full Semi-Aniline Leather Seats With Faceted Quilting",
-   "vin": "1GYS9GKL5TR396791",
-   "price": 128130
+   "vin": "1GYS9GKL5TR396791"
   },
   {
    "stock": "C15257",
    "year": 2027,
    "make": "Cadillac",
    "model": "Escalade ESV",
-   "trim": "4WD Platinum Sport",
+   "trim": "Platinum Sport",
    "condition": "New",
    "body": "SUV",
    "photos": [
@@ -1238,8 +1181,7 @@
    ],
    "ext_color": "Vibrant White Tricoat",
    "int_color": "Black, Full Semi-Aniline Leather Seats With Mondrian Quilting",
-   "vin": "1GYS9RKL4VR110587",
-   "price": 137035
+   "vin": "1GYS9RKL4VR110587"
   },
   {
    "stock": "C15319",
@@ -1258,8 +1200,7 @@
    ],
    "ext_color": "Vibrant White Tricoat",
    "int_color": "Sheer Gray With Black Accents, Full Semi-Aniline Leather Seats With Faceted Quilting",
-   "vin": "1GYS9RKL9VR145853",
-   "price": 143815
+   "vin": "1GYS9RKL9VR145853"
   },
   {
    "stock": "C15325",
@@ -1297,8 +1238,7 @@
    ],
    "ext_color": "Vibrant White Tricoat",
    "int_color": "Jet Black, Full Semi-Aniline Leather Seats With Mondrian Quilting",
-   "vin": "1GYS9RKL7TR445811",
-   "price": 134780
+   "vin": "1GYS9RKL7TR445811"
   },
   {
    "stock": "C15111",
@@ -1317,8 +1257,7 @@
    ],
    "ext_color": "Vibrant White Tricoat",
    "int_color": "Jet Black, Full Semi-Aniline Leather Seats With Mondrian Quilting",
-   "vin": "1GYS9RKL3TR445773",
-   "price": 134780
+   "vin": "1GYS9RKL3TR445773"
   },
   {
    "stock": "C15112",
@@ -1337,8 +1276,7 @@
    ],
    "ext_color": "Vibrant White Tricoat",
    "int_color": "Jet Black, Full Semi-Aniline Leather Seats With Mondrian Quilting",
-   "vin": "1GYS9RKL3TR446261",
-   "price": 134780
+   "vin": "1GYS9RKL3TR446261"
   },
   {
    "stock": "C15147",
@@ -1357,8 +1295,7 @@
    ],
    "ext_color": "Vibrant White Tricoat",
    "int_color": "Sheer Gray With Jet Black Accents, Full Semi-Aniline Leather Seats With Faceted Quilting",
-   "vin": "1GYS9RKL7TR456873",
-   "price": 142085
+   "vin": "1GYS9RKL7TR456873"
   },
   {
    "stock": "C15154",
@@ -1377,8 +1314,7 @@
    ],
    "ext_color": "Vibrant White Tricoat",
    "int_color": "Whisper Beige With Gideon Accents, Full Semi-Aniline Leather Seats With Mini-Chevron Perforated Inserts",
-   "vin": "1GYS9MKLXTR455283",
-   "price": 134985
+   "vin": "1GYS9MKLXTR455283"
   },
   {
    "stock": "C15155",
@@ -1397,8 +1333,7 @@
    ],
    "ext_color": "Black Raven",
    "int_color": "Sheer Gray With Jet Black Accents, Full Semi-Aniline Leather Seats With Faceted Quilting",
-   "vin": "1GYS9RKL1TR457548",
-   "price": 133855
+   "vin": "1GYS9RKL1TR457548"
   },
   {
    "stock": "C15199",
@@ -1417,8 +1352,7 @@
    ],
    "ext_color": "Vibrant White Tricoat",
    "int_color": "Jet Black, Full Semi-Aniline Leather Seats With Mondrian Quilting",
-   "vin": "1GYS9RKL6TR468559",
-   "price": 135180
+   "vin": "1GYS9RKL6TR468559"
   },
   {
    "stock": "C15202",
@@ -1437,8 +1371,7 @@
    ],
    "ext_color": "Argent Silver Metallic",
    "int_color": "Jet Black, Leather Seating Surfaces With Precision Perforated Inserts",
-   "vin": "1GYS9PKL1TR467775",
-   "price": 116880
+   "vin": "1GYS9PKL1TR467775"
   },
   {
    "stock": "C15241",
@@ -1476,8 +1409,7 @@
    ],
    "ext_color": "Black Raven",
    "int_color": "Harbor Blue With Backen Black Accents, Nouveauluxe Seats With Carrington Falls Perforated Pattern",
-   "vin": "1GYTEDKL4TU100431",
-   "price": 132269
+   "vin": "1GYTEDKL4TU100431"
   },
   {
    "stock": "C15269",
@@ -1496,8 +1428,7 @@
    ],
    "ext_color": "Luna Metallic (No Longer Available To Order)",
    "int_color": "Backen Black With Santorini Accents, Inteluxe Seats With Fjord (Chevron) Quilting Pattern",
-   "vin": "1GYTEEKL5TU108611",
-   "price": 135545
+   "vin": "1GYTEEKL5TU108611"
   },
   {
    "stock": "C15272",
@@ -1516,8 +1447,7 @@
    ],
    "ext_color": "Vibrant White Tricoat",
    "int_color": "Sheer Gray With Dark Medium Cinder Accents, Inteluxe Seats With Fjord (Chevron) Quilting Pattern",
-   "vin": "1GYTECKL6TU108797",
-   "price": 131625
+   "vin": "1GYTECKL6TU108797"
   },
   {
    "stock": "C15326",
@@ -1537,8 +1467,7 @@
    "ext_color": "Black Raven",
    "int_color": "Backen Black With Santorini Accents, Inteluxe Seats With Fjord (Chevron) Quilting Pattern",
    "vin": "1GYTEEKL5TU110052",
-   "new_arrival": true,
-   "price": 136845
+   "new_arrival": true
   },
   {
    "stock": "C15270",
@@ -1557,8 +1486,7 @@
    ],
    "ext_color": "Black Raven",
    "int_color": "Backen Black With Santorini Accents, Inteluxe Seats With Fjord (Chevron) Quilting Pattern",
-   "vin": "1GYLEJKL6TU108836",
-   "price": 135695
+   "vin": "1GYLEJKL6TU108836"
   },
   {
    "stock": "C15290",
@@ -1577,8 +1505,7 @@
    ],
    "ext_color": "Luna Metallic (No Longer Available To Order)",
    "int_color": "Black With Medium Dark Cinder Grey, Nouveauluxe Seats With Carrington Falls Perforated Pattern",
-   "vin": "1GYLEKKL7TU109404",
-   "price": 158995
+   "vin": "1GYLEKKL7TU109404"
   },
   {
    "stock": "C14838",
@@ -1598,8 +1525,7 @@
    "ext_color": "Vibrant White Tricoat",
    "int_color": "Kona Brown Sauvage Nappa With Sheer Gray Accents, Full Leather Seats With Perforated Inserts",
    "vin": "1GYKPTRL2VZ301417",
-   "new_arrival": true,
-   "price": 78860
+   "new_arrival": true
   },
   {
    "stock": "C15215",
@@ -1618,8 +1544,7 @@
    ],
    "ext_color": "Blue Graphite Tricoat",
    "int_color": "Black With Santorini Blue Accents, Inteluxe Seats With Perforated Inserts",
-   "vin": "1GYKPNRL0VZ303761",
-   "price": 66470
+   "vin": "1GYKPNRL0VZ303761"
   },
   {
    "stock": "C15239",
@@ -1638,8 +1563,7 @@
    ],
    "ext_color": "Midnight Stone Frost",
    "int_color": "Black Nappa With Sky Cool Gray Accents, Full Leather Seats With Perforated Inserts",
-   "vin": "1GYXP3RL9VZ600120",
-   "price": 96435
+   "vin": "1GYXP3RL9VZ600120"
   },
   {
    "stock": "C15246",
@@ -1658,8 +1582,7 @@
    ],
    "ext_color": "Radiant Red Tintcoat",
    "int_color": "Black Nappa With Sky Cool Gray Accents, Full Leather Seats With Perforated Inserts",
-   "vin": "1GYKPTRL6VZ304434",
-   "price": 79260
+   "vin": "1GYKPTRL6VZ304434"
   },
   {
    "stock": "C15247",
@@ -1678,8 +1601,7 @@
    ],
    "ext_color": "Vibrant White Tricoat",
    "int_color": "Black With Santorini Blue Accents, Inteluxe Seats With Perforated Inserts",
-   "vin": "1GYKPRRL6VZ303612",
-   "price": 72070
+   "vin": "1GYKPRRL6VZ303612"
   },
   {
    "stock": "C15250",
@@ -1698,8 +1620,7 @@
    ],
    "ext_color": "Stellar Black Metallic",
    "int_color": "Black Nappa With Sky Cool Gray Accents, Full Leather Seats With Perforated Inserts",
-   "vin": "1GYKPYRLXVZ304756",
-   "price": 83910
+   "vin": "1GYKPYRLXVZ304756"
   },
   {
    "stock": "C15265",
@@ -1718,8 +1639,7 @@
    ],
    "ext_color": "Vibrant White Tricoat",
    "int_color": "Black With Santorini Blue Accents, Inteluxe Seats With Perforated Inserts",
-   "vin": "1GYXPZRL8VZ600080",
-   "price": 83460
+   "vin": "1GYXPZRL8VZ600080"
   },
   {
    "stock": "C15285",
@@ -1738,8 +1658,7 @@
    ],
    "ext_color": "Stellar Black Metallic",
    "int_color": "Black Nappa With Sky Cool Gray Accents, Full Leather Seats With Perforated Inserts",
-   "vin": "1GYKPTRL2VZ305533",
-   "price": 78660
+   "vin": "1GYKPTRL2VZ305533"
   },
   {
    "stock": "C15301",
@@ -1758,8 +1677,7 @@
    ],
    "ext_color": "Stellar Black Metallic",
    "int_color": "Black Nappa With Sky Cool Gray Accents, Full Leather Seats With Perforated Inserts",
-   "vin": "1GYXP3RL4VZ600283",
-   "price": 87465
+   "vin": "1GYXP3RL4VZ600283"
   },
   {
    "stock": "C15303",
@@ -1778,8 +1696,7 @@
    ],
    "ext_color": "Radiant Red Tintcoat",
    "int_color": "Kona Brown Sauvage Nappa With Sheer Gray Accents, Full Leather Seats With Perforated Inserts",
-   "vin": "1GYXP3RL0VZ600281",
-   "price": 88065
+   "vin": "1GYXP3RL0VZ600281"
   },
   {
    "stock": "C15304",
@@ -1798,8 +1715,7 @@
    ],
    "ext_color": "Argent Silver Metallic",
    "int_color": "Black With Santorini Blue Accents, Inteluxe Seats With Perforated Inserts",
-   "vin": "1GYXPZRL0VZ600266",
-   "price": 80945
+   "vin": "1GYXPZRL0VZ600266"
   },
   {
    "stock": "C15314",
@@ -1818,8 +1734,7 @@
    ],
    "ext_color": "Blue Graphite Tricoat",
    "int_color": "Black Nappa With Sky Cool Gray Accents, Full Leather Seats With Perforated Inserts",
-   "vin": "1GYXP3RL7VZ600309",
-   "price": 88065
+   "vin": "1GYXP3RL7VZ600309"
   },
   {
    "stock": "C15317",
@@ -1838,8 +1753,7 @@
    ],
    "ext_color": "Cashmere",
    "int_color": "Kona Brown Sauvage Nappa With Sheer Gray Accents, Full Leather Seats With Perforated Inserts",
-   "vin": "1GYXP3RL6VZ600303",
-   "price": 87465
+   "vin": "1GYXP3RL6VZ600303"
   },
   {
    "stock": "C15322",
@@ -1858,8 +1772,7 @@
    ],
    "ext_color": "Radiant Red Tintcoat",
    "int_color": "Kona Brown Sauvage Nappa With Sheer Gray Accents, Full Leather Seats With Perforated Inserts",
-   "vin": "1GYKPYRLXVZ306443",
-   "price": 79760
+   "vin": "1GYKPYRLXVZ306443"
   },
   {
    "stock": "C15327",
@@ -1878,8 +1791,7 @@
    ],
    "ext_color": "Vibrant White Tricoat",
    "int_color": "Sky Cool Gray With Santorini Blue Accents, Inteluxe Seats With Perforated Inserts",
-   "vin": "1GYKPURLXVZ306841",
-   "price": 66970
+   "vin": "1GYKPURLXVZ306841"
   },
   {
    "stock": "C15331",
@@ -1898,8 +1810,7 @@
    ],
    "ext_color": "Opulent Blue Metallic",
    "int_color": "Black Nappa With Sky Cool Gray Accents, Full Leather Seats With Perforated Inserts",
-   "vin": "1GYKPYRL6VZ306908",
-   "price": 83910
+   "vin": "1GYKPYRL6VZ306908"
   },
   {
    "stock": "C15332",
@@ -1919,8 +1830,7 @@
    "ext_color": "Vibrant White Tricoat",
    "int_color": "Black With Santorini Blue Accents, Inteluxe Seats With Perforated Inserts",
    "vin": "1GYKPWRL1VZ307128",
-   "new_arrival": true,
-   "price": 72570
+   "new_arrival": true
   },
   {
    "stock": "C14823",
@@ -1939,8 +1849,7 @@
    ],
    "ext_color": "Stellar Black Metallic",
    "int_color": "Noir With Santorini Blue Accents, Inteluxe Seats With Perforated Inserts",
-   "vin": "1GYXPZRLXTZ602426",
-   "price": 81540
+   "vin": "1GYXPZRLXTZ602426"
   },
   {
    "stock": "C15030",
@@ -1959,8 +1868,7 @@
    ],
    "ext_color": "Stellar Black Metallic",
    "int_color": "Noir With Sky Cool Gray Accents, Full Leather Seat Trim With Perforated Inserts",
-   "vin": "1GYXP3RL1TZ602442",
-   "price": 93015
+   "vin": "1GYXP3RL1TZ602442"
   },
   {
    "stock": "C15031",
@@ -1979,8 +1887,7 @@
    ],
    "ext_color": "Vibrant White Tricoat",
    "int_color": "Noir With Sky Cool Gray Accents, Full Leather Seat Trim With Perforated Inserts",
-   "vin": "1GYXP3RL5TZ602427",
-   "price": 94210
+   "vin": "1GYXP3RL5TZ602427"
   },
   {
    "stock": "C15040",
@@ -1999,8 +1906,7 @@
    ],
    "ext_color": "Vibrant White Tricoat",
    "int_color": "Sky Cool Gray With Santorini Blue Accents, Inteluxe Seats With Perforated Inserts",
-   "vin": "1GYKPNRLXTZ310696",
-   "price": 65820
+   "vin": "1GYKPNRLXTZ310696"
   },
   {
    "stock": "C15124",
@@ -2019,8 +1925,7 @@
    ],
    "ext_color": "Deep Ocean Tintcoat (Late And Extremely Limited Availability)",
    "int_color": "Sky Cool Gray With Santorini Blue Accents, Inteluxe Seats With Perforated Inserts Seat Trim",
-   "vin": "3GYK3HM47VS103468",
-   "price": 77515
+   "vin": "3GYK3HM47VS103468"
   },
   {
    "stock": "C15181",
@@ -2039,8 +1944,7 @@
    ],
    "ext_color": "Vibrant White Tricoat",
    "int_color": "Autumn Canyon, Inteluxe Seats With Perforated Inserts And Embroidered Embellishments Seat Trim",
-   "vin": "3GYK3GM43VS106085",
-   "price": 63270
+   "vin": "3GYK3GM43VS106085"
   },
   {
    "stock": "C15189",
@@ -2059,8 +1963,7 @@
    ],
    "ext_color": "Vibrant White Tricoat",
    "int_color": "Black, Inteluxe Seats With Perforated Inserts Seat Trim",
-   "vin": "3GYK3HM43VS106058",
-   "price": 75045
+   "vin": "3GYK3HM43VS106058"
   },
   {
    "stock": "C15190",
@@ -2079,8 +1982,7 @@
    ],
    "ext_color": "Vibrant White Tricoat",
    "int_color": "Sky Cool Gray With Santorini Blue Accents, Inteluxe Seats With Perforated Inserts Seat Trim",
-   "vin": "3GYK3HM40VS106048",
-   "price": 71320
+   "vin": "3GYK3HM40VS106048"
   },
   {
    "stock": "C15198",
@@ -2099,8 +2001,7 @@
    ],
    "ext_color": "Argent Silver Metallic",
    "int_color": "Sky Cool Gray With Santorini Blue Accents, Inteluxe Seats With Perforated Inserts And Embroidery/Quilting Seat Trim",
-   "vin": "3GYK3GM46VS106081",
-   "price": 65295
+   "vin": "3GYK3GM46VS106081"
   },
   {
    "stock": "C15226",
@@ -2119,8 +2020,7 @@
    ],
    "ext_color": "Radiant Red Tintcoat",
    "int_color": "Black, Inteluxe Seats With Perforated Inserts Seat Trim",
-   "vin": "3GYK3HM43VS106061",
-   "price": 70920
+   "vin": "3GYK3HM43VS106061"
   },
   {
    "stock": "C15261",
@@ -2139,8 +2039,7 @@
    ],
    "ext_color": "Monarch Orange",
    "int_color": "Black, Inteluxe Seats With Perforated Inserts And Embroidery/Quilting Seat Trim",
-   "vin": "3GYK3GM43VS107320",
-   "price": 65295
+   "vin": "3GYK3GM43VS107320"
   },
   {
    "stock": "C15274",
@@ -2159,8 +2058,7 @@
    ],
    "ext_color": "Vibrant White Tricoat",
    "int_color": "Phantom Blue, Inteluxe Seats With Perforated Inserts And Quilted Embellishments Seat Trim",
-   "vin": "3GYK3GM45VS111157",
-   "price": 62575
+   "vin": "3GYK3GM45VS111157"
   },
   {
    "stock": "C15279",
@@ -2179,8 +2077,7 @@
    ],
    "ext_color": "Vibrant White Tricoat",
    "int_color": "Sky Cool Gray With Santorini Blue Accents, Inteluxe Seats With Perforated Inserts And Embroidery/Quilting Seat Trim",
-   "vin": "3GYK3DM42VS107307",
-   "price": 61815
+   "vin": "3GYK3DM42VS107307"
   },
   {
    "stock": "C15291",
@@ -2199,8 +2096,7 @@
    ],
    "ext_color": "Vibrant White Tricoat",
    "int_color": "Sky Cool Gray With Santorini Blue Accents, Inteluxe Seats Seat Trim",
-   "vin": "3GYK3EM47VS111147",
-   "price": 57675
+   "vin": "3GYK3EM47VS111147"
   },
   {
    "stock": "C15292",
@@ -2219,8 +2115,7 @@
    ],
    "ext_color": "Argent Silver Metallic",
    "int_color": "Sky Cool Gray With Santorini Blue Accents, Inteluxe Seats Seat Trim",
-   "vin": "3GYK3EM49VS111148",
-   "price": 57075
+   "vin": "3GYK3EM49VS111148"
   },
   {
    "stock": "C15330",
@@ -2239,8 +2134,7 @@
    ],
    "ext_color": "Black Raven",
    "int_color": "Autumn Canyon, Inteluxe Seats With Perforated Inserts And Embroidered Embellishments Seat Trim",
-   "vin": "3GYK3GM46VS111149",
-   "price": 61250
+   "vin": "3GYK3GM46VS111149"
   },
   {
    "stock": "C15180",
@@ -2255,8 +2149,7 @@
    ],
    "ext_color": "Argent Silver Metallic",
    "int_color": "Black, Inteluxe Seats With Perforated Inserts And Piping",
-   "vin": "1GYC3KML7VZ702513",
-   "price": 79925
+   "vin": "1GYC3KML7VZ702513"
   },
   {
    "stock": "C15264",
@@ -2294,8 +2187,7 @@
    ],
    "ext_color": "Stellar Black Metallic",
    "int_color": "Black, Inteluxe Seats With Perforated Inserts And Piping",
-   "vin": "1GYC3KML5VZ704972",
-   "price": 81450
+   "vin": "1GYC3KML5VZ704972"
   },
   {
    "stock": "C15300",
@@ -2314,28 +2206,7 @@
    ],
    "ext_color": "Radiant Red Tintcoat",
    "int_color": "Black, Inteluxe Seats With Perforated Inserts And Piping",
-   "vin": "1GYC3NML2VZ705529",
-   "price": 83395
-  },
-  {
-   "stock": "C15312",
-   "year": 2027,
-   "make": "Cadillac",
-   "model": "VISTIQ",
-   "trim": "Sport",
-   "condition": "New",
-   "body": "EV",
-   "photos": [
-    "photos/C15312/site-01.jpg",
-    "photos/C15312/site-02.jpg",
-    "photos/C15312/site-03.jpg",
-    "photos/C15312/site-04.jpg",
-    "photos/C15312/site-05.jpg"
-   ],
-   "ext_color": "Cashmere",
-   "int_color": "Black, Inteluxe Seats With Perforated Inserts And Piping",
-   "vin": "1GYC3NML9VZ705611",
-   "price": 82100
+   "vin": "1GYC3NML2VZ705529"
   },
   {
    "stock": "C15318",
@@ -2354,8 +2225,7 @@
    ],
    "ext_color": "Vibrant White Tricoat",
    "int_color": "Kona Brown, Nouveauluxe Seats With Custom Quilted Perforated Inserts And Piping",
-   "vin": "1GYC3RML8VZ705705",
-   "price": 101500
+   "vin": "1GYC3RML8VZ705705"
   },
   {
    "stock": "C15321",
@@ -2374,8 +2244,7 @@
    ],
    "ext_color": "Stellar Black Metallic",
    "int_color": "Black, Inteluxe Seats With Perforated Inserts And Piping",
-   "vin": "1GYC3NML7VZ705669",
-   "price": 82100
+   "vin": "1GYC3NML7VZ705669"
   },
   {
    "stock": "C15336",
@@ -2395,8 +2264,7 @@
    "ext_color": "Emerald Lake Metallic",
    "int_color": "Kona Brown, Nouveauluxe Seats With Custom Quilted Perforated Inserts And Piping",
    "vin": "1GYC3RML8VZ706532",
-   "new_arrival": true,
-   "price": 99900
+   "new_arrival": true
   },
   {
    "stock": "C15340",
@@ -2416,8 +2284,7 @@
    "ext_color": "Blue Graphite Tricoat",
    "int_color": "Black, Nouveauluxe Seats With Custom Quilted Perforated Inserts And Piping",
    "vin": "1GYC3RML0VZ706556",
-   "new_arrival": true,
-   "price": 100500
+   "new_arrival": true
   },
   {
    "stock": "C14834",
@@ -2436,28 +2303,7 @@
    ],
    "ext_color": "Crystal White Tricoat",
    "int_color": "Cirrus, Leather Seating Surfaces With Mini-Perforated Inserts",
-   "vin": "1GYKNDRS5TZ125415",
-   "price": 62919
-  },
-  {
-   "stock": "C15179",
-   "year": 2026,
-   "make": "Cadillac",
-   "model": "XT5",
-   "trim": "Premium Luxury",
-   "condition": "New",
-   "body": "SUV",
-   "photos": [
-    "photos/C15179/site-01.jpg",
-    "photos/C15179/site-02.jpg",
-    "photos/C15179/site-03.jpg",
-    "photos/C15179/site-04.jpg",
-    "photos/C15179/site-05.jpg"
-   ],
-   "ext_color": "Stellar Black Metallic",
-   "int_color": "Sedona Sauvage, Leather Seating Surfaces With Mini-Perforated Inserts",
-   "vin": "1GYKNDRS0TZ120011",
-   "price": 61520
+   "vin": "1GYKNDRS5TZ125415"
   },
   {
    "stock": "C15182",
@@ -2476,8 +2322,7 @@
    ],
    "ext_color": "Crystal White Tricoat",
    "int_color": "Jet Black, Inteluxe Seats",
-   "vin": "1GYKNBR48TZ122188",
-   "price": 48945
+   "vin": "1GYKNBR48TZ122188"
   },
   {
    "stock": "C15219",
@@ -2496,8 +2341,7 @@
    ],
    "ext_color": "Opulent Blue Metallic",
    "int_color": "Jet Black, Inteluxe Seats",
-   "vin": "1GYKNBR44TZ122365",
-   "price": 48345
+   "vin": "1GYKNBR44TZ122365"
   },
   {
    "stock": "C15231",
@@ -2516,8 +2360,7 @@
    ],
    "ext_color": "Stellar Black Metallic",
    "int_color": "Jet Black, Leather Seating Surfaces With Mini-Perforated Inserts",
-   "vin": "1GYKNDRS6TZ123494",
-   "price": 65170
+   "vin": "1GYKNDRS6TZ123494"
   },
   {
    "stock": "C15235",
@@ -2536,8 +2379,7 @@
    ],
    "ext_color": "Radiant Red Tintcoat",
    "int_color": "Jet Black, Leather Seating Surfaces With Mini-Perforated Inserts",
-   "vin": "1GYKNHRS2TZ122804",
-   "price": 68315
+   "vin": "1GYKNHRS2TZ122804"
   },
   {
    "stock": "C15236",
@@ -2556,8 +2398,7 @@
    ],
    "ext_color": "Crystal White Tricoat",
    "int_color": "Jet Black, Leather Seating Surfaces With Mini-Perforated Inserts",
-   "vin": "1GYKNHRS2TZ123192",
-   "price": 67815
+   "vin": "1GYKNHRS2TZ123192"
   },
   {
    "stock": "C15252",
@@ -2576,8 +2417,7 @@
    ],
    "ext_color": "Crystal White Tricoat",
    "int_color": "Jet Black, Leather Seating Surfaces With Mini-Perforated Inserts",
-   "vin": "1GYKNDRS0TZ123636",
-   "price": 61695
+   "vin": "1GYKNDRS0TZ123636"
   },
   {
    "stock": "C15335",
@@ -2597,8 +2437,7 @@
    "ext_color": "Opulent Blue Metallic",
    "int_color": "Kona Brown Sauvage, Leather Seats With Mini-Perforated Inserts",
    "vin": "1GYKNDRS4TZ127236",
-   "new_arrival": true,
-   "price": 62965
+   "new_arrival": true
   },
   {
    "stock": "C15337",
@@ -2618,8 +2457,7 @@
    "ext_color": "Radiant Red Tintcoat",
    "int_color": "Jet Black, Leather Seating Surfaces With Mini-Perforated Inserts",
    "vin": "1GYKNDRS4TZ127317",
-   "new_arrival": true,
-   "price": 62120
+   "new_arrival": true
   },
   {
    "stock": "C15338",
@@ -2639,8 +2477,7 @@
    "ext_color": "Crystal White Tricoat",
    "int_color": "Cirrus, Leather Seating Surfaces With Mini-Perforated Inserts",
    "vin": "1GYKNHRS0TZ127161",
-   "new_arrival": true,
-   "price": 64820
+   "new_arrival": true
   },
   {
    "stock": "C15339",
@@ -2660,8 +2497,7 @@
    "ext_color": "Emerald Lake Metallic",
    "int_color": "Kona Brown Sauvage, Leather Seats With Mini-Perforated Inserts",
    "vin": "1GYKNDRS5TZ127343",
-   "new_arrival": true,
-   "price": 62965
+   "new_arrival": true
   },
   {
    "stock": "C15341",
@@ -2681,8 +2517,7 @@
    "ext_color": "Radiant Red Tintcoat",
    "int_color": "Kona Brown Sauvage, Leather Seats With Mini-Perforated Inserts",
    "vin": "1GYKNDRS2TZ127378",
-   "new_arrival": true,
-   "price": 63565
+   "new_arrival": true
   },
   {
    "stock": "DC14493",
@@ -2702,8 +2537,7 @@
    "miles": 4400,
    "ext_color": "Summit White",
    "int_color": "Jet Black With Jet Black Accents, Leather Seating Surfaces",
-   "vin": "1G6DU5RK4T0104537",
-   "price": 51915
+   "vin": "1G6DU5RK4T0104537"
   },
   {
    "stock": "DC14548",
@@ -2723,8 +2557,7 @@
    "miles": 5300,
    "ext_color": "Vibrant White Tricoat",
    "int_color": "Jet Black With Jet Black Accents, Leather Seating Surfaces",
-   "vin": "1G6DU5RK0T0105524",
-   "price": 53140
+   "vin": "1G6DU5RK0T0105524"
   },
   {
    "stock": "DC14556",
@@ -2744,8 +2577,7 @@
    "miles": 4200,
    "ext_color": "Vibrant White Tricoat",
    "int_color": "Sedona Sauvage With Jet Black Accents, Semi-Aniline Leather Seats",
-   "vin": "1G6DS5RK9T0105656",
-   "price": 54790
+   "vin": "1G6DS5RK9T0105656"
   },
   {
    "stock": "DC14913",
@@ -2765,9 +2597,20 @@
    "miles": 5300,
    "ext_color": "Radiant Red Tintcoat",
    "int_color": "Jet Black With Jet Black Accents, Leather Seating Surfaces",
-   "vin": "1G6DS5RK0T0114665",
-   "new_arrival": true,
-   "price": 58715
+   "vin": "1G6DS5RK0T0114665"
+  },
+  {
+   "stock": "DC14918",
+   "year": 2026,
+   "make": "Cadillac",
+   "model": "CT5",
+   "trim": "Premium Luxury",
+   "condition": "Demo",
+   "body": "Sedan",
+   "photos": [],
+   "ext_color": "Black Raven",
+   "int_color": "Jet Black With Jet Black Accents, Leather Seating Surfaces",
+   "vin": "1G6DS5RK0T0113371"
   },
   {
    "stock": "DC14923",
@@ -2787,8 +2630,7 @@
    "miles": 5400,
    "ext_color": "Black Raven",
    "int_color": "Jet Black With Jet Black Accents, Leather Seating Surfaces",
-   "vin": "1G6DU5RK0T0115017",
-   "price": 53165
+   "vin": "1G6DU5RK0T0115017"
   },
   {
    "stock": "DC14928",
@@ -2808,8 +2650,20 @@
    "miles": 5800,
    "ext_color": "Summit White",
    "int_color": "Whisper Beige With Jet Black Accents, Leather Seating Surfaces",
-   "vin": "1G6DU5RK3T0115044",
-   "price": 53165
+   "vin": "1G6DU5RK3T0115044"
+  },
+  {
+   "stock": "DC14930",
+   "year": 2026,
+   "make": "Cadillac",
+   "model": "CT5",
+   "trim": "Premium Luxury",
+   "condition": "Demo",
+   "body": "Sedan",
+   "photos": [],
+   "ext_color": "Summit White",
+   "int_color": "Maple Sugar With Jet Black Accents, Leather Seating Surfaces",
+   "vin": "1G6DS5RK4T0115074"
   },
   {
    "stock": "DC14953",
@@ -2829,29 +2683,7 @@
    "miles": 5400,
    "ext_color": "Radiant Red Tintcoat",
    "int_color": "Jet Black With Jet Black Accents, Leather Seating Surfaces",
-   "vin": "1G6DP5RK4T0116159",
-   "price": 51915
-  },
-  {
-   "stock": "DC14956",
-   "year": 2026,
-   "make": "Cadillac",
-   "model": "CT5",
-   "trim": "Sport",
-   "condition": "Demo",
-   "body": "Sedan",
-   "photos": [
-    "photos/DC14956/site-01.jpg",
-    "photos/DC14956/site-02.jpg",
-    "photos/DC14956/site-03.jpg",
-    "photos/DC14956/site-04.jpg",
-    "photos/DC14956/site-05.jpg"
-   ],
-   "miles": 5300,
-   "ext_color": "Argent Silver Metallic",
-   "int_color": "Jet Black With Jet Black Accents, Leather Seating Surfaces",
-   "vin": "1G6DU5RK3T0116226",
-   "price": 56565
+   "vin": "1G6DP5RK4T0116159"
   },
   {
    "stock": "DC14960",
@@ -2871,8 +2703,7 @@
    "miles": 5900,
    "ext_color": "Argent Silver Metallic",
    "int_color": "Jet Black With Jet Black Accents, Leather Seating Surfaces",
-   "vin": "1G6DU5RK7T0116830",
-   "price": 53680
+   "vin": "1G6DU5RK7T0116830"
   },
   {
    "stock": "DC14964",
@@ -2892,8 +2723,33 @@
    "miles": 5800,
    "ext_color": "Radiant Red Tintcoat",
    "int_color": "Jet Black With Jet Black Accents, Leather Seating Surfaces",
-   "vin": "1G6DU5RK9T0116859",
-   "price": 57165
+   "vin": "1G6DU5RK9T0116859"
+  },
+  {
+   "stock": "DC14966",
+   "year": 2026,
+   "make": "Cadillac",
+   "model": "CT5",
+   "trim": "Sport",
+   "condition": "Demo",
+   "body": "Sedan",
+   "photos": [],
+   "ext_color": "Summit White",
+   "int_color": "Jet Black With Jet Black Accents, Leather Seating Surfaces",
+   "vin": "1G6DU5RK5T0117023"
+  },
+  {
+   "stock": "DC14967",
+   "year": 2026,
+   "make": "Cadillac",
+   "model": "CT5",
+   "trim": "Premium Luxury",
+   "condition": "Demo",
+   "body": "Sedan",
+   "photos": [],
+   "ext_color": "Summit White",
+   "int_color": "Jet Black With Jet Black Accents, Leather Seating Surfaces",
+   "vin": "1G6DS5RK4T0117052"
   },
   {
    "stock": "DC14981",
@@ -2913,8 +2769,21 @@
    "miles": 6000,
    "ext_color": "Black Raven",
    "int_color": "Sedona Sauvage With Jet Black Accents, Semi-Aniline Leather Seats",
-   "vin": "1G6DS5RK1T0117753",
-   "price": 54705
+   "vin": "1G6DS5RK1T0117753"
+  },
+  {
+   "stock": "DC15013",
+   "year": 2026,
+   "make": "Cadillac",
+   "model": "CT5",
+   "trim": "Premium Luxury",
+   "condition": "Demo",
+   "body": "Sedan",
+   "photos": [],
+   "miles": 4900,
+   "ext_color": "Deep Space Metallic",
+   "int_color": "Jet Black With Jet Black Accents, Leather Seating Surfaces",
+   "vin": "1G6DS5RK8T0118950"
   },
   {
    "stock": "DC15077",
@@ -2935,8 +2804,126 @@
    "ext_color": "Midnight Sky Metallic",
    "int_color": "Jet Black With Jet Black Accents, Leather Seating Surfaces",
    "vin": "1G6DS5RK4T0121716",
-   "new_arrival": true,
-   "price": 57940
+   "new_arrival": true
+  },
+  {
+   "stock": "DC15213",
+   "year": 2026,
+   "make": "Cadillac",
+   "model": "CT5",
+   "trim": "Premium Luxury",
+   "condition": "Demo",
+   "body": "Sedan",
+   "photos": [],
+   "ext_color": "Vibrant White Tricoat",
+   "int_color": "Sedona Sauvage With Jet Black Accents, Semi-Aniline Leather Seats",
+   "vin": "1G6DS5RK3T0125028"
+  },
+  {
+   "stock": "DC15230",
+   "year": 2026,
+   "make": "Cadillac",
+   "model": "CT5",
+   "trim": "Sport",
+   "condition": "Demo",
+   "body": "Sedan",
+   "photos": [],
+   "ext_color": "Vibrant White Tricoat",
+   "int_color": "Sedona Sauvage With Jet Black Accents, Semi-Aniline Leather Seats",
+   "vin": "1G6DU5RK8T0125794"
+  },
+  {
+   "stock": "DC15288",
+   "year": 2026,
+   "make": "Cadillac",
+   "model": "CT5",
+   "trim": "Sport",
+   "condition": "Demo",
+   "body": "Sedan",
+   "photos": [
+    "photos/DC15288/site-01.jpg",
+    "photos/DC15288/site-02.jpg",
+    "photos/DC15288/site-03.jpg",
+    "photos/DC15288/site-04.jpg",
+    "photos/DC15288/site-05.jpg"
+   ],
+   "ext_color": "Argent Silver Metallic",
+   "int_color": "Jet Black With Jet Black Accents, Leather Seating Surfaces",
+   "vin": "1G6DU5RK9T0127506",
+   "new_arrival": true
+  },
+  {
+   "stock": "DC15310",
+   "year": 2026,
+   "make": "Cadillac",
+   "model": "CT5",
+   "trim": "Sport",
+   "condition": "Demo",
+   "body": "Sedan",
+   "photos": [
+    "photos/DC15310/site-01.jpg",
+    "photos/DC15310/site-02.jpg",
+    "photos/DC15310/site-03.jpg",
+    "photos/DC15310/site-04.jpg",
+    "photos/DC15310/site-05.jpg"
+   ],
+   "ext_color": "Deep Space Metallic",
+   "int_color": "Whisper Beige With Jet Black Accents, Leather Seating Surfaces",
+   "vin": "1G6DU5RK6T0128032",
+   "new_arrival": true
+  },
+  {
+   "stock": "DC15342",
+   "year": 2026,
+   "make": "Cadillac",
+   "model": "CT5",
+   "trim": "Sport",
+   "condition": "Demo",
+   "body": "Sedan",
+   "photos": [
+    "photos/DC15342/site-01.jpg",
+    "photos/DC15342/site-02.jpg",
+    "photos/DC15342/site-03.jpg",
+    "photos/DC15342/site-04.jpg",
+    "photos/DC15342/site-05.jpg"
+   ],
+   "ext_color": "Black Raven",
+   "int_color": "Jet Black With Jet Black Accents, Leather Seating Surfaces",
+   "vin": "1G6DU5RK5T0129317",
+   "new_arrival": true
+  },
+  {
+   "stock": "DC15343",
+   "year": 2026,
+   "make": "Cadillac",
+   "model": "CT5",
+   "trim": "Sport",
+   "condition": "Demo",
+   "body": "Sedan",
+   "photos": [
+    "photos/DC15343/site-01.jpg",
+    "photos/DC15343/site-02.jpg",
+    "photos/DC15343/site-03.jpg",
+    "photos/DC15343/site-04.jpg",
+    "photos/DC15343/site-05.jpg"
+   ],
+   "ext_color": "Vibrant White Tricoat",
+   "int_color": "Jet Black With Jet Black Accents, Leather Seating Surfaces",
+   "vin": "1G6DU5RK9T0129238",
+   "new_arrival": true
+  },
+  {
+   "stock": "DC15277",
+   "year": 2027,
+   "make": "Cadillac",
+   "model": "Escalade",
+   "trim": "Sport",
+   "condition": "Demo",
+   "body": "SUV",
+   "photos": [],
+   "ext_color": "Black Raven",
+   "int_color": "Renaissance Red With Black Accents, Leather Seating Surfaces With Faceted Quilting",
+   "vin": "1GYS9FKL4VR111933"
   },
   {
    "stock": "DC14810",
@@ -2955,8 +2942,7 @@
    ],
    "ext_color": "Black Raven",
    "int_color": "Jet Black, Leather Seating Surfaces With Precision Perforated Inserts",
-   "vin": "1GYS9FKL8TR356361",
-   "price": 114360
+   "vin": "1GYS9FKL8TR356361"
   },
   {
    "stock": "DC14975",
@@ -2976,8 +2962,7 @@
    "miles": 5200,
    "ext_color": "Vibrant White Tricoat",
    "int_color": "Sheer Gray With Jet Black Accents, Full Semi-Aniline Leather Seats With Faceted Quilting",
-   "vin": "1GYS9GKLXTR364578",
-   "price": 141085
+   "vin": "1GYS9GKLXTR364578"
   },
   {
    "stock": "DC14977",
@@ -2997,8 +2982,7 @@
    "miles": 2600,
    "ext_color": "Black Raven",
    "int_color": "Sheer Gray With Jet Black Accents, Full Semi-Aniline Leather Seats With Faceted Quilting",
-   "vin": "1GYS9GKL0TR364640",
-   "price": 139760
+   "vin": "1GYS9GKL0TR364640"
   },
   {
    "stock": "DC14992",
@@ -3018,8 +3002,7 @@
    "miles": 5600,
    "ext_color": "Black Raven",
    "int_color": "Sheer Gray With Jet Black Accents, Full Semi-Aniline Leather Seats With Faceted Quilting",
-   "vin": "1GYS9GKL0TR366078",
-   "price": 132855
+   "vin": "1GYS9GKL0TR366078"
   },
   {
    "stock": "DC15006",
@@ -3039,8 +3022,20 @@
    "miles": 6200,
    "ext_color": "Black Raven",
    "int_color": "Renaissance Red With Jet Black Accents, Leather Seating Surfaces With Faceted Quilting",
-   "vin": "1GYS9FKL4TR378812",
-   "price": 115155
+   "vin": "1GYS9FKL4TR378812"
+  },
+  {
+   "stock": "DC15007",
+   "year": 2026,
+   "make": "Cadillac",
+   "model": "Escalade",
+   "trim": "Platinum Sport",
+   "condition": "Demo",
+   "body": "SUV",
+   "photos": [],
+   "ext_color": "Vibrant White Tricoat",
+   "int_color": "Jet Black, Full Semi-Aniline Leather Seats With Mondrian Quilting",
+   "vin": "1GYS9GKL0TR367991"
   },
   {
    "stock": "DC15029",
@@ -3060,8 +3055,132 @@
    "miles": 6100,
    "ext_color": "Vibrant White Tricoat",
    "int_color": "Jet Black, Full Semi-Aniline Leather Seats With Mondrian Quilting",
-   "vin": "1GYS9GKL3TR379908",
-   "price": 134180
+   "vin": "1GYS9GKL3TR379908"
+  },
+  {
+   "stock": "DC15060",
+   "year": 2026,
+   "make": "Cadillac",
+   "model": "Escalade",
+   "trim": "Sport",
+   "condition": "Demo",
+   "body": "SUV",
+   "photos": [],
+   "ext_color": "Vibrant White Tricoat",
+   "int_color": "Renaissance Red With Jet Black Accents, Leather Seating Surfaces With Faceted Quilting",
+   "vin": "1GYS9FKL0TR407688"
+  },
+  {
+   "stock": "DC15063",
+   "year": 2026,
+   "make": "Cadillac",
+   "model": "Escalade",
+   "trim": "Sport",
+   "condition": "Demo",
+   "body": "SUV",
+   "photos": [],
+   "ext_color": "Aegean Stone",
+   "int_color": "Jet Black, Leather Seating Surfaces With Precision Perforated Inserts",
+   "vin": "1GYS9FKL5TR411025"
+  },
+  {
+   "stock": "DC15075",
+   "year": 2026,
+   "make": "Cadillac",
+   "model": "Escalade",
+   "trim": "Platinum Luxury",
+   "condition": "Demo",
+   "body": "SUV",
+   "photos": [],
+   "ext_color": "Black Raven",
+   "int_color": "Jet Black, Full Semi-Aniline Leather Seats With Mondrian Quilting",
+   "vin": "1GYS9DKL8TR416983"
+  },
+  {
+   "stock": "DC15080",
+   "year": 2026,
+   "make": "Cadillac",
+   "model": "Escalade",
+   "trim": "Sport",
+   "condition": "Demo",
+   "body": "SUV",
+   "photos": [],
+   "ext_color": "Vibrant White Tricoat",
+   "int_color": "Jet Black, Leather Seating Surfaces With Precision Perforated Inserts",
+   "vin": "1GYS9FKL1TR424726"
+  },
+  {
+   "stock": "DC15151",
+   "year": 2026,
+   "make": "Cadillac",
+   "model": "Escalade",
+   "trim": "Luxury",
+   "condition": "Demo",
+   "body": "SUV",
+   "photos": [],
+   "ext_color": "Black Raven",
+   "int_color": "Jet Black, Leather Seating Surfaces With Precision Perforated Inserts",
+   "vin": "1GYS9CKL3TR455880"
+  },
+  {
+   "stock": "DC15201",
+   "year": 2026,
+   "make": "Cadillac",
+   "model": "Escalade ESV",
+   "trim": "Sport",
+   "condition": "Demo",
+   "body": "SUV",
+   "photos": [
+    "photos/DC15201/site-01.jpg",
+    "photos/DC15201/site-02.jpg",
+    "photos/DC15201/site-03.jpg",
+    "photos/DC15201/site-04.jpg",
+    "photos/DC15201/site-05.jpg"
+   ],
+   "ext_color": "Vibrant White Tricoat",
+   "int_color": "Renaissance Red With Jet Black Accents, Leather Seating Surfaces With Faceted Quilting",
+   "vin": "1GYS9PKL7TR468624",
+   "new_arrival": true
+  },
+  {
+   "stock": "DC15299",
+   "year": 2027,
+   "make": "Cadillac",
+   "model": "LYRIQ",
+   "trim": "Signature Luxury",
+   "condition": "Demo",
+   "body": "EV",
+   "photos": [
+    "photos/DC15299/site-01.jpg",
+    "photos/DC15299/site-02.jpg",
+    "photos/DC15299/site-03.jpg",
+    "photos/DC15299/site-04.jpg",
+    "photos/DC15299/site-05.jpg"
+   ],
+   "ext_color": "Vibrant White Tricoat",
+   "int_color": "Black Nappa With Sky Cool Gray Accents, Full Leather Seats With Perforated Inserts",
+   "vin": "1GYKPTRL7VZ305611",
+   "new_arrival": true
+  },
+  {
+   "stock": "DC15302",
+   "year": 2027,
+   "make": "Cadillac",
+   "model": "LYRIQ",
+   "trim": "Signature Luxury",
+   "condition": "Demo",
+   "body": "EV",
+   "photos": [
+    "photos/DC15302/site-01.jpg",
+    "photos/DC15302/site-02.jpg",
+    "photos/DC15302/site-03.jpg",
+    "photos/DC15302/site-04.jpg",
+    "photos/DC15302/site-05.jpg"
+   ],
+   "ext_color": "Argent Silver Metallic",
+   "int_color": "Black Nappa With Sky Cool Gray Accents, Full Leather Seats With Perforated Inserts",
+   "vin": "1GYKPTRLXVZ305604",
+   "new_arrival": true
   },
   {
    "stock": "DC14557",
@@ -3081,8 +3200,7 @@
    "miles": 5200,
    "ext_color": "Stellar Black Metallic",
    "int_color": "Noir With Santorini Blue Accents, Inteluxe Seats With Perforated Inserts",
-   "vin": "1GYKPWRL2TZ302632",
-   "price": 68715
+   "vin": "1GYKPWRL2TZ302632"
   },
   {
    "stock": "DC15038",
@@ -3105,6 +3223,32 @@
    "vin": "1GYKPYRL9TZ310707"
   },
   {
+   "stock": "DC15039",
+   "year": 2026,
+   "make": "Cadillac",
+   "model": "LYRIQ",
+   "trim": "Signature Luxury",
+   "condition": "Demo",
+   "body": "EV",
+   "photos": [],
+   "ext_color": "Emerald Lake Metallic",
+   "int_color": "Juniper With Sky Cool Gray Accents, Full Leather Seat Trim With Perforated Inserts",
+   "vin": "1GYKPTRL0TZ310789"
+  },
+  {
+   "stock": "DC15048",
+   "year": 2026,
+   "make": "Cadillac",
+   "model": "LYRIQ",
+   "trim": "Sport",
+   "condition": "Demo",
+   "body": "EV",
+   "photos": [],
+   "ext_color": "Vibrant White Tricoat",
+   "int_color": "Sky Cool Gray With Santorini Blue Accents, Inteluxe Seats With Perforated Inserts",
+   "vin": "1GYKPURL7TZ310830"
+  },
+  {
    "stock": "DC15187",
    "year": 2027,
    "make": "Cadillac",
@@ -3121,8 +3265,47 @@
    ],
    "ext_color": "Radiant Red Tintcoat",
    "int_color": "Black, Inteluxe Seats With Perforated Inserts And Embroidery/Quilting Seat Trim",
-   "vin": "3GYK3GM46VS106078",
-   "price": 65895
+   "vin": "3GYK3GM46VS106078"
+  },
+  {
+   "stock": "DC15188",
+   "year": 2027,
+   "make": "Cadillac",
+   "model": "OPTIQ",
+   "trim": "Premium Sport",
+   "condition": "Demo",
+   "body": "EV",
+   "photos": [],
+   "ext_color": "Vibrant White Tricoat",
+   "int_color": "Sky Cool Gray With Santorini Blue Accents, Inteluxe Seats With Perforated Inserts And Embroidery/Quilting Seat Trim",
+   "vin": "3GYK3GM48VS106065"
+  },
+  {
+   "stock": "DC15286",
+   "year": 2027,
+   "make": "Cadillac",
+   "model": "OPTIQ",
+   "trim": "Sport",
+   "condition": "Demo",
+   "body": "EV",
+   "photos": [],
+   "ext_color": "Black Raven",
+   "int_color": "Black, Inteluxe Seats Seat Trim",
+   "vin": "3GYK3EM44VS109789",
+   "new_arrival": true
+  },
+  {
+   "stock": "DC15068",
+   "year": 2027,
+   "make": "Cadillac",
+   "model": "VISTIQ",
+   "trim": "Sport",
+   "condition": "Demo",
+   "body": "EV",
+   "photos": [],
+   "ext_color": "Vibrant White Tricoat",
+   "int_color": "Sheer Gray, Inteluxe Seats With Perforated Inserts And Piping",
+   "vin": "1GYC3NML4VZ700493"
   },
   {
    "stock": "DC14902",
@@ -3142,8 +3325,33 @@
    "miles": 6000,
    "ext_color": "Stellar Black Metallic",
    "int_color": "Jet Black, Inteluxe Seats",
-   "vin": "1GYKNBR49TZ111376",
-   "price": 41645
+   "vin": "1GYKNBR49TZ111376"
+  },
+  {
+   "stock": "DC15049",
+   "year": 2026,
+   "make": "Cadillac",
+   "model": "XT5",
+   "trim": "Premium Luxury",
+   "condition": "Demo",
+   "body": "SUV",
+   "photos": [],
+   "ext_color": "Opulent Blue Metallic",
+   "int_color": "Jet Black, Leather Seating Surfaces With Mini-Perforated Inserts",
+   "vin": "1GYKNDR42TZ114955"
+  },
+  {
+   "stock": "DC15186",
+   "year": 2026,
+   "make": "Cadillac",
+   "model": "XT5",
+   "trim": "Luxury",
+   "condition": "Demo",
+   "body": "SUV",
+   "photos": [],
+   "ext_color": "Stellar Black Metallic",
+   "int_color": "Jet Black, Inteluxe Seats",
+   "vin": "1GYKNBR41TZ121822"
   },
   {
    "stock": "DC15194",
@@ -3162,8 +3370,7 @@
    ],
    "ext_color": "Crystal White Tricoat",
    "int_color": "Jet Black, Inteluxe Seats",
-   "vin": "1GYKNAR47TZ122239",
-   "price": 46945
+   "vin": "1GYKNAR47TZ122239"
   },
   {
    "stock": "DC15206",
@@ -3182,8 +3389,46 @@
    ],
    "ext_color": "Argent Silver Metallic",
    "int_color": "Jet Black, Inteluxe Seats",
-   "vin": "1GYKNAR48TZ122394",
-   "price": 45720
+   "vin": "1GYKNAR48TZ122394"
+  },
+  {
+   "stock": "DC15208",
+   "year": 2026,
+   "make": "Cadillac",
+   "model": "XT5",
+   "trim": "Luxury",
+   "condition": "Demo",
+   "body": "SUV",
+   "photos": [],
+   "ext_color": "Opulent Blue Metallic",
+   "int_color": "Jet Black, Inteluxe Seats",
+   "vin": "1GYKNAR45TZ122370"
+  },
+  {
+   "stock": "DC15217",
+   "year": 2026,
+   "make": "Cadillac",
+   "model": "XT5",
+   "trim": "Luxury",
+   "condition": "Demo",
+   "body": "SUV",
+   "photos": [],
+   "ext_color": "Stellar Black Metallic",
+   "int_color": "Jet Black, Inteluxe Seats",
+   "vin": "1GYKNAR46TZ122247"
+  },
+  {
+   "stock": "DC15234",
+   "year": 2026,
+   "make": "Cadillac",
+   "model": "XT5",
+   "trim": "Premium Luxury",
+   "condition": "Demo",
+   "body": "SUV",
+   "photos": [],
+   "ext_color": "Argent Silver Metallic",
+   "int_color": "Jet Black, Leather Seating Surfaces With Mini-Perforated Inserts",
+   "vin": "1GYKNDRS0TZ123393"
   },
   {
    "stock": "C15096A",
@@ -3201,8 +3446,7 @@
     "photos/C15096A/site-05.jpg"
    ],
    "miles": 32400,
-   "vin": "WA1CWBF16PD045383",
-   "price": 66620
+   "vin": "WA1CWBF16PD045383"
   },
   {
    "stock": "B19151B",
@@ -3222,8 +3466,7 @@
    "miles": 109900,
    "ext_color": "Includes Spectra Gray Lower Exterior Accent Color.)",
    "int_color": "Dark Galvanized With Ebony Interior Accents, Perforated Leather-Appointed Seats",
-   "vin": "5GAERBKW5NJ133719",
-   "price": 23731
+   "vin": "5GAERBKW5NJ133719"
   },
   {
    "stock": "CP2028",
@@ -3243,8 +3486,7 @@
    "miles": 35900,
    "ext_color": "Ocean Blue Metallic",
    "int_color": "Whisper Beige Seats With Ebony Interior Accents, Leather-Appointed Seat Trim",
-   "vin": "KL4AMGSL7RB151504",
-   "price": 26515
+   "vin": "KL4AMGSL7RB151504"
   },
   {
    "stock": "CT2311",
@@ -3261,11 +3503,10 @@
     "photos/CT2311/site-04.jpg",
     "photos/CT2311/site-05.jpg"
    ],
-   "miles": 63900,
+   "miles": 64100,
    "ext_color": "Ebony Twilight Metallic",
    "int_color": "Ebony Seats With Ebony Interior Accents, Leatherette Seat Trim",
-   "vin": "KL4AMESL3RB191504",
-   "price": 20620
+   "vin": "KL4AMESL3RB191504"
   },
   {
    "stock": "B19527G",
@@ -3280,8 +3521,7 @@
    "ext_color": "Deep Garnet Metallic",
    "int_color": "Light Neutral, Perforated Leather-Appointed Seat Trim",
    "vin": "1G4GF5G34EF230862",
-   "new_arrival": true,
-   "price": 18403
+   "new_arrival": true
   },
   {
    "stock": "DC14912A",
@@ -3301,8 +3541,7 @@
    "miles": 75600,
    "ext_color": "Argent Silver Metallic",
    "int_color": "(With Pitch Dark Night Center Console Trim.)",
-   "vin": "1G6DK5RK8P0116640",
-   "price": 26152
+   "vin": "1G6DK5RK8P0116640"
   },
   {
    "stock": "CX3337",
@@ -3322,8 +3561,7 @@
    "miles": 12200,
    "ext_color": "Black Raven",
    "int_color": "Jet Black, Leather Seating Surfaces With Mini-Perforated Inserts",
-   "vin": "1G6DH5RL2T0111256",
-   "price": 47620
+   "vin": "1G6DH5RL2T0111256"
   },
   {
    "stock": "CT2302",
@@ -3343,8 +3581,7 @@
    "miles": 13600,
    "ext_color": "Argent Silver Metallic",
    "int_color": "Jet Black, Leather Seating Surfaces With Mini-Perforated Inserts",
-   "vin": "1G6DH5RL8S0115326",
-   "price": 45620
+   "vin": "1G6DH5RL8S0115326"
   },
   {
    "stock": "CP2035",
@@ -3364,8 +3601,7 @@
    "miles": 6700,
    "ext_color": "Radiant Red Tintcoat",
    "int_color": "Jet Black With Jet Black Accents, Leather Seating Surfaces",
-   "vin": "1G6DS5RW8S0122496",
-   "price": 53071
+   "vin": "1G6DS5RW8S0122496"
   },
   {
    "stock": "DC14952A",
@@ -3385,8 +3621,7 @@
    "miles": 67500,
    "ext_color": "Midnight Steel Metallic",
    "int_color": "(With Low Gloss Axiom Aluminum Trim.)",
-   "vin": "1G6DW5RK5P0130628",
-   "price": 31143
+   "vin": "1G6DW5RK5P0130628"
   },
   {
    "stock": "CP2037",
@@ -3401,8 +3636,7 @@
    "ext_color": "Shadow Metallic",
    "int_color": "With Chevron Perforated Inserts",
    "vin": "1G6DV5RW4M0124045",
-   "new_arrival": true,
-   "price": 35625
+   "new_arrival": true
   },
   {
    "stock": "C15121A",
@@ -3416,8 +3650,7 @@
    "miles": 63700,
    "ext_color": "Black Raven",
    "int_color": "(With Natural Figured Ash Wood Trim.)",
-   "vin": "1GYS4GKL2PR209625",
-   "price": 65947
+   "vin": "1GYS4GKL2PR209625"
   },
   {
    "stock": "DC15056A",
@@ -3437,8 +3670,7 @@
    "miles": 90000,
    "ext_color": "Galactic Gray Metallic",
    "int_color": "(With Linear Tiger Wood Trim.)",
-   "vin": "1GYS4BKL4NR331323",
-   "price": 53214
+   "vin": "1GYS4BKL4NR331323"
   },
   {
    "stock": "B19284B",
@@ -3458,8 +3690,7 @@
    "miles": 122500,
    "ext_color": "Crystal White Tricoat",
    "int_color": "Jet Black Interior Trim",
-   "vin": "1GYS4GKL4MR460822",
-   "price": 54019
+   "vin": "1GYS4GKL4MR460822"
   },
   {
    "stock": "C15172A",
@@ -3479,8 +3710,7 @@
    "miles": 93100,
    "ext_color": "Shadow Metallic",
    "int_color": "With Mini Perforated Inserts",
-   "vin": "1GYS4CKJ9LR250349",
-   "price": 39620
+   "vin": "1GYS4CKJ9LR250349"
   },
   {
    "stock": "CP2025A",
@@ -3494,29 +3724,21 @@
    "miles": 110400,
    "ext_color": "Satin Steel Metallic",
    "int_color": "With Mini-Perforated Inserts",
-   "vin": "1GYS4DKJ3LR188503",
-   "price": 35432
+   "vin": "1GYS4DKJ3LR188503"
   },
   {
-   "stock": "C15193A",
-   "year": 2025,
+   "stock": "CT2298A",
+   "year": 2020,
    "make": "Cadillac",
-   "model": "ESCALADE IQ",
-   "trim": "Luxury 2",
+   "model": "XT4",
+   "trim": "AWD Premium Luxury",
    "condition": "Pre-owned",
-   "body": "EV",
-   "photos": [
-    "photos/C15193A/site-01.jpg",
-    "photos/C15193A/site-02.jpg",
-    "photos/C15193A/site-03.jpg",
-    "photos/C15193A/site-04.jpg",
-    "photos/C15193A/site-05.jpg"
-   ],
-   "miles": 38200,
-   "ext_color": "Flare Metallic",
-   "int_color": "Camelia With Backen Black Accents, Nouveauluxe Seating With Evren (Back Inserts) And Cygnus (Seat Cushion) Perforated Pattern",
-   "vin": "1GYTEDKL8SU103041",
-   "price": 96934
+   "body": "SUV",
+   "photos": [],
+   "miles": 82500,
+   "ext_color": "Crystal White Tricoat",
+   "int_color": "(With Diamond Cut Genuine Aluminum Trim.)",
+   "vin": "1GYFZDR49LF029375"
   },
   {
    "stock": "CX3340",
@@ -3536,8 +3758,7 @@
    "miles": 9100,
    "ext_color": "Stellar Black Metallic",
    "int_color": "Jet Black, Leather Seating Surfaces With Mini-Perforated Inserts",
-   "vin": "1GYKNHRS9TZ103926",
-   "price": 57982
+   "vin": "1GYKNHRS9TZ103926"
   },
   {
    "stock": "C15033A",
@@ -3557,8 +3778,7 @@
    "miles": 92000,
    "ext_color": "Satin Steel Metallic",
    "int_color": "(With Linear Galaxy High-Gloss Wood Trim.)",
-   "vin": "1GYKNDRS8MZ121215",
-   "price": 22920
+   "vin": "1GYKNDRS8MZ121215"
   },
   {
    "stock": "C15248A",
@@ -3578,8 +3798,7 @@
    "miles": 110800,
    "ext_color": "Crystal White Tricoat",
    "int_color": "With Dark Titanium Accents (With Diamond Cut Aluminum Trim.)",
-   "vin": "1GYKNDRSXLZ105869",
-   "price": 19492
+   "vin": "1GYKNDRSXLZ105869"
   },
   {
    "stock": "CT2306A",
@@ -3593,8 +3812,7 @@
    "miles": 95700,
    "ext_color": "Stellar Black Metallic",
    "int_color": "With Jet Black Accents",
-   "vin": "1GYKPHRS3MZ209252",
-   "price": 27120
+   "vin": "1GYKPHRS3MZ209252"
   },
   {
    "stock": "CT2293",
@@ -3614,8 +3832,7 @@
    "miles": 8000,
    "ext_color": "Summit White",
    "int_color": "Black, Cloth Seat Trim",
-   "vin": "3GNAXHEG7TL290756",
-   "price": 27098
+   "vin": "3GNAXHEG7TL290756"
   },
   {
    "stock": "CX3306A",
@@ -3635,8 +3852,7 @@
    "miles": 142400,
    "ext_color": "Mosaic Black Metallic",
    "int_color": "Medium Ash Gray, Premium Cloth Seat Trim",
-   "vin": "2GNAXHEV9L6141199",
-   "price": 11620
+   "vin": "2GNAXHEV9L6141199"
   },
   {
    "stock": "CT2312",
@@ -3656,8 +3872,7 @@
    "miles": 131800,
    "ext_color": "Summit White",
    "int_color": "Jet Black/Umber, Perforated Leather Seat Trim",
-   "vin": "2GC4YRE70R1204531",
-   "price": 57614
+   "vin": "2GC4YRE70R1204531"
   },
   {
    "stock": "DC14745A",
@@ -3677,8 +3892,7 @@
    "miles": 44400,
    "ext_color": "Black",
    "int_color": "Jet Black, Perforated Leather-Appointed Front Outboard Seat Trim",
-   "vin": "2GC4YPEY8R1239122",
-   "price": 59658
+   "vin": "2GC4YPEY8R1239122"
   },
   {
    "stock": "B19484A",
@@ -3692,8 +3906,7 @@
    "miles": 43500,
    "ext_color": "Silver Ice Metallic",
    "int_color": "Jet Black, Perforated Leather-Appointed Front Seat Trim",
-   "vin": "1GC4YPE70LF207319",
-   "price": 45691
+   "vin": "1GC4YPE70LF207319"
   },
   {
    "stock": "DC14936A",
@@ -3713,8 +3926,7 @@
    "miles": 38700,
    "ext_color": "Black",
    "int_color": "Jet Black/Victory Red, Perforated Leather Seating Surfaces",
-   "vin": "1GNS5ERD1SR112468",
-   "price": 64134
+   "vin": "1GNS5ERD1SR112468"
   },
   {
    "stock": "CT2289",
@@ -3734,8 +3946,7 @@
    "miles": 63100,
    "ext_color": "Iridescent Pearl Tricoat",
    "int_color": "Jet Black, Perforated Leather Seating Surfaces 1St And 2Nd Row",
-   "vin": "1GNSKGKL4PR390827",
-   "price": 53472
+   "vin": "1GNSKGKL4PR390827"
   },
   {
    "stock": "CX3338",
@@ -3755,8 +3966,7 @@
    "miles": 15200,
    "ext_color": "Mosaic Black Metallic",
    "int_color": "Lt Jet Black/Gideon, Premium Cloth Seat Trim",
-   "vin": "1GNERGKS4TJ217804",
-   "price": 35229
+   "vin": "1GNERGKS4TJ217804"
   },
   {
    "stock": "CT2301A",
@@ -3771,8 +3981,7 @@
    "ext_color": "Agate Black Metal",
    "int_color": "Ebony",
    "vin": "1FMCU9H66NUA70564",
-   "new_arrival": true,
-   "price": 19416
+   "new_arrival": true
   },
   {
    "stock": "C15167A",
@@ -3792,8 +4001,7 @@
    "miles": 8400,
    "ext_color": "Oxford White",
    "int_color": "Black",
-   "vin": "1FTFW1RJ3PFC63892",
-   "price": 102620
+   "vin": "1FTFW1RJ3PFC63892"
   },
   {
    "stock": "CT2297A",
@@ -3813,8 +4021,7 @@
    "miles": 56700,
    "ext_color": "Carbonized Gray M",
    "int_color": "Black",
-   "vin": "1FTFW1RJ8PFC24599",
-   "price": 91758
+   "vin": "1FTFW1RJ8PFC24599"
   },
   {
    "stock": "B19184C",
@@ -3834,29 +4041,7 @@
    "miles": 139100,
    "ext_color": "Agate Black Metal",
    "int_color": "Ebony",
-   "vin": "3FA6P0HD1LR252847",
-   "price": 11940
-  },
-  {
-   "stock": "C15037A",
-   "year": 2025,
-   "make": "Genesis",
-   "model": "GV80",
-   "trim": "3.5T Prestige",
-   "condition": "Pre-owned",
-   "body": "SUV",
-   "photos": [
-    "photos/C15037A/site-01.jpg",
-    "photos/C15037A/site-02.jpg",
-    "photos/C15037A/site-03.jpg",
-    "photos/C15037A/site-04.jpg",
-    "photos/C15037A/site-05.jpg"
-   ],
-   "miles": 13300,
-   "ext_color": "Vik Black",
-   "int_color": "Vanilla Beige/Smoky Green",
-   "vin": "KMUHEESC7SU247629",
-   "price": 63620
+   "vin": "3FA6P0HD1LR252847"
   },
   {
    "stock": "CX3341",
@@ -3876,8 +4061,7 @@
    "miles": 15900,
    "ext_color": "Summit White",
    "int_color": "After Dark, Coretec Seat Trim",
-   "vin": "1GKENKKSXTJ194945",
-   "price": 37749
+   "vin": "1GKENKKSXTJ194945"
   },
   {
    "stock": "CT2277",
@@ -3897,8 +4081,7 @@
    "miles": 19400,
    "ext_color": "Ebony Twilight Metallic",
    "int_color": "After Dark, Cloth Seat Trim",
-   "vin": "1GKENKRS4SJ300438",
-   "price": 32620
+   "vin": "1GKENKRS4SJ300438"
   },
   {
    "stock": "CX3333",
@@ -3918,8 +4101,7 @@
    "miles": 27500,
    "ext_color": "Ebony Twilight Metallic",
    "int_color": "After Dark, Cloth Seat Trim",
-   "vin": "1GKENKRS2SJ260392",
-   "price": 32320
+   "vin": "1GKENKRS2SJ260392"
   },
   {
    "stock": "CT2300",
@@ -3939,8 +4121,7 @@
    "miles": 35800,
    "ext_color": "White Frost Tricoat",
    "int_color": "After Dark, Perforated Leather-Appointed Seat Trim",
-   "vin": "1GKENRKSXRJ151000",
-   "price": 45920
+   "vin": "1GKENRKSXRJ151000"
   },
   {
    "stock": "B19392A",
@@ -3960,8 +4141,7 @@
    "miles": 7200,
    "ext_color": "Sterling Metallic",
    "int_color": "Jet Black With Kalahari Accents, Perforated Leather Front Seat Trim",
-   "vin": "3GTUUEEL6TG257492",
-   "price": 59134
+   "vin": "3GTUUEEL6TG257492"
   },
   {
    "stock": "B19515A",
@@ -3981,8 +4161,7 @@
    "miles": 19800,
    "ext_color": "Onyx Black",
    "int_color": "Alpine Umber, Full Grain Leather Front Seat Trim",
-   "vin": "1GTUUHEL1SZ159082",
-   "price": 62939
+   "vin": "1GTUUHEL1SZ159082"
   },
   {
    "stock": "CT2296A",
@@ -4002,8 +4181,7 @@
    "miles": 102500,
    "ext_color": "Onyx Black",
    "int_color": "Obsidian Rush, Full Grain Leather Front Seat Trim",
-   "vin": "3GTUUFEL1PG150619",
-   "price": 45769
+   "vin": "3GTUUFEL1PG150619"
   },
   {
    "stock": "C15103A",
@@ -4023,8 +4201,7 @@
    "miles": 97700,
    "ext_color": "White Frost Tricoat",
    "int_color": "Jet Black, Perforated Leather-Appointed Front Seat Trim",
-   "vin": "3GTU2PEJ5JG615906",
-   "price": 32184
+   "vin": "3GTU2PEJ5JG615906"
   },
   {
    "stock": "C15149A",
@@ -4044,29 +4221,7 @@
    "miles": 73300,
    "ext_color": "Sterling Metallic",
    "int_color": "Jet Black, Forge Perforated Leather Seat Trim",
-   "vin": "1GT49REYXRF168345",
-   "price": 62968
-  },
-  {
-   "stock": "C15245A",
-   "year": 2024,
-   "make": "GMC",
-   "model": "Sierra 2500 HD",
-   "trim": "AT4X",
-   "condition": "Pre-owned",
-   "body": "Truck",
-   "photos": [
-    "photos/C15245A/site-01.jpg",
-    "photos/C15245A/site-02.jpg",
-    "photos/C15245A/site-03.jpg",
-    "photos/C15245A/site-04.jpg",
-    "photos/C15245A/site-05.jpg"
-   ],
-   "miles": 28500,
-   "ext_color": "Thunderstorm Gray",
-   "int_color": "Obsidian Rush, Full Grain Leather Seat Trim",
-   "vin": "1GT49ZEY2RF441410",
-   "price": 74620
+   "vin": "1GT49REYXRF168345"
   },
   {
    "stock": "B19523A",
@@ -4086,8 +4241,7 @@
    "miles": 69300,
    "ext_color": "Red Quartz Tintcoat",
    "int_color": "Cocoa/Dark Sand, Perforated Leather-Appointed Seat Trim",
-   "vin": "1GT12UEY5JF252989",
-   "price": 47614
+   "vin": "1GT12UEY5JF252989"
   },
   {
    "stock": "CT2314",
@@ -4102,8 +4256,7 @@
    "ext_color": "Onyx Black",
    "int_color": "Jet Black Perforated Leather Seating Surfaces With Jet Black Interior Decor",
    "vin": "1GKS2DKLXRR347558",
-   "new_arrival": true,
-   "price": 64167
+   "new_arrival": true
   },
   {
    "stock": "CP2017A",
@@ -4123,29 +4276,7 @@
    "miles": 61300,
    "ext_color": "Satin Steel Metallic",
    "int_color": "(1St And 2Nd Rows Only.)",
-   "vin": "1GKS1DKL2NR216251",
-   "price": 49607
-  },
-  {
-   "stock": "C15173A",
-   "year": 2023,
-   "make": "GMC",
-   "model": "Yukon XL",
-   "trim": "Denali Ultimate",
-   "condition": "Pre-owned",
-   "body": "SUV",
-   "photos": [
-    "photos/C15173A/site-01.jpg",
-    "photos/C15173A/site-02.jpg",
-    "photos/C15173A/site-03.jpg",
-    "photos/C15173A/site-04.jpg",
-    "photos/C15173A/site-05.jpg"
-   ],
-   "miles": 18500,
-   "ext_color": "White Frost Tricoat",
-   "int_color": "Alpine Umber, Full Grain Leather Seating Surfaces",
-   "vin": "1GKS2KKL7PR555902",
-   "price": 73940
+   "vin": "1GKS1DKL2NR216251"
   },
   {
    "stock": "B19527A",
@@ -4159,24 +4290,22 @@
    "miles": 7700,
    "ext_color": "Red",
    "vin": "2HKRW2H85NH641652",
-   "new_arrival": true,
-   "price": 29367
+   "new_arrival": true
   },
   {
-   "stock": "B18934A",
-   "year": 2018,
-   "make": "Jeep",
-   "model": "Compass",
-   "trim": "Trailhawk",
+   "stock": "B19456A",
+   "year": 2019,
+   "make": "Honda",
+   "model": "CR-V",
+   "trim": "EX-L",
    "condition": "Pre-owned",
    "body": "SUV",
    "photos": [],
-   "miles": 69400,
-   "ext_color": "White Clearcoat",
-   "int_color": "Ruby Red/Black",
-   "vin": "3C4NJDDB6JT345849",
-   "new_arrival": true,
-   "price": 15830
+   "miles": 65200,
+   "ext_color": "Black",
+   "int_color": "Black",
+   "vin": "2HKRW1H87KH515329",
+   "new_arrival": true
   },
   {
    "stock": "C15204A",
@@ -4196,8 +4325,7 @@
    "miles": 37200,
    "ext_color": "Diamond Black Cry",
    "int_color": "Global Black",
-   "vin": "1C4RJKEG9R8515485",
-   "price": 44883
+   "vin": "1C4RJKEG9R8515485"
   },
   {
    "stock": "CP2034",
@@ -4217,8 +4345,7 @@
    "miles": 42800,
    "ext_color": "Granite Crystal M",
    "int_color": "Black",
-   "vin": "1C4HJXEG6MW741187",
-   "price": 31055
+   "vin": "1C4HJXEG6MW741187"
   },
   {
    "stock": "C15177A",
@@ -4238,8 +4365,7 @@
    "miles": 52700,
    "ext_color": "Wolf Gray",
    "int_color": "Black",
-   "vin": "5XYP5DGC5RG554309",
-   "price": 37620
+   "vin": "5XYP5DGC5RG554309"
   },
   {
    "stock": "B18979A",
@@ -4259,8 +4385,7 @@
    "miles": 114600,
    "ext_color": "Everlasting Silve",
    "int_color": "Black",
-   "vin": "5XYP5DHC6MG105793",
-   "price": 24620
+   "vin": "5XYP5DHC6MG105793"
   },
   {
    "stock": "C15074A",
@@ -4280,8 +4405,7 @@
    "miles": 9400,
    "ext_color": "Nori Green Pearl",
    "int_color": "Dapple Gray",
-   "vin": "JTJVBCDX1S5043158",
-   "price": 87620
+   "vin": "JTJVBCDX1S5043158"
   },
   {
    "stock": "C15153A",
@@ -4301,8 +4425,7 @@
    "miles": 31300,
    "ext_color": "Eminent White Pea",
    "int_color": "Black",
-   "vin": "JTJVBCDX1R5031098",
-   "price": 80620
+   "vin": "JTJVBCDX1R5031098"
   },
   {
    "stock": "C15216B",
@@ -4317,8 +4440,7 @@
    "ext_color": "Red Carpet Metall",
    "int_color": "Light Smoked Truffle",
    "vin": "5LMPJ8K43RJ841899",
-   "new_arrival": true,
-   "price": 51838
+   "new_arrival": true
   },
   {
    "stock": "C15066A",
@@ -4333,8 +4455,7 @@
    "ext_color": "Infinite Black Me",
    "int_color": "Black Onyx",
    "vin": "5LMJJ2LG6SEL09248",
-   "new_arrival": true,
-   "price": 76836
+   "new_arrival": true
   },
   {
    "stock": "C15273A",
@@ -4355,8 +4476,7 @@
    "ext_color": "Flight Blue Metal",
    "int_color": "Black Onyx",
    "vin": "5LMJJ2LG1SEL09299",
-   "new_arrival": true,
-   "price": 78074
+   "new_arrival": true
   },
   {
    "stock": "CT2286",
@@ -4376,8 +4496,7 @@
    "miles": 48500,
    "ext_color": "Ingot Blue Metall",
    "int_color": "Black W/Brown",
-   "vin": "7MMVABEM4SN378001",
-   "price": 27620
+   "vin": "7MMVABEM4SN378001"
   },
   {
    "stock": "CT2285A",
@@ -4397,8 +4516,7 @@
    "miles": 30700,
    "ext_color": "Boulder Gray Pear",
    "int_color": "Graphite",
-   "vin": "5N1AZ2BS5PC118733",
-   "price": 25614
+   "vin": "5N1AZ2BS5PC118733"
   },
   {
    "stock": "B19450A",
@@ -4412,8 +4530,7 @@
    "miles": 89100,
    "ext_color": "Delmonico Red Pea",
    "int_color": "Light Mountain Brown/Mountain",
-   "vin": "3C6UR5GL2PG606403",
-   "price": 56519
+   "vin": "3C6UR5GL2PG606403"
   },
   {
    "stock": "B18974A",
@@ -4433,9 +4550,7 @@
    "miles": 27000,
    "ext_color": "Magnetite Gray Me",
    "int_color": "Gray",
-   "vin": "4S4WMAHD9R3446165",
-   "price": 33920
+   "vin": "4S4WMAHD9R3446165"
   }
- ],
- "prices_checked_at": "2026-11-13T14:23:00Z"
+ ]
 }
