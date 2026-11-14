@@ -83,6 +83,12 @@ at brenenprinzing.com. It is standalone: not part of Keyhand, no Keyhand service
 - Code changes go on a branch and through a pull request. Brenen says when to merge.
 - The daily refresh may push `inventory/inventory.json` and `photos/` straight to
   `main`, and nothing else. (Nov 12, 2026)
+- The daily refresh runs as a GitHub Actions workflow in the private repo
+  (`contact-site-inventory/.github/workflows/refresh-site.yml`), started by Muse's
+  morning push. It pushes here as `contact-site-refresh` using the secret
+  `SITE_PUSH_TOKEN`, which expires on the date Brenen set. Claude has no write access to
+  that repo: changes to the workflow file go to Brenen to paste. Prefer fixing things in
+  this repo's tools instead. (Nov 14, 2026)
 - Never force-push `main`. Never revert the other agent's commits without asking.
 
 ## Not decided or not done
