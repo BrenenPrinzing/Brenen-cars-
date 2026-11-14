@@ -347,6 +347,24 @@ def test_site_price_needs_a_pull_time_under_24_hours(tmp_path):
     assert cars["C51234"]["price"] == 131185 and "price" not in cars["CP60123"]
 
 
+def test_early_drop_still_shows_prices(tmp_path):
+    """Nov 14, 2026: Muse dropped at 7:52 AM, the refresh ran at 7:53 with the assumed
+    8:23 AM pull time, and every price was hidden for an hour."""
+    rows = site_rows(tmp_path, ["dc_price"], [["131185"], ["38995"], [""], [""]])
+    ran_at = dt.datetime(2026, 11, 14, 13, 53, tzinfo=dt.timezone.utc)
+    inv, _ = build(rows, config=FEE_CONFIG, site_checked_at="2026-11-14T14:23:00Z", now=ran_at)
+    cars = by_stock(inv)
+    assert cars["C51234"]["price"] == 131185 and cars["CP60123"]["price"] == 39615
+    assert inv["prices_checked_at"] == "2026-11-14T13:53:00Z"      # never later than the run
+
+
+def test_pull_time_far_in_the_future_still_hides_prices(tmp_path):
+    rows = site_rows(tmp_path, ["dc_price"], [["131185"], ["38995"], [""], [""]])
+    ran_at = dt.datetime(2026, 11, 14, 13, 53, tzinfo=dt.timezone.utc)
+    inv, _ = build(rows, config=FEE_CONFIG, site_checked_at="2026-11-15T14:23:00Z", now=ran_at)
+    assert not any("price" in c for c in inv["cars"])
+
+
 def test_fee_applies_to_pre_owned_only(rows):
     ok = lambda price: {"status": "ok", "price": price, "checked_at": FRESH}  # noqa: E731
     c = {"C51234": ok(118990),      # new, equal: match

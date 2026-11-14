@@ -451,7 +451,26 @@ def check_held(rows: list[dict]) -> list[str]:
     return held
 
 
-def site_check(row: dict, site_checked_at: str | None) -> dict | None:
+# The refresh assumes Muse's pull happens at 8:23 AM Central. Muse sometimes drops the
+# files earlier, so that assumed time can still be a little ahead of the clock when the
+# refresh runs. Up to this far ahead, the pull is treated as having just happened.
+EARLY_DROP_LIMIT = dt.timedelta(hours=3)
+
+
+def settle_pull_time(when: str | None, now: dt.datetime) -> str | None:
+    """A pull time slightly in the future becomes "now"; anything else is left alone."""
+    if not when:
+        return when
+    try:
+        t = parse_time(when)
+    except ValueError:
+        return when
+    if now < t <= now + EARLY_DROP_LIMIT:
+        return now.astimezone(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    return when
+
+
+def site_check(row: dict, site_checked_at: str | None, now: dt.datetime | None = None) -> dict | None:
     """Muse's daily site list carries the dealer site's own price in a `price` column.
 
     That row is the dealer-site check. The time comes from a `pulled_at` / `checked_at`
@@ -460,6 +479,8 @@ def site_check(row: dict, site_checked_at: str | None) -> dict | None:
     if "price" not in row:
         return None
     when = row.get("pulledat", "").strip() or row.get("checkedat", "").strip() or site_checked_at
+    if now is not None:
+        when = settle_pull_time(when, now)
     price = to_int(row.get("price"))
     check = {"status": "ok" if price > 0 else "no_price"}
     if price > 0:
@@ -524,7 +545,7 @@ def build(rows: list[dict], *, exclude: set[str] = frozenset(), photos_dir: Path
         if age_text and to_int(age_text) <= NEW_ARRIVAL_DAYS:
             car["new_arrival"] = True
 
-        check = price_checks.get(stock) or site_check(row, site_checked_at)
+        check = price_checks.get(stock) or site_check(row, site_checked_at, now)
         dc_price = to_int(row.get("pricing") or row.get("dcprice"))
         # The site adds the admin fee to pre-owned prices only; new and demo list MSRP as is.
         price, reason = verified_price(dc_price, check, now, fee if condition == "Pre-owned" else 0)
