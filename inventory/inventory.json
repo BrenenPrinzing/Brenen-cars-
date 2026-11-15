@@ -1,7 +1,7 @@
 {
- "updated": "2026-11-14",
- "source_rows": 247,
- "kept": 246,
+ "updated": "2026-11-15",
+ "source_rows": 244,
+ "kept": 243,
  "cars": [
   {
    "stock": "C14884",
@@ -684,26 +684,6 @@
    "int_color": "Jet Black, Leather Seating Surfaces With Precision Perforated Inserts",
    "vin": "1GYS9FKL0TR396157",
    "price": 116280
-  },
-  {
-   "stock": "C15097",
-   "year": 2026,
-   "make": "Cadillac",
-   "model": "Escalade",
-   "trim": "Platinum Sport",
-   "condition": "New",
-   "body": "SUV",
-   "photos": [
-    "photos/C15097/site-01.jpg",
-    "photos/C15097/site-02.jpg",
-    "photos/C15097/site-03.jpg",
-    "photos/C15097/site-04.jpg",
-    "photos/C15097/site-05.jpg"
-   ],
-   "ext_color": "Black Raven",
-   "int_color": "Jet Black, Full Semi-Aniline Leather Seats With Mondrian Quilting",
-   "vin": "1GYS9GKL8TR446759",
-   "price": 130360
   },
   {
    "stock": "C15098",
@@ -1439,25 +1419,6 @@
    "int_color": "Jet Black, Leather Seating Surfaces With Precision Perforated Inserts",
    "vin": "1GYS9PKL1TR467775",
    "price": 116880
-  },
-  {
-   "stock": "C15241",
-   "year": 2026,
-   "make": "Cadillac",
-   "model": "Escalade ESV",
-   "trim": "V-Series",
-   "condition": "New",
-   "body": "SUV",
-   "photos": [
-    "photos/C15241/site-01.jpg",
-    "photos/C15241/site-02.jpg",
-    "photos/C15241/site-03.jpg",
-    "photos/C15241/site-04.jpg",
-    "photos/C15241/site-05.jpg"
-   ],
-   "ext_color": "Black Raven",
-   "int_color": "Jet Black, Full Semi-Aniline Leather Seats With Mondrian Quilting",
-   "vin": "1GYS9SK98TR444338"
   },
   {
    "stock": "C14336",
@@ -3691,22 +3652,6 @@
    "price": 20620
   },
   {
-   "stock": "B19527G",
-   "year": 2014,
-   "make": "Buick",
-   "model": "LaCrosse",
-   "trim": "Premium II",
-   "condition": "Pre-owned",
-   "body": "SUV",
-   "photos": [],
-   "miles": 60600,
-   "ext_color": "Deep Garnet Metallic",
-   "int_color": "Light Neutral, Perforated Leather-Appointed Seat Trim",
-   "vin": "1G4GF5G34EF230862",
-   "new_arrival": true,
-   "price": 18403
-  },
-  {
    "stock": "DC14912A",
    "year": 2023,
    "make": "Cadillac",
@@ -3954,7 +3899,7 @@
    "ext_color": "Stellar Black Metallic",
    "int_color": "Jet Black, Leather Seating Surfaces With Mini-Perforated Inserts",
    "vin": "1GYKNHRS9TZ103926",
-   "price": 57982
+   "price": 57607
   },
   {
    "stock": "C15033A",
@@ -4477,7 +4422,6 @@
    "ext_color": "Onyx Black",
    "int_color": "Jet Black Perforated Leather Seating Surfaces With Jet Black Interior Decor",
    "vin": "1GKS2DKLXRR347558",
-   "new_arrival": true,
    "price": 64167
   },
   {
@@ -4573,27 +4517,6 @@
    "int_color": "Black",
    "vin": "1C4HJXEG6MW741187",
    "price": 31055
-  },
-  {
-   "stock": "C15177A",
-   "year": 2024,
-   "make": "Kia",
-   "model": "Telluride",
-   "trim": "SX Prestige X-Line",
-   "condition": "Pre-owned",
-   "body": "SUV",
-   "photos": [
-    "photos/C15177A/site-01.jpg",
-    "photos/C15177A/site-02.jpg",
-    "photos/C15177A/site-03.jpg",
-    "photos/C15177A/site-04.jpg",
-    "photos/C15177A/site-05.jpg"
-   ],
-   "miles": 52700,
-   "ext_color": "Wolf Gray",
-   "int_color": "Black",
-   "vin": "5XYP5DGC5RG554309",
-   "price": 37620
   },
   {
    "stock": "B18979A",
@@ -4734,27 +4657,6 @@
    "price": 27620
   },
   {
-   "stock": "CT2285A",
-   "year": 2023,
-   "make": "Nissan",
-   "model": "Murano",
-   "trim": "SV",
-   "condition": "Pre-owned",
-   "body": "SUV",
-   "photos": [
-    "photos/CT2285A/site-01.jpg",
-    "photos/CT2285A/site-02.jpg",
-    "photos/CT2285A/site-03.jpg",
-    "photos/CT2285A/site-04.jpg",
-    "photos/CT2285A/site-05.jpg"
-   ],
-   "miles": 30700,
-   "ext_color": "Boulder Gray Pear",
-   "int_color": "Graphite",
-   "vin": "5N1AZ2BS5PC118733",
-   "price": 25420
-  },
-  {
    "stock": "B19450A",
    "year": 2023,
    "make": "RAM",
@@ -4789,7 +4691,36 @@
    "int_color": "Gray",
    "vin": "4S4WMAHD9R3446165",
    "price": 33920
+  },
+  {
+   "stock": "B19403A",
+   "year": 2025,
+   "make": "Toyota",
+   "model": "4Runner",
+   "trim": "SR5",
+   "condition": "Pre-owned",
+   "body": "SUV",
+   "photos": [],
+   "miles": 15100,
+   "vin": "JTEVA5AR0S5003978",
+   "price": 42049
+  },
+  {
+   "stock": "C15296A",
+   "year": 2026,
+   "make": "Toyota",
+   "model": "Sequoia",
+   "trim": "SR5",
+   "condition": "Pre-owned",
+   "body": "SUV",
+   "photos": [],
+   "miles": 18000,
+   "ext_color": "Supersonic Red",
+   "int_color": "Black",
+   "vin": "7SVAAABA4TX084659",
+   "new_arrival": true,
+   "price": 76235
   }
  ],
- "prices_checked_at": "2026-11-14T14:23:00Z"
+ "prices_checked_at": "2026-11-15T13:45:53Z"
 }
