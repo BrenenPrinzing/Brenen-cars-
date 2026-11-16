@@ -1,7 +1,7 @@
 {
- "updated": "2026-11-15",
- "source_rows": 244,
- "kept": 243,
+ "updated": "2026-11-16",
+ "source_rows": 248,
+ "kept": 247,
  "cars": [
   {
    "stock": "C14884",
@@ -922,7 +922,8 @@
    ],
    "ext_color": "Black Raven",
    "int_color": "Jet Black, Full Semi-Aniline Leather Seats With Mondrian Quilting",
-   "vin": "1GYS9HK90TR446345"
+   "vin": "1GYS9HK90TR446345",
+   "price": 173909
   },
   {
    "stock": "C15134",
@@ -3863,7 +3864,22 @@
    "ext_color": "Satin Steel Metallic",
    "int_color": "With Mini-Perforated Inserts",
    "vin": "1GYS4DKJ3LR188503",
-   "price": 28163
+   "price": 29620
+  },
+  {
+   "stock": "C15118A",
+   "year": 2019,
+   "make": "Cadillac",
+   "model": "Escalade",
+   "trim": "Premium Luxury",
+   "condition": "Pre-owned",
+   "body": "SUV",
+   "photos": [],
+   "miles": 109000,
+   "ext_color": "Black Raven",
+   "int_color": "With Mini Perforated Inserts",
+   "vin": "1GYS4CKJ7KR265687",
+   "new_arrival": true
   },
   {
    "stock": "CT2298A",
@@ -4056,6 +4072,21 @@
    "int_color": "Jet Black, Perforated Leather-Appointed Front Seat Trim",
    "vin": "1GC4YPE70LF207319",
    "price": 45691
+  },
+  {
+   "stock": "C14836A",
+   "year": 2025,
+   "make": "Chevrolet",
+   "model": "Suburban",
+   "trim": "High Country",
+   "condition": "Pre-owned",
+   "body": "SUV",
+   "photos": [],
+   "miles": 28800,
+   "ext_color": "Iridescent Pearl Tricoat",
+   "int_color": "Jet Black/Mocha, Perforated Leather Seating Surfaces",
+   "vin": "1GNS6GRL3SR296697",
+   "new_arrival": true
   },
   {
    "stock": "DC14936A",
@@ -4263,6 +4294,21 @@
    "price": 32320
   },
   {
+   "stock": "C15312A",
+   "year": 2024,
+   "make": "GMC",
+   "model": "Acadia",
+   "trim": "AT4",
+   "condition": "Pre-owned",
+   "body": "SUV",
+   "photos": [],
+   "miles": 23000,
+   "ext_color": "Ebony Twilight Metallic",
+   "int_color": "Forest Storm W/Mahogany Accents, Cloth/Coretec Seat Trim",
+   "vin": "1GKENPKS6RJ201654",
+   "new_arrival": true
+  },
+  {
    "stock": "CT2300",
    "year": 2024,
    "make": "GMC",
@@ -4443,7 +4489,7 @@
    "ext_color": "Satin Steel Metallic",
    "int_color": "(1St And 2Nd Rows Only.)",
    "vin": "1GKS1DKL2NR216251",
-   "price": 49607
+   "price": 49547
   },
   {
    "stock": "B19527A",
@@ -4540,6 +4586,19 @@
    "price": 24620
   },
   {
+   "stock": "C15313A",
+   "year": 2021,
+   "make": "Land Rover",
+   "model": "Range Rover Sport",
+   "trim": "SVR",
+   "condition": "Pre-owned",
+   "body": "SUV",
+   "photos": [],
+   "miles": 89100,
+   "vin": "SALWZ2RE0MA772890",
+   "new_arrival": true
+  },
+  {
    "stock": "C15074A",
    "year": 2025,
    "make": "Lexus",
@@ -4610,7 +4669,6 @@
    "ext_color": "Infinite Black Me",
    "int_color": "Black Onyx",
    "vin": "5LMJJ2LG6SEL09248",
-   "new_arrival": true,
    "price": 76836
   },
   {
@@ -4722,5 +4780,5 @@
    "price": 76235
   }
  ],
- "prices_checked_at": "2026-11-15T14:23:00Z"
+ "prices_checked_at": "2026-11-16T14:20:32Z"
 }
