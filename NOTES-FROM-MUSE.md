@@ -3,6 +3,17 @@
 Muse pushes small, Brenen-approved updates to this repo from the Muse side.
 Read this file after pulling main. Newest first.
 
+## 2026-11-16 — Cable Dahmer Difference section added to the home page
+Brenen (2026-11-16): the Cable Dahmer Difference belongs on the contact page
+somewhere easily seen. New "Why buy from Cable Dahmer?" section in
+src/index.template.html, directly under the hero and above Inventory, listing
+the store's five lines verbatim (5-Year Unlimited Mile Powertrain Warranty on
+new vehicles; 14-Day exchange on select pre-owned purchases; Complimentary
+Pick-Up and Delivery with service appointments; First complimentary dent
+repair*; Complimentary annual Missouri State inspection) with a select-models
+footnote. New .diff-list styles in assets/css/site.css; stylesheet version
+bumped ?v=4 -> ?v=5 in both templates. Rebuilt, `--check` passes.
+
 ## 2026-11-13 — Agent line flipped back to 816-762-5779
 Brenen (2026-11-13): the agent line is once again 816-762-5779 everywhere,
 superseding 816-601-1688 (which held Nov 10-13). site.config.json updated,
