@@ -42,7 +42,7 @@ function detail(car, inventory) {
         priceBlock(car, inventory, config, Date.now()),
         carButtons(config, car),
         carfaxLink(car),
-        h('dl', { class: 'specs' }, rows.map(([k, v]) => [h('dt', { text: k }), h('dd', { text: v })])),
+        h('dl', { class: 'specs' }, rows.flatMap(([k, v]) => [h('dt', { text: k }), h('dd', { text: v })])),
         h('p', { class: 'fine', text: 'Inventory and availability change daily. Text to confirm.' }))));
 }
 

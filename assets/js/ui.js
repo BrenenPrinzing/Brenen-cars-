@@ -139,8 +139,7 @@ export function carFacts(car) {
 
 export function carfaxLink(car) {
   if (!isCarfaxUrl(car.carfax_url)) return null;
-  return h('a', { class: 'btn btn-line', href: car.carfax_url, target: '_blank',
-    rel: 'noopener noreferrer', text: 'View Carfax report' });
+  return h('a', { class: 'btn btn-line', href: car.carfax_url, text: 'View Carfax report' });
 }
 
 export function carButtons(config, car) {

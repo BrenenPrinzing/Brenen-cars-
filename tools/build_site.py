@@ -71,7 +71,7 @@ def social_links(config: dict) -> list[tuple[str, str]]:
 
 def ext(url: str, label: str, cls: str = "") -> str:
     c = f' class="{cls}"' if cls else ""
-    return f'<a{c} href="{escape(url)}" target="_blank" rel="noopener noreferrer">{escape(label)}</a>'
+    return f'<a{c} href="{escape(url)}">{escape(label)}</a>'
 
 
 def context(config: dict) -> dict:

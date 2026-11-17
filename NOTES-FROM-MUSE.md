@@ -3,6 +3,27 @@
 Muse pushes small, Brenen-approved updates to this repo from the Muse side.
 Read this file after pulling main. Newest first.
 
+## 2026-11-17 — Link audit fixes: same-window external links, car-page specs, anchor offset
+Brenen reported the page "super broken" from his phone (inside Facebook's
+in-app browser): Value my car did nothing, the Facebook link did nothing, and
+the TikTok link trapped him on Facebook's leave-warning page. Full audit
+(live click-test + code read of app/car/ui/lib + CSS) found:
+- Every external link was emitted with target="_blank" (build_site.py ext(),
+  the two Maps links in src/index.template.html, and the Carfax link in
+  assets/js/ui.js). In-app browsers (Facebook/Instagram webviews) handle
+  new-window links badly: dead taps and warning-page traps. All external
+  links are now same-window; tests/test_site.py now asserts target != _blank
+  instead of requiring _blank. Asset versions bumped (css v6, js v5) so
+  returning visitors get the fixed files.
+- Real bug on car.html: the specs list rendered "[object HTMLElement],..."
+  because car.js passed rows.map(...) (array of arrays) into h(), which
+  flattens only one level. Now rows.flatMap(...); specs render as dt/dd pairs.
+- Anchor jumps landed with section headings hidden under the sticky header
+  pill; site.css now sets scroll-margin-top: 84px on [id] elements.
+Build --check passes; tests/test_site.py 35 passed. The sms: buttons keep the
+"sms:NUMBER?&body=" form (lib.js: the iOS+Android compatible shape); inside
+Facebook's webview, sms:/tel: hand-off is the webview's call, not the page's.
+
 ## 2026-11-16 — Cable Dahmer Difference section added to the home page
 Brenen (2026-11-16): the Cable Dahmer Difference belongs on the contact page
 somewhere easily seen. New "Why buy from Cable Dahmer?" section in

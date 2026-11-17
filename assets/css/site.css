@@ -286,3 +286,7 @@ main > section { padding-block: 34px; }
 @media (min-width: 720px) { .diff-list { grid-template-columns: 1fr 1fr; } }
 .diff-list li { position: relative; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px 14px 12px 42px; }
 .diff-list li::before { content: "\2713"; position: absolute; left: 15px; top: 12px; color: var(--gold); font-weight: 700; }
+
+/* Anchor jumps must clear the sticky header pill (found in the 2026-11-17 link audit:
+   Menu -> Inventory landed with the section heading hidden under the pill). */
+[id] { scroll-margin-top: 84px; }

@@ -201,7 +201,7 @@ def test_outside_links_are_on_the_allow_list_without_tracking():
                 continue
             parts = urllib.parse.urlsplit(href)
             assert parts.scheme == "https" and parts.hostname in allowed, href
-            assert attrs.get("rel") == "noopener noreferrer" and attrs.get("target") == "_blank"
+            assert attrs.get("target") != "_blank", href
             for key, _ in urllib.parse.parse_qsl(parts.query):
                 assert not build_site.TRACKING_PARAM.match(key), href
             seen.add(parts.hostname)
