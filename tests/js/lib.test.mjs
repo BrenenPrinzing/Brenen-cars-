@@ -118,3 +118,37 @@ test('carfax links must be on the carfax host', () => {
   assert.ok(!lib.isCarfaxUrl('https://carfax.com.evil.example/x'));
   assert.ok(!lib.isCarfaxUrl('javascript:alert(1)'));
 });
+
+test('in-app browsers are named, real browsers are not', () => {
+  const fbIos = 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/22B83 [FBAN/FBIOS;FBAV/489.0.0.40.103;FBBV/1;FBDV/iPhone15,2;FBMD/iPhone;FBSN/iOS;FBSV/18.1;FBSS/3;FBID/phone;FBLC/en_US;FBOP/5;FBRV/0]';
+  const fbAndroid = 'Mozilla/5.0 (Linux; Android 14; Pixel 8 Build/AP2A; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/130.0 Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/489.0.0.40.103;]';
+  const ig = 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/22B83 Instagram 356.0.0.30.85 (iPhone15,2; iOS 18_1; en_US; en; scale=3.00; 1179x2556; 657224361)';
+  const msgr = 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/22B83 [FBAN/MessengerForiOS;FBAV/480.0]';
+  const safari = 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.1 Mobile/15E148 Safari/604.1';
+  const chrome = 'Mozilla/5.0 (Linux; Android 14; Pixel 8) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Mobile Safari/537.36';
+  assert.equal(lib.inAppBrowser(fbIos), 'Facebook');
+  assert.equal(lib.inAppBrowser(fbAndroid), 'Facebook');
+  assert.equal(lib.inAppBrowser(ig), 'Instagram');
+  assert.equal(lib.inAppBrowser(msgr), 'Facebook'); // Meta's chat app
+  assert.equal(lib.inAppBrowser(safari), '');
+  assert.equal(lib.inAppBrowser(chrome), '');
+  assert.equal(lib.inAppBrowser(''), '');
+});
+
+test('contact links read back the exact number and message', () => {
+  const body = 'Hi Brenen, value my car:\nFirst name:\nLast name:\nMobile number: & more?';
+  assert.deepEqual(lib.contactFromHref(lib.smsHref('816-555-0100', body)),
+    { kind: 'sms', to: '+18165550100', body });
+  assert.deepEqual(lib.contactFromHref(lib.telHref('816-555-0100')), { kind: 'tel', to: '+18165550100', body: '' });
+  assert.deepEqual(lib.contactFromHref('mailto:someone@example.com?subject=Hi'),
+    { kind: 'email', to: 'someone@example.com', body: '' });
+  assert.equal(lib.contactFromHref('https://example.com/'), null);
+  assert.equal(lib.contactFromHref('brenen.vcf'), null);
+  assert.equal(lib.contactFromHref('sms:'), null);
+});
+
+test('phone numbers display as 816-555-0100', () => {
+  assert.equal(lib.displayPhone('+18165550100'), '816-555-0100');
+  assert.equal(lib.displayPhone('816.555.0100'), '816-555-0100');
+  assert.equal(lib.displayPhone('12345'), '12345');
+});
