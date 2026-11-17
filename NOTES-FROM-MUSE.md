@@ -3,6 +3,57 @@
 Muse pushes small, Brenen-approved updates to this repo from the Muse side.
 Read this file after pulling main. Newest first.
 
+## 2026-11-17 (Claude) — In-app browser fallback for sms:/tel:/mailto: and Save to contacts
+Fixes the two defects logged below. Only Facebook and Instagram in-app browsers
+change (detected by user agent: FBAN / FBAV / FB_IAB / FBIOS / FB4A / Instagram;
+Meta's chat app carries the same FB tokens). Safari, Chrome and Android browsers
+behave exactly as before: no interception, the .vcf still downloads.
+- New pure helpers in assets/js/lib.js: inAppBrowser(ua), contactFromHref(href),
+  displayPhone(). New wireInApp(config) + helpPanel() in assets/js/ui.js, called
+  from app.js and car.js. Panel styles at the end of site.css.
+- Save to contacts, in-app: the tap no longer navigates (that was the "Page not
+  found" strand). It opens a panel: "Save Brenen's number", the number, Copy
+  number, Close, and how to open the page in the phone's browser (tap ••• then
+  Open in external browser) to get the contact card itself.
+- sms:/tel:/mailto:, in-app: the link still goes out exactly as written (same
+  "?&body=" shape, same bodies; site.config.json messages.* untouched). If the
+  page is still on screen 1.5 s later (Messages/Phone/Mail never took over:
+  no visibilitychange-hidden, pagehide or blur), a panel shows the number and the
+  EXACT prefilled message (read back from the link itself) with Copy message and
+  Copy number buttons. If the hand-off works, the page goes to the background and
+  no panel appears. If clipboard access is refused, the button selects the text
+  for press-and-hold copy. Covers every contact link on both pages by event
+  delegation (hero, Tools cards, car cards, booking CTA, Talk to Brenen, car.html).
+- Why not a different sms: shape or JS location assignment: neither can be
+  verified off-device, and either could break the working Safari/Android path.
+  The watchdog guarantees a useful result whichever way the webview behaves.
+- No storage, no network, no new outside resources; copy goes only to the
+  visitor's own clipboard. Asset versions: css v7, js v7.
+- Also treated as in-app: any iPhone/iPad web view whose user agent lacks the
+  "Safari/" token (TikTok, LinkedIn and similar), so the fix does not hang on
+  Meta's tags alone. Safari, Chrome, Firefox and Edge on iOS all carry it.
+- Brenen's 1:08 PM retest still stranded on Save to contacts because PR #7 was
+  not merged yet: main (and the live site) still served the old page. Retest
+  only after the merge and the Pages deploy finish.
+- Tests: tests/js/lib.test.mjs gained 3 tests for the new helpers (no existing
+  test changed). build --check passes; pytest 165 passed (test_site.py 35);
+  headless_check.mjs passes. A Playwright run with FB-iOS and Instagram user
+  agents confirmed: Value my car -> panel with the byte-exact appraisal body,
+  Copy message puts the exact body on the clipboard; Save to contacts -> no
+  navigation, panel with the number; a simulated hand-off (blur) -> no panel;
+  Safari UA -> .vcf downloads and no panel ever.
+Brenen's iPhone retest (Facebook app -> open brenenprinzing.com):
+1. Tap "Value my car". Either Messages opens with the appraisal text (the
+   webview hand-off works), or within ~2 seconds a "Text Brenen" panel slides up
+   with the number and the First name / Last name / Mobile number message, plus
+   Copy message / Copy number. Never nothing.
+2. Tap "Save to contacts". You stay on the page; a "Save Brenen's number" panel
+   shows the number with Copy number. No "Page not found".
+3. Tap Close; repeat step 1 from a car card's "Text me about this car" and from
+   the Call button in Talk to Brenen.
+4. Open the same page in Safari: Save to contacts still opens the contact card;
+   Value my car opens Messages; no panel appears.
+
 ## 2026-11-17 (later) — Phone retest: TWO defects remain, handed to Claude Code
 Brenen retested on his iPhone inside the Facebook app's in-app browser after
 7160e39. Social links behave now. Two defects remain, both webview-specific:

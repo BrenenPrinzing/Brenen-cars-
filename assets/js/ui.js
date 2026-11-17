@@ -1,5 +1,8 @@
 // DOM helpers shared by index.html and car.html.
-import { smsHref, fill, carTitle, formatMiles, formatPrice, shownPrice, isCarfaxUrl } from './lib.js';
+import {
+  smsHref, fill, carTitle, formatMiles, formatPrice, shownPrice, isCarfaxUrl, inAppBrowser,
+  contactFromHref, displayPhone,
+} from './lib.js';
 
 export function h(tag, attrs, ...children) {
   const el = document.createElement(tag);
@@ -60,6 +63,123 @@ export function wireCopy() {
       }).catch(() => {});
     });
   }
+}
+
+// ---- In-app browsers (Facebook, Instagram) ----
+// Real browsers are left alone: links behave exactly as written.
+// In an in-app browser:
+// - "Save to contacts" (the .vcf download) never navigates: there it lands on an error
+//   page with no way back. It opens the help panel with the number to copy instead.
+// - sms:, tel: and mailto: links still go out as normal. If the page is still on screen
+//   HANDOFF_WAIT_MS later (Messages, Phone or Mail never took over), the help panel
+//   shows the exact message and the number, each with a Copy button. A tap never does
+//   nothing. Nothing is stored or sent: copy goes to the visitor's own clipboard.
+export const HANDOFF_WAIT_MS = 1500;
+
+function copyButton(label, text, target) {
+  const button = h('button', { class: 'btn btn-gold', type: 'button', text: label });
+  button.addEventListener('click', () => {
+    const select = () => {
+      const range = document.createRange();
+      range.selectNodeContents(target);
+      const sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+      button.textContent = 'Press and hold the text to copy';
+    };
+    if (!navigator.clipboard) { select(); return; }
+    navigator.clipboard.writeText(text).then(() => {
+      button.textContent = 'Copied';
+      setTimeout(() => { button.textContent = label; }, 1800);
+    }).catch(select);
+  });
+  return button;
+}
+
+export function helpPanel(config, app, contact, { vcard = false } = {}) {
+  document.querySelector('.inapp-help')?.remove();
+  const name = config.first_name;
+  const isPhone = contact.kind !== 'email';
+  const shown = isPhone ? displayPhone(contact.to) : contact.to;
+  const title = vcard ? `Save ${name}\u2019s number`
+    : contact.kind === 'sms' ? `Text ${name}`
+      : contact.kind === 'tel' ? `Call ${name}` : `Email ${name}`;
+  const lead = vcard
+    ? `${app}\u2019s browser can\u2019t save contact cards. Copy the number and add it to your contacts.`
+    : contact.kind === 'sms'
+      ? `If Messages didn\u2019t open, copy the message and the number, then send it from Messages.`
+      : contact.kind === 'tel'
+        ? `If your phone didn\u2019t offer to call, copy the number or dial it.`
+        : `If your mail app didn\u2019t open, copy the address.`;
+
+  const toText = h('p', { class: 'inapp-to', text: shown });
+  const rows = [h('p', { class: 'inapp-label', text: contact.kind === 'email' ? 'Email' : 'Number' }), toText];
+  const buttons = [];
+  if (contact.body) {
+    const bodyText = h('p', { class: 'inapp-body', text: contact.body });
+    rows.push(h('p', { class: 'inapp-label', text: 'Message' }), bodyText);
+    buttons.push(copyButton('Copy message', contact.body, bodyText));
+  }
+  buttons.push(copyButton(isPhone ? 'Copy number' : 'Copy email', shown, toText));
+  const close = h('button', { class: 'btn btn-ghost', type: 'button', text: 'Close' });
+  buttons.push(close);
+
+  const heading = h('h2', { id: 'inapp-help-h', text: title, tabindex: '-1' });
+  const panel = h('div', { class: 'inapp-help', role: 'dialog', 'aria-modal': 'true',
+    'aria-labelledby': 'inapp-help-h' },
+  h('div', { class: 'inapp-card' },
+    heading,
+    h('p', { class: 'muted', text: lead }),
+    ...rows,
+    h('div', { class: 'actions' }, buttons),
+    h('p', { class: 'fine', text: (vcard ? 'To save the contact card itself' : 'Or')
+      + ', open this page in your phone\u2019s browser: tap \u2022\u2022\u2022 at the top, then '
+      + '\u201cOpen in external browser\u201d.' })));
+  const dismiss = () => {
+    panel.remove();
+    document.removeEventListener('keydown', onKey);
+  };
+  const onKey = (event) => { if (event.key === 'Escape') dismiss(); };
+  close.addEventListener('click', dismiss);
+  panel.addEventListener('click', (event) => { if (event.target === panel) dismiss(); });
+  document.addEventListener('keydown', onKey);
+  document.body.append(panel);
+  heading.focus();
+  return panel;
+}
+
+export function wireInApp(config, ua = navigator.userAgent) {
+  const app = inAppBrowser(ua);
+  if (!app) return false;
+  document.documentElement.classList.add('in-app');
+  let timer = 0;
+  const disarm = () => { clearTimeout(timer); timer = 0; };
+  // Messages, Phone or Mail taking over puts this page in the background.
+  document.addEventListener('visibilitychange', () => { if (document.hidden) disarm(); });
+  window.addEventListener('pagehide', disarm);
+  window.addEventListener('blur', disarm);
+
+  document.addEventListener('click', (event) => {
+    const link = event.target instanceof Element ? event.target.closest('a[href]') : null;
+    if (!link || event.defaultPrevented) return;
+    const href = link.getAttribute('href');
+    if (link.hasAttribute('download') && /\.vcf$/i.test(href)) {
+      event.preventDefault();
+      disarm();
+      // The page's own Call link carries the vCard's number; the text line is the fallback.
+      const call = contactFromHref(document.querySelector('a[href^="tel:"]')?.getAttribute('href'));
+      helpPanel(config, app, call || { kind: 'tel', to: config.sms_phone, body: '' }, { vcard: true });
+      return;
+    }
+    const contact = contactFromHref(href);
+    if (!contact) return;
+    disarm();
+    timer = setTimeout(() => {
+      timer = 0;
+      if (!document.hidden) helpPanel(config, app, contact);
+    }, HANDOFF_WAIT_MS);
+  });
+  return true;
 }
 
 function silhouette() {

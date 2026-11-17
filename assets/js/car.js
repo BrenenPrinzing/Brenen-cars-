@@ -1,7 +1,7 @@
 // car.html?stock=XXX: one car, all of its photos, same details and buttons.
 import { smsHref, fill, carTitle } from './lib.js';
 import {
-  h, readConfig, loadInventory, wireSheets, carousel, badge, priceBlock, carFacts, carButtons,
+  h, readConfig, loadInventory, wireSheets, wireInApp, carousel, badge, priceBlock, carFacts, carButtons,
   carfaxLink,
 } from './ui.js';
 
@@ -47,6 +47,7 @@ function detail(car, inventory) {
 }
 
 wireSheets();
+wireInApp(config);
 loadInventory()
   .catch(() => ({ cars: [] }))
   .then((inventory) => {

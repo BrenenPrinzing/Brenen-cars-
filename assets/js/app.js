@@ -4,7 +4,7 @@ import {
   bookingDays, slotsFor, bookingBody, testDriveStatus, todayName,
 } from './lib.js';
 import {
-  h, readConfig, loadInventory, wireSheets, wireCopy, carousel, badge, priceBlock, carFacts, carButtons,
+  h, readConfig, loadInventory, wireSheets, wireCopy, wireInApp, carousel, badge, priceBlock, carFacts, carButtons,
 } from './ui.js';
 
 const config = readConfig();
@@ -223,6 +223,7 @@ function setupStatus() {
 
 wireSheets();
 wireCopy();
+wireInApp(config);
 setupStatus();
 setupDots($('tools-track'), $('tools-dots'));
 

@@ -24,6 +24,37 @@ export function telHref(phone) {
   return 'tel:' + e164(phone);
 }
 
+// Facebook and Instagram (and Meta's chat app, whose agent carries FBAN/FB_IAB) open links in their own in-app browser. In there,
+// .vcf downloads strand the visitor on an error page and sms: hand-off can do nothing,
+// so ui.js wireInApp() adds a fallback. Returns the app's name, or '' for a real browser.
+export function inAppBrowser(ua) {
+  const s = String(ua || '');
+  if (/\bInstagram\b/.test(s)) return 'Instagram';
+  if (/\bFBAN\/|\bFBAV\/|\bFB_IAB\b|\bFBIOS\b|\bFB4A\b/.test(s)) return 'Facebook';
+  // Any other iPhone/iPad in-app browser: an app's web view drops the "Safari/" token that
+  // Safari, Chrome, Firefox and Edge on iOS all carry.
+  if (/\b(iPhone|iPad|iPod)\b/.test(s) && /AppleWebKit\//.test(s) && !/\bSafari\//.test(s)) return 'This app';
+  return '';
+}
+
+// What an sms:, tel: or mailto: link would do, so the fallback can show it as text.
+// The body comes back exactly as encoded in the link, never rewritten.
+export function contactFromHref(href) {
+  const m = /^(sms|tel|mailto):([^?&]*)(.*)$/i.exec(String(href || ''));
+  if (!m) return null;
+  const kind = { sms: 'sms', tel: 'tel', mailto: 'email' }[m[1].toLowerCase()];
+  const to = decodeURIComponent(m[2]);
+  if (!to) return null;
+  const body = /[?&]body=([^&]*)/.exec(m[3]);
+  return { kind, to, body: body ? decodeURIComponent(body[1]) : '' };
+}
+
+// "+18167625779" -> "816-762-5779". Anything else comes back unchanged.
+export function displayPhone(phone) {
+  const m = /^\+1(\d{3})(\d{3})(\d{4})$/.exec(e164(phone));
+  return m ? m[1] + '-' + m[2] + '-' + m[3] : String(phone || '');
+}
+
 export function fill(template, values) {
   return String(template || '').replace(/\{(\w+)\}/g, (m, key) =>
     values && values[key] != null ? String(values[key]) : m);
