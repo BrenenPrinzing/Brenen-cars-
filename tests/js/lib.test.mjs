@@ -133,6 +133,10 @@ test('in-app browsers are named, real browsers are not', () => {
   assert.equal(lib.inAppBrowser(safari), '');
   assert.equal(lib.inAppBrowser(chrome), '');
   assert.equal(lib.inAppBrowser(''), '');
+  const otherApp = 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/22B83 BytedanceWebview/d8a21c6';
+  const chromeIos = 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/130.0 Mobile/15E148 Safari/604.1';
+  assert.equal(lib.inAppBrowser(otherApp), 'This app');
+  assert.equal(lib.inAppBrowser(chromeIos), '');
 });
 
 test('contact links read back the exact number and message', () => {

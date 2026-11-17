@@ -31,6 +31,9 @@ export function inAppBrowser(ua) {
   const s = String(ua || '');
   if (/\bInstagram\b/.test(s)) return 'Instagram';
   if (/\bFBAN\/|\bFBAV\/|\bFB_IAB\b|\bFBIOS\b|\bFB4A\b/.test(s)) return 'Facebook';
+  // Any other iPhone/iPad in-app browser: an app's web view drops the "Safari/" token that
+  // Safari, Chrome, Firefox and Edge on iOS all carry.
+  if (/\b(iPhone|iPad|iPod)\b/.test(s) && /AppleWebKit\//.test(s) && !/\bSafari\//.test(s)) return 'This app';
   return '';
 }
 

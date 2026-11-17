@@ -28,7 +28,13 @@ behave exactly as before: no interception, the .vcf still downloads.
   verified off-device, and either could break the working Safari/Android path.
   The watchdog guarantees a useful result whichever way the webview behaves.
 - No storage, no network, no new outside resources; copy goes only to the
-  visitor's own clipboard. Asset versions: css v7, js v6.
+  visitor's own clipboard. Asset versions: css v7, js v7.
+- Also treated as in-app: any iPhone/iPad web view whose user agent lacks the
+  "Safari/" token (TikTok, LinkedIn and similar), so the fix does not hang on
+  Meta's tags alone. Safari, Chrome, Firefox and Edge on iOS all carry it.
+- Brenen's 1:08 PM retest still stranded on Save to contacts because PR #7 was
+  not merged yet: main (and the live site) still served the old page. Retest
+  only after the merge and the Pages deploy finish.
 - Tests: tests/js/lib.test.mjs gained 3 tests for the new helpers (no existing
   test changed). build --check passes; pytest 165 passed (test_site.py 35);
   headless_check.mjs passes. A Playwright run with FB-iOS and Instagram user
