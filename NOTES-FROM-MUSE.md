@@ -3,6 +3,39 @@
 Muse pushes small, Brenen-approved updates to this repo from the Muse side.
 Read this file after pulling main. Newest first.
 
+## 2026-11-17 (later) — Phone retest: TWO defects remain, handed to Claude Code
+Brenen retested on his iPhone inside the Facebook app's in-app browser after
+7160e39. Social links behave now. Two defects remain, both webview-specific:
+
+1. sms: buttons STILL do nothing in the FB webview. Tapping "Value my car"
+   (hero gold button and the Tools > Trade-in value card; both are
+   sms:+18167625779?&body=... built by lib.js smsHref) produces no Messages
+   hand-off, no error, nothing. Same hrefs work in desktop Chrome (they
+   resolve as links; no handler there to prove the hand-off). The "?&body="
+   form is lib.js's deliberate iOS+Android shape. Whatever fix is chosen must
+   keep the exact prefilled bodies (site.config.json messages.*) — the
+   appraisal body (First name / Last name / Mobile number) feeds Brenen's
+   manual VinCue flow.
+2. "Save to contacts" BREAKS the FB webview. The hero link is
+   <a href="brenen.vcf" download>. Tapping it in the FB webview navigates
+   away from the page to a "Page not found / It may have been deleted or the
+   link isn't working" dead end (screenshot in Muse's chat, 2026-11-17
+   12:49 PM) and strands the visitor there. A fix must never strand a
+   visitor: inside in-app browsers the control should work, degrade to
+   something useful, or not be offered — while still working in real
+   browsers (Safari/Chrome), where the .vcf download is the point.
+
+Verified-good state (do not regress): commit 7160e39 live; external links
+same-window (0 target=_blank in built pages); car.html specs render real
+dt/dd text; scroll-margin-top 84px on [id]; build --check passes;
+tests/test_site.py 35 passed; independent click-test passed socials,
+search, filters, pagination, car-page nav + back link, booking slots,
+Follow sheet open/close/reopen. First-pass marathon click-test that showed
+near-total failure was the test browser degrading, NOT the site — the code
+was read in full (app/ui/lib/car.js, site.css) and has no freeze/overlay.
+Constraints: static GitHub Pages (no backend), NO-PI by design, never
+hand-edit built pages, bump asset ?v= on any css/js change, tests gate.
+
 ## 2026-11-17 — Link audit fixes: same-window external links, car-page specs, anchor offset
 Brenen reported the page "super broken" from his phone (inside Facebook's
 in-app browser): Value my car did nothing, the Facebook link did nothing, and
