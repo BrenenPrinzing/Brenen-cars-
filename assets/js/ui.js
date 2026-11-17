@@ -159,26 +159,43 @@ export function wireInApp(config, ua = navigator.userAgent) {
   window.addEventListener('pagehide', disarm);
   window.addEventListener('blur', disarm);
 
+  // Save to contacts: take the .vcf link away entirely, so neither the in-app browser
+  // nor any script it injects can follow it to the "Page not found" dead end. The
+  // control stays, renamed "Save my number" (visible proof this code ran), and opens
+  // the help panel with the number to copy.
+  const showNumber = () => {
+    disarm();
+    // The page's own Call link carries the vCard's number; the text line is the fallback.
+    const call = contactFromHref(document.querySelector('a[href^="tel:"]')?.getAttribute('href'));
+    helpPanel(config, app, call || { kind: 'tel', to: config.sms_phone, body: '' }, { vcard: true });
+  };
+  for (const link of document.querySelectorAll('a[download]')) {
+    if (!/\.vcf$/i.test(link.getAttribute('href') || '')) continue;
+    link.removeAttribute('href');
+    link.removeAttribute('download');
+    link.setAttribute('role', 'button');
+    link.setAttribute('tabindex', '0');
+    link.dataset.saveNumber = '';
+    link.textContent = 'Save my number';
+    link.addEventListener('click', (event) => { event.preventDefault(); showNumber(); });
+    link.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); showNumber(); }
+    });
+  }
+
+  // Capture phase: runs before anything else on the page sees the tap. It never blocks
+  // the link; it only arms the fallback.
   document.addEventListener('click', (event) => {
     const link = event.target instanceof Element ? event.target.closest('a[href]') : null;
-    if (!link || event.defaultPrevented) return;
-    const href = link.getAttribute('href');
-    if (link.hasAttribute('download') && /\.vcf$/i.test(href)) {
-      event.preventDefault();
-      disarm();
-      // The page's own Call link carries the vCard's number; the text line is the fallback.
-      const call = contactFromHref(document.querySelector('a[href^="tel:"]')?.getAttribute('href'));
-      helpPanel(config, app, call || { kind: 'tel', to: config.sms_phone, body: '' }, { vcard: true });
-      return;
-    }
-    const contact = contactFromHref(href);
+    if (!link) return;
+    const contact = contactFromHref(link.getAttribute('href'));
     if (!contact) return;
     disarm();
     timer = setTimeout(() => {
       timer = 0;
       if (!document.hidden) helpPanel(config, app, contact);
     }, HANDOFF_WAIT_MS);
-  });
+  }, true);
   return true;
 }
 

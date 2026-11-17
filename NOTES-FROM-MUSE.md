@@ -3,6 +3,26 @@
 Muse pushes small, Brenen-approved updates to this repo from the Muse side.
 Read this file after pulling main. Newest first.
 
+## 2026-11-17 (Claude, later) — Save to contacts: link removed outright in in-app browsers
+Brenen's 1:16 PM retest (4 minutes after PR #7 went live at 1:12) still hit
+"Page not found" on Save to contacts. Likely cause: GitHub Pages lets a browser
+reuse the page for up to 10 minutes, so the Facebook browser may still have had
+the old page. Unconfirmed, so the fix no longer relies on a click handler beating
+the browser (or script Meta injects into its browser) to the link:
+- In an in-app browser, wireInApp() now strips href and download from the .vcf
+  link as the page loads. There is nothing left to navigate to. The control
+  stays as a button that opens the "Save Brenen's number" panel.
+- Its label changes to "Save my number" in in-app browsers only. That is the
+  visible check: if the hero still says "Save to contacts" inside Facebook, the
+  phone is showing the old page or the script did not run.
+- The sms/tel/mailto fallback listener now runs in the capture phase. It still
+  never blocks the link.
+- js v8. Real browsers are unchanged (Playwright, Safari user agent: the .vcf
+  still downloads, no panel).
+Retest: close the Facebook browser tab, wait 10 minutes after the deploy, then
+open brenenprinzing.com again from Facebook. The hero button should read "Save my
+number". Tap it: the panel appears and the page stays put.
+
 ## 2026-11-17 (Claude) — In-app browser fallback for sms:/tel:/mailto: and Save to contacts
 Fixes the two defects logged below. Only Facebook and Instagram in-app browsers
 change (detected by user agent: FBAN / FBAV / FB_IAB / FBIOS / FB4A / Instagram;
