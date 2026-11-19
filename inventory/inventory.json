@@ -1,7 +1,7 @@
 {
- "updated": "2026-11-18",
- "source_rows": 249,
- "kept": 247,
+ "updated": "2026-11-19",
+ "source_rows": 255,
+ "kept": 253,
  "cars": [
   {
    "stock": "C14884",
@@ -108,7 +108,7 @@
    "year": 2026,
    "make": "Cadillac",
    "model": "CT5",
-   "trim": "",
+   "trim": "Sport",
    "condition": "New",
    "body": "Sedan",
    "photos": [
@@ -119,6 +119,7 @@
     "photos/C15129/site-05.jpg"
    ],
    "ext_color": "Deep Space Metallic",
+   "int_color": "Jet Black With Jet Black Accents, Leather Seating Surfaces",
    "vin": "1G6DU5RK2T0123930",
    "price": 63565
   },
@@ -460,7 +461,6 @@
    "ext_color": "Deep Sea Metallic",
    "int_color": "Sheer Gray With Black Accents, Full Semi-Aniline Leather Seats With Faceted Quilting",
    "vin": "1GYS9GKL0VR105617",
-   "new_arrival": true,
    "price": 133109
   },
   {
@@ -1461,7 +1461,6 @@
    "ext_color": "Black Raven",
    "int_color": "Backen Black With Santorini Accents, Inteluxe Seats With Fjord (Chevron) Quilting Pattern",
    "vin": "1GYTEEKL5TU110052",
-   "new_arrival": true,
    "price": 136845
   },
   {
@@ -1522,7 +1521,6 @@
    "ext_color": "Vibrant White Tricoat",
    "int_color": "Kona Brown Sauvage Nappa With Sheer Gray Accents, Full Leather Seats With Perforated Inserts",
    "vin": "1GYKPTRL2VZ301417",
-   "new_arrival": true,
    "price": 78860
   },
   {
@@ -1583,7 +1581,7 @@
    "ext_color": "Radiant Red Tintcoat",
    "int_color": "Black Nappa With Sky Cool Gray Accents, Full Leather Seats With Perforated Inserts",
    "vin": "1GYKPTRL6VZ304434",
-   "price": 79260
+   "price": 78260
   },
   {
    "stock": "C15247",
@@ -1623,7 +1621,7 @@
    "ext_color": "Stellar Black Metallic",
    "int_color": "Black Nappa With Sky Cool Gray Accents, Full Leather Seats With Perforated Inserts",
    "vin": "1GYKPYRLXVZ304756",
-   "price": 83910
+   "price": 82910
   },
   {
    "stock": "C15265",
@@ -1843,7 +1841,6 @@
    "ext_color": "Vibrant White Tricoat",
    "int_color": "Black With Santorini Blue Accents, Inteluxe Seats With Perforated Inserts",
    "vin": "1GYKPWRL1VZ307128",
-   "new_arrival": true,
    "price": 72570
   },
   {
@@ -2280,7 +2277,6 @@
    "ext_color": "Blue Graphite Tricoat",
    "int_color": "Black, Nouveauluxe Seats With Custom Quilted Perforated Inserts And Piping",
    "vin": "1GYC3RML0VZ706556",
-   "new_arrival": true,
    "price": 100500
   },
   {
@@ -2441,7 +2437,6 @@
    "ext_color": "Opulent Blue Metallic",
    "int_color": "Kona Brown Sauvage, Leather Seats With Mini-Perforated Inserts",
    "vin": "1GYKNDRS4TZ127236",
-   "new_arrival": true,
    "price": 62965
   },
   {
@@ -2462,7 +2457,6 @@
    "ext_color": "Radiant Red Tintcoat",
    "int_color": "Jet Black, Leather Seating Surfaces With Mini-Perforated Inserts",
    "vin": "1GYKNDRS4TZ127317",
-   "new_arrival": true,
    "price": 62120
   },
   {
@@ -2483,7 +2477,6 @@
    "ext_color": "Crystal White Tricoat",
    "int_color": "Cirrus, Leather Seating Surfaces With Mini-Perforated Inserts",
    "vin": "1GYKNHRS0TZ127161",
-   "new_arrival": true,
    "price": 64820
   },
   {
@@ -2504,8 +2497,22 @@
    "ext_color": "Emerald Lake Metallic",
    "int_color": "Kona Brown Sauvage, Leather Seats With Mini-Perforated Inserts",
    "vin": "1GYKNDRS5TZ127343",
-   "new_arrival": true,
    "price": 62965
+  },
+  {
+   "stock": "DC14471",
+   "year": 2026,
+   "make": "Cadillac",
+   "model": "CT5",
+   "trim": "Sport",
+   "condition": "Demo",
+   "body": "Sedan",
+   "photos": [],
+   "miles": 5400,
+   "ext_color": "Summit White",
+   "int_color": "Whisper Beige With Jet Black Accents, Leather Seating Surfaces",
+   "vin": "1G6DU5RK2T0103662",
+   "price": 51915
   },
   {
    "stock": "DC14493",
@@ -3162,7 +3169,6 @@
    "ext_color": "Vibrant White Tricoat",
    "int_color": "Renaissance Red With Jet Black Accents, Leather Seating Surfaces With Faceted Quilting",
    "vin": "1GYS9PKL7TR468624",
-   "new_arrival": true,
    "price": 119480
   },
   {
@@ -3183,8 +3189,7 @@
    "ext_color": "Vibrant White Tricoat",
    "int_color": "Black Nappa With Sky Cool Gray Accents, Full Leather Seats With Perforated Inserts",
    "vin": "1GYKPTRL7VZ305611",
-   "new_arrival": true,
-   "price": 83710
+   "price": 82710
   },
   {
    "stock": "DC15302",
@@ -3204,8 +3209,7 @@
    "ext_color": "Argent Silver Metallic",
    "int_color": "Black Nappa With Sky Cool Gray Accents, Full Leather Seats With Perforated Inserts",
    "vin": "1GYKPTRLXVZ305604",
-   "new_arrival": true,
-   "price": 77935
+   "price": 76935
   },
   {
    "stock": "DC14557",
@@ -3226,7 +3230,7 @@
    "ext_color": "Stellar Black Metallic",
    "int_color": "Noir With Santorini Blue Accents, Inteluxe Seats With Perforated Inserts",
    "vin": "1GYKPWRL2TZ302632",
-   "price": 68715
+   "price": 67715
   },
   {
    "stock": "DC15038",
@@ -3260,7 +3264,7 @@
    "ext_color": "Emerald Lake Metallic",
    "int_color": "Juniper With Sky Cool Gray Accents, Full Leather Seat Trim With Perforated Inserts",
    "vin": "1GYKPTRL0TZ310789",
-   "price": 79635
+   "price": 78635
   },
   {
    "stock": "DC15048",
@@ -3274,7 +3278,7 @@
    "ext_color": "Vibrant White Tricoat",
    "int_color": "Sky Cool Gray With Santorini Blue Accents, Inteluxe Seats With Perforated Inserts",
    "vin": "1GYKPURL7TZ310830",
-   "price": 66745
+   "price": 65745
   },
   {
    "stock": "DC15187",
@@ -3567,6 +3571,22 @@
    "price": 19947
   },
   {
+   "stock": "CT2322A",
+   "year": 2024,
+   "make": "Cadillac",
+   "model": "CT4",
+   "trim": "Sport",
+   "condition": "Pre-owned",
+   "body": "Sedan",
+   "photos": [],
+   "miles": 21600,
+   "ext_color": "Black Raven",
+   "int_color": "Jet Black With Jet Black Accents, Leather Seating Surfaces",
+   "vin": "1G6DG5RK1R0130500",
+   "new_arrival": true,
+   "price": 37723
+  },
+  {
    "stock": "DC14912A",
    "year": 2023,
    "make": "Cadillac",
@@ -3583,7 +3603,7 @@
    ],
    "miles": 75600,
    "ext_color": "Argent Silver Metallic",
-   "int_color": "(With Pitch Dark Night Center Console Trim.)",
+   "int_color": "Jet Black With Jet Black Accents, Inteluxe Seats",
    "vin": "1G6DK5RK8P0116640",
    "price": 25851
   },
@@ -3667,7 +3687,7 @@
    ],
    "miles": 67500,
    "ext_color": "Midnight Steel Metallic",
-   "int_color": "(With Low Gloss Axiom Aluminum Trim.)",
+   "int_color": "Jet Black With Jet Black Accents, Inteluxe Seats",
    "vin": "1G6DW5RK5P0130628",
    "price": 31620
   },
@@ -3684,8 +3704,22 @@
    "ext_color": "Shadow Metallic",
    "int_color": "Sedona Sauvage With Jet Black Accents, Semi-Aniline Leather Seats",
    "vin": "1G6DV5RW4M0124045",
-   "new_arrival": true,
    "price": 35625
+  },
+  {
+   "stock": "C14998A",
+   "year": 2025,
+   "make": "Cadillac",
+   "model": "Escalade",
+   "trim": "Sport Platinum",
+   "condition": "Pre-owned",
+   "body": "SUV",
+   "photos": [],
+   "miles": 28600,
+   "ext_color": "Crystal White Tricoat",
+   "int_color": "Jet Black, Full Semi-Aniline Leather Seats With Mondrian Quilting",
+   "vin": "1GYS9GRL3SR157891",
+   "price": 98620
   },
   {
    "stock": "C15097G",
@@ -3714,7 +3748,7 @@
    "photos": [],
    "miles": 63700,
    "ext_color": "Black Raven",
-   "int_color": "(With Natural Figured Ash Wood Trim.)",
+   "int_color": "Jet Black, Full Semi-Aniline Leather Seats With Mondrian Quilting",
    "vin": "1GYS4GKL2PR209625",
    "price": 64604
   },
@@ -3735,7 +3769,7 @@
    ],
    "miles": 90000,
    "ext_color": "Galactic Gray Metallic",
-   "int_color": "(With Linear Tiger Wood Trim.)",
+   "int_color": "Jet Black, Leather Seating Surfaces With Precision Perforated Inserts",
    "vin": "1GYS4BKL4NR331323",
    "price": 53214
   },
@@ -3777,7 +3811,7 @@
    ],
    "miles": 93100,
    "ext_color": "Shadow Metallic",
-   "int_color": "With Mini Perforated Inserts",
+   "int_color": "Kona Brown With Jet Black Accents, Leather Seats",
    "vin": "1GYS4CKJ9LR250349",
    "price": 39620
   },
@@ -3823,7 +3857,7 @@
    "photos": [],
    "miles": 82500,
    "ext_color": "Crystal White Tricoat",
-   "int_color": "(With Diamond Cut Genuine Aluminum Trim.)",
+   "int_color": "Jet Black, Leather Seating Surfaces",
    "vin": "1GYFZDR49LF029375",
    "price": 20620
   },
@@ -3865,7 +3899,7 @@
    ],
    "miles": 92000,
    "ext_color": "Satin Steel Metallic",
-   "int_color": "(With Linear Galaxy High-Gloss Wood Trim.)",
+   "int_color": "Jet Black, Leather Seating Surfaces With Mini-Perforated Inserts",
    "vin": "1GYKNDRS8MZ121215",
    "price": 22920
   },
@@ -3901,7 +3935,7 @@
    "photos": [],
    "miles": 95700,
    "ext_color": "Stellar Black Metallic",
-   "int_color": "With Jet Black Accents",
+   "int_color": "Jet Black, Semi-Aniline Leather Seating Surfaces With Chevron-Perforated Inserts",
    "vin": "1GYKPHRS3MZ209252",
    "price": 27119
   },
@@ -3925,6 +3959,22 @@
    "int_color": "Black, Cloth Seat Trim",
    "vin": "3GNAXHEG7TL290756",
    "price": 27098
+  },
+  {
+   "stock": "B19205A",
+   "year": 2025,
+   "make": "Chevrolet",
+   "model": "Equinox",
+   "trim": "ACTIV",
+   "condition": "Pre-owned",
+   "body": "SUV",
+   "photos": [],
+   "miles": 22000,
+   "ext_color": "Reef Blue Metallic",
+   "int_color": "Maple Sugar, Sueded Microfiber Seat Trim",
+   "vin": "3GNAXSEG2SL137360",
+   "new_arrival": true,
+   "price": 29965
   },
   {
    "stock": "CX3306A",
@@ -4548,7 +4598,8 @@
    "ext_color": "Black",
    "int_color": "Black",
    "vin": "JTJVBCDX8R5035388",
-   "new_arrival": true
+   "new_arrival": true,
+   "price": 79786
   },
   {
    "stock": "C15153A",
@@ -4621,6 +4672,22 @@
    "int_color": "Black Onyx",
    "vin": "5LMJJ2LG1SEL09299",
    "price": 78074
+  },
+  {
+   "stock": "C15306A",
+   "year": 2026,
+   "make": "Lincoln",
+   "model": "Navigator L",
+   "trim": "Black Label",
+   "condition": "Pre-owned",
+   "body": "SUV",
+   "photos": [],
+   "miles": 9200,
+   "ext_color": "Infinite Black Metallic Clearcoat",
+   "int_color": "Salt Crystal Gray W/Adobe Stitch",
+   "vin": "5LMJJ3TG2TEL14387",
+   "new_arrival": true,
+   "price": 101620
   },
   {
    "stock": "CT2286",
@@ -4720,6 +4787,22 @@
    "price": 40465
   },
   {
+   "stock": "C15251A",
+   "year": 2020,
+   "make": "Toyota",
+   "model": "Avalon",
+   "trim": "XSE",
+   "condition": "Pre-owned",
+   "body": "SUV",
+   "photos": [],
+   "miles": 179800,
+   "ext_color": "Wind Chill Pearl",
+   "int_color": "Black/Red",
+   "vin": "4T1FZ1FB4LU040945",
+   "new_arrival": true,
+   "price": 20753
+  },
+  {
    "stock": "C15296A",
    "year": 2026,
    "make": "Toyota",
@@ -4736,5 +4819,5 @@
    "price": 76235
   }
  ],
- "prices_checked_at": "2026-11-18T14:23:00Z"
+ "prices_checked_at": "2026-11-19T13:34:09Z"
 }
