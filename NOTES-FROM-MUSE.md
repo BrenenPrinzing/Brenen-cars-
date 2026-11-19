@@ -3,6 +3,19 @@
 Muse pushes small, Brenen-approved updates to this repo from the Muse side.
 Read this file after pulling main. Newest first.
 
+## 2026-11-18 (Muse) — MOTO giveaway promo in the hero
+Brenen joined the MOTO(acquire) / Russ Flips Whips creator giveaway
+($4,995 cash, one winner across all creators; his tracked link:
+motoinsite.com/giveaway/brenen-cadillackc; entries close Dec 19, winner
+Dec 20). At his direction the giveaway link now sits at the top of the
+contact page instead of swapping his bio links: new config-driven
+"promo" slot (site.config.json -> promo) rendered by build_site.py as a
+gold button directly under the hero actions, with the line "One person
+wins $4,995 cash. Free to enter, no purchase necessary — takes less than
+a minute." motoinsite.com added to link_allow_hosts. To remove after
+Dec 19: delete the promo key from site.config.json and rebuild.
+Build --check passes; tests/test_site.py 35 passed.
+
 ## 2026-11-17 (Claude, later) — Save to contacts: link removed outright in in-app browsers
 Brenen's 1:16 PM retest (4 minutes after PR #7 went live at 1:12) still hit
 "Page not found" on Save to contacts. Likely cause: GitHub Pages lets a browser

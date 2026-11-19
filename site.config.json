@@ -125,7 +125,8 @@
     "www.facebook.com",
     "www.instagram.com",
     "www.tiktok.com",
-    "www.youtube.com"
+    "www.youtube.com",
+    "motoinsite.com"
   ],
   "messages": {
     "general": "Hi Brenen, I'm interested in a vehicle you have listed. Can we set up a test drive?",
@@ -140,5 +141,10 @@
     "status_open": "Test drives available today until {end} — text me to book yours",
     "status_before": "Test drives today from {start} — text me to reserve a time",
     "status_closed": "Next test drives: {day} {start} – {end} — text me anytime"
+  },
+  "promo": {
+    "label": "$4,995 Holiday Giveaway — Free to Enter",
+    "url": "https://motoinsite.com/giveaway/brenen-cadillackc",
+    "text": "One person wins $4,995 cash. Free to enter, no purchase necessary — takes less than a minute."
   }
 }

@@ -116,6 +116,13 @@ def context(config: dict) -> dict:
     extra = "".join(f"<li>{ext(check_link(l['url'], config, 'extra_links'), l['label'])}</li>"
                     for l in config.get("extra_links", []))
 
+    promo_cfg = config.get("promo") or {}
+    promo = ""
+    if promo_cfg.get("url") and promo_cfg.get("label"):
+        p_url = check_link(promo_cfg["url"], config, "promo")
+        p_text = f'<p class="fine">{escape(promo_cfg["text"])}</p>' if promo_cfg.get("text") else ""
+        promo = f'<div class="actions">{ext(p_url, promo_cfg["label"], "btn btn-gold")}</div>{p_text}'
+
     hours = "".join(
         f'<tr data-day="{escape(h["day"])}"{OFF if h["hours"].strip().lower() in OFF_WORDS else ""}>'
         f'<th scope="row">{escape(h["day"])}</th><td>{escape(h["hours"])}</td></tr>'
@@ -175,6 +182,7 @@ def context(config: dict) -> dict:
         "email_btn": email_btn,
         "follow": follow,
         "social_row": social_row,
+        "promo": promo,
         "menu": menu,
         "tools": "".join(tools),
         "free_tools": free_tools + extra,
