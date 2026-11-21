@@ -1,7 +1,7 @@
 {
- "updated": "2026-11-20",
- "source_rows": 254,
- "kept": 253,
+ "updated": "2026-11-21",
+ "source_rows": 250,
+ "kept": 249,
  "cars": [
   {
    "stock": "C14884",
@@ -2104,26 +2104,6 @@
    "price": 61815
   },
   {
-   "stock": "C15291",
-   "year": 2027,
-   "make": "Cadillac",
-   "model": "OPTIQ",
-   "trim": "Sport",
-   "condition": "New",
-   "body": "EV",
-   "photos": [
-    "photos/C15291/site-01.jpg",
-    "photos/C15291/site-02.jpg",
-    "photos/C15291/site-03.jpg",
-    "photos/C15291/site-04.jpg",
-    "photos/C15291/site-05.jpg"
-   ],
-   "ext_color": "Vibrant White Tricoat",
-   "int_color": "Sky Cool Gray With Santorini Blue Accents, Inteluxe Seats Seat Trim",
-   "vin": "3GYK3EM47VS111147",
-   "price": 57675
-  },
-  {
    "stock": "C15292",
    "year": 2027,
    "make": "Cadillac",
@@ -2794,7 +2774,7 @@
    "ext_color": "Midnight Sky Metallic",
    "int_color": "Jet Black With Jet Black Accents, Leather Seating Surfaces",
    "vin": "1G6DS5RK4T0121716",
-   "price": 57940
+   "price": 50940
   },
   {
    "stock": "DC15213",
@@ -2957,7 +2937,7 @@
    "ext_color": "Vibrant White Tricoat",
    "int_color": "Sheer Gray With Jet Black Accents, Full Semi-Aniline Leather Seats With Faceted Quilting",
    "vin": "1GYS9GKLXTR364578",
-   "price": 141085
+   "price": 134085
   },
   {
    "stock": "DC14977",
@@ -2978,7 +2958,7 @@
    "ext_color": "Black Raven",
    "int_color": "Sheer Gray With Jet Black Accents, Full Semi-Aniline Leather Seats With Faceted Quilting",
    "vin": "1GYS9GKL0TR364640",
-   "price": 139760
+   "price": 132760
   },
   {
    "stock": "DC14992",
@@ -2999,7 +2979,7 @@
    "ext_color": "Black Raven",
    "int_color": "Sheer Gray With Jet Black Accents, Full Semi-Aniline Leather Seats With Faceted Quilting",
    "vin": "1GYS9GKL0TR366078",
-   "price": 132855
+   "price": 125855
   },
   {
    "stock": "DC15006",
@@ -3020,7 +3000,7 @@
    "ext_color": "Black Raven",
    "int_color": "Renaissance Red With Jet Black Accents, Leather Seating Surfaces With Faceted Quilting",
    "vin": "1GYS9FKL4TR378812",
-   "price": 115155
+   "price": 108155
   },
   {
    "stock": "DC15007",
@@ -3055,7 +3035,7 @@
    "ext_color": "Vibrant White Tricoat",
    "int_color": "Jet Black, Full Semi-Aniline Leather Seats With Mondrian Quilting",
    "vin": "1GYS9GKL3TR379908",
-   "price": 134180
+   "price": 127180
   },
   {
    "stock": "DC15060",
@@ -3237,10 +3217,11 @@
    "condition": "Demo",
    "body": "EV",
    "photos": [],
+   "miles": 5400,
    "ext_color": "Emerald Lake Metallic",
    "int_color": "Juniper With Sky Cool Gray Accents, Full Leather Seat Trim With Perforated Inserts",
    "vin": "1GYKPTRL0TZ310789",
-   "price": 78635
+   "price": 71635
   },
   {
    "stock": "DC15048",
@@ -3289,20 +3270,6 @@
    "int_color": "Sky Cool Gray With Santorini Blue Accents, Inteluxe Seats With Perforated Inserts And Embroidery/Quilting Seat Trim",
    "vin": "3GYK3GM48VS106065",
    "price": 65895
-  },
-  {
-   "stock": "DC15286",
-   "year": 2027,
-   "make": "Cadillac",
-   "model": "OPTIQ",
-   "trim": "Sport",
-   "condition": "Demo",
-   "body": "EV",
-   "photos": [],
-   "ext_color": "Black Raven",
-   "int_color": "Black, Inteluxe Seats Seat Trim",
-   "vin": "3GYK3EM44VS109789",
-   "price": 56040
   },
   {
    "stock": "DC15068",
@@ -3461,26 +3428,7 @@
    "miles": 72400,
    "vin": "WAUFJBFW9N7008270",
    "new_arrival": true,
-   "price": 43526
-  },
-  {
-   "stock": "C15096A",
-   "year": 2023,
-   "make": "Audi",
-   "model": "SQ8",
-   "trim": "Prestige",
-   "condition": "Pre-owned",
-   "body": "SUV",
-   "photos": [
-    "photos/C15096A/site-01.jpg",
-    "photos/C15096A/site-02.jpg",
-    "photos/C15096A/site-03.jpg",
-    "photos/C15096A/site-04.jpg",
-    "photos/C15096A/site-05.jpg"
-   ],
-   "miles": 32400,
-   "vin": "WA1CWBF16PD045383",
-   "price": 66320
+   "price": 38533
   },
   {
    "stock": "B19151B",
@@ -3713,6 +3661,21 @@
    "price": 35625
   },
   {
+   "stock": "CP1998",
+   "year": 2017,
+   "make": "Cadillac",
+   "model": "CT6",
+   "trim": "Luxury AWD",
+   "condition": "Pre-owned",
+   "body": "Sedan",
+   "photos": [],
+   "miles": 37200,
+   "ext_color": "Red Passion Tintcoat",
+   "int_color": "With High-Gloss Mineral Polar Burl Wood Trim/High-Gloss Bronze Carbon Fiber Trim",
+   "vin": "1G6KD5RS0HU141320",
+   "price": 27712
+  },
+  {
    "stock": "C15097G",
    "year": 2023,
    "make": "Cadillac",
@@ -3763,63 +3726,6 @@
    "int_color": "Jet Black, Leather Seating Surfaces With Precision Perforated Inserts",
    "vin": "1GYS4BKL4NR331323",
    "price": 52914
-  },
-  {
-   "stock": "B19284B",
-   "year": 2021,
-   "make": "Cadillac",
-   "model": "Escalade",
-   "trim": "Sport Platinum",
-   "condition": "Pre-owned",
-   "body": "SUV",
-   "photos": [
-    "photos/B19284B/site-01.jpg",
-    "photos/B19284B/site-02.jpg",
-    "photos/B19284B/site-03.jpg",
-    "photos/B19284B/site-04.jpg",
-    "photos/B19284B/site-05.jpg"
-   ],
-   "miles": 122500,
-   "ext_color": "Crystal White Tricoat",
-   "int_color": "Jet Black Interior Trim",
-   "vin": "1GYS4GKL4MR460822",
-   "price": 52917
-  },
-  {
-   "stock": "C15172A",
-   "year": 2020,
-   "make": "Cadillac",
-   "model": "Escalade",
-   "trim": "Premium Luxury",
-   "condition": "Pre-owned",
-   "body": "SUV",
-   "photos": [
-    "photos/C15172A/site-01.jpg",
-    "photos/C15172A/site-02.jpg",
-    "photos/C15172A/site-03.jpg",
-    "photos/C15172A/site-04.jpg",
-    "photos/C15172A/site-05.jpg"
-   ],
-   "miles": 93100,
-   "ext_color": "Shadow Metallic",
-   "int_color": "Kona Brown With Jet Black Accents, Leather Seats",
-   "vin": "1GYS4CKJ9LR250349",
-   "price": 39320
-  },
-  {
-   "stock": "CP2025A",
-   "year": 2020,
-   "make": "Cadillac",
-   "model": "Escalade",
-   "trim": "Platinum",
-   "condition": "Pre-owned",
-   "body": "SUV",
-   "photos": [],
-   "miles": 110400,
-   "ext_color": "Satin Steel Metallic",
-   "int_color": "With Mini-Perforated Inserts",
-   "vin": "1GYS4DKJ3LR188503",
-   "price": 29620
   },
   {
    "stock": "CP2039",
@@ -4410,6 +4316,21 @@
    "price": 62620
   },
   {
+   "stock": "CT2291",
+   "year": 2024,
+   "make": "GMC",
+   "model": "Sierra 2500 HD",
+   "trim": "Denali Ultimate",
+   "condition": "Pre-owned",
+   "body": "Truck",
+   "photos": [],
+   "miles": 38100,
+   "ext_color": "Summit White",
+   "int_color": "Alpine Umber, Full Grain Leather Seat Trim",
+   "vin": "1GT49XEY6RF182022",
+   "price": 77614
+  },
+  {
    "stock": "B19523A",
    "year": 2018,
    "make": "GMC",
@@ -4467,18 +4388,20 @@
    "price": 49547
   },
   {
-   "stock": "B19527A",
-   "year": 2022,
-   "make": "Honda",
-   "model": "CR-V",
-   "trim": "EX-L",
+   "stock": "CX3296A",
+   "year": 2023,
+   "make": "GMC",
+   "model": "Yukon XL",
+   "trim": "Denali Ultimate",
    "condition": "Pre-owned",
    "body": "SUV",
    "photos": [],
-   "miles": 7700,
-   "ext_color": "Red",
-   "vin": "2HKRW2H85NH641652",
-   "price": 29367
+   "miles": 38600,
+   "ext_color": "White Frost Tricoat",
+   "int_color": "Alpine Umber, Full Grain Leather Seating Surfaces",
+   "vin": "1GKS2KKL0PR446231",
+   "new_arrival": true,
+   "price": 66103
   },
   {
    "stock": "B19456A",
@@ -4493,7 +4416,6 @@
    "ext_color": "Black",
    "int_color": "Black",
    "vin": "2HKRW1H87KH515329",
-   "new_arrival": true,
    "price": 22367
   },
   {
@@ -4808,5 +4730,5 @@
    "price": 76235
   }
  ],
- "prices_checked_at": "2026-11-20T14:23:00Z"
+ "prices_checked_at": "2026-11-21T14:21:17Z"
 }
