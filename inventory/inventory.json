@@ -1,7 +1,7 @@
 {
- "updated": "2026-11-22",
- "source_rows": 249,
- "kept": 248,
+ "updated": "2026-11-23",
+ "source_rows": 251,
+ "kept": 250,
  "cars": [
   {
    "stock": "C14884",
@@ -3938,7 +3938,6 @@
    "ext_color": "Iridescent Pearl Tricoat",
    "int_color": "Jet Black/Mocha, Perforated Leather Seating Surfaces",
    "vin": "1GNS6GRL3SR296697",
-   "new_arrival": true,
    "price": 74900
   },
   {
@@ -4003,6 +4002,21 @@
    "int_color": "Lt Jet Black/Gideon, Premium Cloth Seat Trim",
    "vin": "1GNERGKS4TJ217804",
    "price": 34920
+  },
+  {
+   "stock": "C15241A",
+   "year": 2022,
+   "make": "Chevrolet",
+   "model": "Traverse",
+   "trim": "Premier",
+   "condition": "Pre-owned",
+   "body": "SUV",
+   "photos": [],
+   "miles": 45800,
+   "ext_color": "Mosaic Black Metallic",
+   "int_color": "Jet Black, Perforated Leather-Appointed Seat Trim",
+   "vin": "1GNEVKKW9NJ188062",
+   "new_arrival": true
   },
   {
    "stock": "CT2301A",
@@ -4167,7 +4181,6 @@
    "ext_color": "Ebony Twilight Metallic",
    "int_color": "Forest Storm W/Mahogany Accents, Cloth/Coretec Seat Trim",
    "vin": "1GKENPKS6RJ201654",
-   "new_arrival": true,
    "price": 41832
   },
   {
@@ -4623,6 +4636,21 @@
    "new_arrival": true
   },
   {
+   "stock": "B19284C",
+   "year": 2021,
+   "make": "RAM",
+   "model": "1500",
+   "trim": "Laramie",
+   "condition": "Pre-owned",
+   "body": "SUV",
+   "photos": [],
+   "miles": 160900,
+   "ext_color": "Billet Silver Metallic Clearcoat",
+   "int_color": "Black",
+   "vin": "1C6SRFJT8MN775463",
+   "new_arrival": true
+  },
+  {
    "stock": "B19450A",
    "year": 2023,
    "make": "RAM",
@@ -4703,5 +4731,5 @@
    "price": 75337
   }
  ],
- "prices_checked_at": "2026-11-22T14:23:00Z"
+ "prices_checked_at": "2026-11-23T13:43:33Z"
 }
