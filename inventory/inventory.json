@@ -1,7 +1,7 @@
 {
- "updated": "2026-11-27",
- "source_rows": 261,
- "kept": 258,
+ "updated": "2026-11-28",
+ "source_rows": 260,
+ "kept": 257,
  "cars": [
   {
    "stock": "C14884",
@@ -2425,26 +2425,6 @@
    "price": 62120
   },
   {
-   "stock": "C15338",
-   "year": 2026,
-   "make": "Cadillac",
-   "model": "XT5",
-   "trim": "Sport",
-   "condition": "New",
-   "body": "SUV",
-   "photos": [
-    "photos/C15338/site-01.jpg",
-    "photos/C15338/site-02.jpg",
-    "photos/C15338/site-03.jpg",
-    "photos/C15338/site-04.jpg",
-    "photos/C15338/site-05.jpg"
-   ],
-   "ext_color": "Crystal White Tricoat",
-   "int_color": "Cirrus, Leather Seating Surfaces With Mini-Perforated Inserts",
-   "vin": "1GYKNHRS0TZ127161",
-   "price": 64820
-  },
-  {
    "stock": "C15346",
    "year": 2026,
    "make": "Cadillac",
@@ -2607,7 +2587,7 @@
    "year": 2026,
    "make": "Cadillac",
    "model": "CT5",
-   "trim": "",
+   "trim": "Sport",
    "condition": "Demo",
    "body": "Sedan",
    "photos": [
@@ -2617,7 +2597,9 @@
     "photos/DC14923/site-04.jpg",
     "photos/DC14923/site-05.jpg"
    ],
+   "miles": 5400,
    "ext_color": "Black Raven",
+   "int_color": "Jet Black With Jet Black Accents, Leather Seating Surfaces",
    "vin": "1G6DU5RK0T0115017",
    "price": 53165
   },
@@ -4747,5 +4729,5 @@
    "vin": "7SVAAABA4TX084659"
   }
  ],
- "prices_checked_at": "2026-11-27T14:23:00Z"
+ "prices_checked_at": "2026-11-28T13:32:39Z"
 }
